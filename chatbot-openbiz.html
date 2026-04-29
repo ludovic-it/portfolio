@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- SEO Meta Tags -->
+    <title>Chatbot Openbiz Dev - Assistant Virtuel | Portfolio Ludovic.C</title>
+    <meta name="description"
+        content="Chatbot interactif développé avec JavaScript vanilla. Interface moderne avec animations, gestion de conversation, qualification de leads et intégration Calendly.">
+    <meta name="keywords" content="Chatbot, JavaScript, HTML, CSS, Assistant virtuel, Qualification leads, Calendly">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votre-domaine.com/chatbot-openbiz.html">
+    <meta property="og:title" content="Chatbot Openbiz Dev - Assistant Virtuel">
+    <meta property="og:description"
+        content="Chatbot interactif moderne avec animations fluides, qualification de leads et intégration Calendly.">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/chatbot-hero.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chatbot Openbiz Dev - Assistant Virtuel">
+    <meta name="twitter:description" content="Chatbot interactif moderne développé avec JavaScript vanilla.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Fragment+Mono:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+
+    <!-- Nouveaux CSS -->
+    <link rel="stylesheet" href="assets/css/scroll-reveal.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/breadcrumbs.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/css_project-detail.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+</head>
+
+<body>
+
+    <main>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <div class="container">
+                <div class="breadcrumbs-nav">
+                    <a href="index.html">Accueil</a>
+                    <span class="separator">/</span>
+                    <a href="projets.html">Projets</a>
+                    <span class="separator">/</span>
+                    <span class="current">Chatbot Openbiz Dev</span>
+                </div>
+            </div>
+        </nav>
+
+        <section class="project-detail">
+            <div class="container">
+                <div class="project-header">
+                    <a href="projets.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
+                    <h1>Chatbot Openbiz Dev</h1>
+                    <p class="project-subtitle">Assistant virtuel interactif développé avec JavaScript vanilla</p>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="project-hero-image">
+                    <img src="assets/images/chatbot/chatbot.png"
+                        alt="Interface du chatbot Openbiz Dev" class="hero-img" loading="lazy"
+                        onerror="this.style.display='none'">
+                </div>
+
+                <div class="project-content-wrapper">
+                    <div class="project-main">
+                        <!-- Présentation du projet -->
+                        <section class="detail-section">
+                            <h2>Présentation du projet</h2>
+                            <p>
+                                J'ai développé un chatbot interactif pour Openbiz Dev, une agence de développement web
+                                et marketing digital. Ce projet vise à créer un assistant virtuel capable de guider les
+                                visiteurs dans leur parcours de qualification, de les orienter vers les services
+                                appropriés et de faciliter la prise de rendez-vous.
+                            </p>
+                            <p>
+                                Le chatbot offre une expérience utilisateur fluide avec des animations modernes, une
+                                interface intuitive et un système de conversation guidée qui permet de collecter les
+                                informations nécessaires pour qualifier les leads et les rediriger vers l'agence la plus
+                                adaptée selon leur localisation.
+                            </p>
+                        </section>
+
+                        <!-- Fonctionnalités principales -->
+                        <section class="detail-section">
+                            <h2>Fonctionnalités principales</h2>
+                            <p>
+                                Le chatbot propose un système de conversation structuré en plusieurs étapes : sélection
+                                d'une catégorie de service (Étude, Site, Social), choix d'un sous-service spécifique,
+                                qualification via des questions ciblées (objectif, budget, délai), sélection de la
+                                localisation, et enfin proposition de cas clients pertinents avant de rediriger vers
+                                Calendly pour la prise de rendez-vous.
+                            </p>
+
+                            <h3>Les catégories de services</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4>📚 Étude</h4>
+                                    <p>Audit digital, Stratégie marketing, Analyse de marché, Conseil en transformation
+                                        digitale</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>🌐 Site</h4>
+                                    <p>Site vitrine, E-commerce, Application web, Refonte de site, Maintenance</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>📱 Social</h4>
+                                    <p>Gestion réseaux sociaux, Community management, Publicité sociale, Influence
+                                        marketing, Création de contenu</p>
+                                </div>
+                            </div>
+
+                            <h3>Le flux de conversation</h3>
+                            <p>
+                                Le chatbot guide l'utilisateur à travers un parcours structuré :
+                            </p>
+                            <ol style="color: var(--text-secondary); line-height: 2; padding-left: 20px;">
+                                <li><strong>Message de bienvenue</strong> : Présentation et explication du processus</li>
+                                <li><strong>Sélection de catégorie</strong> : Choix parmi Étude, Site ou Social</li>
+                                <li><strong>Sélection de sous-service</strong> : Affichage des options selon la catégorie
+                                </li>
+                                <li><strong>Qualification</strong> : Questions sur l'objectif, site existant, budget et
+                                    délai</li>
+                                <li><strong>Localisation</strong> : Choix du pays (France, Côte d'Ivoire, Autre)</li>
+                                <li><strong>Cas clients</strong> : Proposition d'exemples pertinents (optionnel)</li>
+                                <li><strong>Résumé</strong> : Affichage de toutes les informations collectées</li>
+                                <li><strong>Action finale</strong> : Redirection vers Calendly ou contact par email</li>
+                            </ol>
+
+                            <h3>Gestion de l'état de conversation</h3>
+                            <p>
+                                Le chatbot maintient un état de conversation complet qui suit chaque étape du parcours
+                                utilisateur. Cet état permet de stocker toutes les réponses de l'utilisateur et de
+                                générer un résumé final personnalisé.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">const conversationState = {
+    etape: 'debut',
+    donnees: {
+        categorie: null,
+        sousService: null,
+        objectif: null,
+        siteExistant: null,
+        budget: null,
+        delai: null,
+        pays: null,
+        agence: null,
+        voirCasClients: null
+    }
+};</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- Architecture -->
+                        <section class="detail-section">
+                            <h2>Architecture</h2>
+                            <p>
+                                Le projet utilise une architecture modulaire basée sur JavaScript vanilla, sans
+                                framework. La séparation des responsabilités est assurée par l'organisation du code en
+                                fonctions dédiées : gestion des messages, gestion de l'état, logique de conversation, et
+                                gestion des événements utilisateur.
+                            </p>
+
+                            <h3>Structure des fichiers</h3>
+                            <p>
+                                Le projet est organisé en trois fichiers principaux :
+                            </p>
+                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li><code>index.html</code> : Structure HTML avec la page de démonstration et le
+                                    conteneur du chatbot</li>
+                                <li><code>chatbot1.js</code> : Logique JavaScript complète du chatbot (gestion d'état,
+                                    conversation, événements)</li>
+                                <li><code>styles.css</code> : Styles CSS avec variables CSS, animations, et design
+                                    responsive</li>
+                            </ul>
+
+                            <h3>Gestion des messages</h3>
+                            <p>
+                                Le système de messages permet d'afficher les messages du bot et de l'utilisateur avec
+                                des animations fluides. Chaque message peut contenir des boutons d'options pour guider
+                                l'utilisateur dans sa navigation.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">function ajouterMessageBot(texte, options = null) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'message bot';
+    
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+    contentDiv.textContent = texte;
+    
+    messageDiv.appendChild(contentDiv);
+    
+    if (options && options.length > 0) {
+        const optionsDiv = document.createElement('div');
+        optionsDiv.className = 'message-options';
+        
+        options.forEach(option => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.textContent = option.text;
+            btn.onclick = () => option.action();
+            optionsDiv.appendChild(btn);
+        });
+        
+        messageDiv.appendChild(optionsDiv);
+    }
+    
+    chatbotMessages.appendChild(messageDiv);
+    // Scroll automatique avec animation
+    setTimeout(() => {
+        chatbotMessages.scrollTo({
+            top: chatbotMessages.scrollHeight,
+            behavior: 'smooth'
+        });
+    }, 50);
+}</code></pre>
+                            </div>
+
+                            <h3>Initialisation sécurisée</h3>
+                            <p>
+                                Le chatbot utilise une fonction d'initialisation qui vérifie que tous les éléments DOM
+                                sont présents avant d'attacher les événements. Un système de protection empêche les
+                                doubles initialisations.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">function initialiserChatbot() {
+    // Prévenir les doubles initialisations
+    if (chatbotContainer && chatbotContainer.dataset.initialized === 'true') {
+        return;
+    }
+    
+    // Récupérer les éléments DOM
+    chatbotContainer = document.getElementById('chatbotContainer');
+    chatbotToggle = document.getElementById('chatbotToggle');
+    // ... autres éléments
+    
+    // Vérifier que tous les éléments existent
+    if (!chatbotContainer || !chatbotToggle || ...) {
+        console.error('Erreur : Tous les éléments ne sont pas présents');
+        return;
+    }
+    
+    // Attacher les événements
+    chatbotToggle.addEventListener('click', ...);
+    
+    // Marquer comme initialisé
+    chatbotContainer.dataset.initialized = 'true';
+}</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- Développement -->
+                        <section class="detail-section">
+                            <h2>Développement</h2>
+
+                            <h3>Design et animations</h3>
+                            <p>
+                                Le design utilise un système de couleurs cohérent basé sur des variables CSS, avec un
+                                thème sombre et des accents bleus. Les animations sont créées avec CSS et utilisent des
+                                transitions fluides avec des courbes de Bézier pour un rendu professionnel.
+                            </p>
+                            <p>
+                                Les effets visuels incluent : dégradés animés, effets glassmorphism, animations de
+                                brillance (shimmer), effets de pulsation, transformations 3D subtiles, et ombres
+                                multicouches pour créer de la profondeur.
+                            </p>
+
+                            <h3>Gestion des événements</h3>
+                            <p>
+                                Les événements sont gérés avec une approche moderne utilisant <code>addEventListener</code>
+                                avec l'option <code>capture: true</code> pour garantir que les clics sont bien capturés.
+                                Les pseudo-éléments CSS utilisent <code>pointer-events: none</code> pour éviter qu'ils
+                                interceptent les interactions utilisateur.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">chatbotToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (chatbotContainer.classList.contains('active')) {
+        fermerChatbot();
+    } else {
+        ouvrirChatbot();
+    }
+}, { capture: true });</code></pre>
+                            </div>
+
+                            <h3>Intégration Calendly</h3>
+                            <p>
+                                Le chatbot intègre Calendly pour permettre aux utilisateurs de prendre rendez-vous
+                                directement. Selon la localisation sélectionnée (France, Côte d'Ivoire, ou Autre), le
+                                chatbot redirige vers le calendrier approprié de l'agence correspondante.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">const agences = {
+    'france': {
+        nom: 'France',
+        calendly: 'https://calendly.com/openbiz-france',
+        email: 'contact-fr@openbiz.dev'
+    },
+    'ci': {
+        nom: 'Côte d\'Ivoire',
+        calendly: 'https://calendly.com/openbiz-ci',
+        email: 'contact-ci@openbiz.dev'
+    },
+    'autre': {
+        nom: 'Autre pays',
+        calendly: 'https://calendly.com/openbiz',
+        email: 'contact@openbiz.dev'
+    }
+};</code></pre>
+                            </div>
+
+                            <h3>Indicateur de frappe</h3>
+                            <p>
+                                Un indicateur de frappe animé est affiché pendant que le chatbot "réfléchit" avant de
+                                répondre. Cela améliore l'expérience utilisateur en donnant un feedback visuel pendant
+                                les délais de traitement.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">function afficherTyping() {
+    const typingDiv = document.createElement('div');
+    typingDiv.className = 'typing-indicator';
+    typingDiv.id = 'typingIndicator';
+    
+    for (let i = 0; i < 3; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'typing-dot';
+        typingDiv.appendChild(dot);
+    }
+    
+    chatbotMessages.appendChild(typingDiv);
+}</code></pre>
+                            </div>
+
+                            <h3>Responsive Design</h3>
+                            <p>
+                                Le chatbot est entièrement responsive et s'adapte aux différentes tailles d'écran. Sur
+                                mobile, le chatbot occupe presque toute la hauteur de l'écran pour une meilleure
+                                expérience utilisateur.
+                            </p>
+                        </section>
+
+                        <!-- Outils utilisés -->
+                        <section class="detail-section">
+                            <h2>Outils utilisés</h2>
+                            <p>
+                                Le projet a été réalisé avec <strong>JavaScript vanilla</strong> (ES6+) pour la
+                                logique, <strong>HTML5</strong> pour la structure, et <strong>CSS3</strong> avec
+                                variables CSS, animations, et media queries pour le design responsive. Aucun framework
+                                ou bibliothèque externe n'est utilisé, ce qui garantit des performances optimales et un
+                                chargement rapide.
+                            </p>
+                            <p>
+                                Les fonctionnalités modernes utilisées incluent : les variables CSS pour la cohérence
+                                des couleurs, les animations CSS avec keyframes, les transitions avec cubic-bezier, les
+                                pseudo-éléments pour les effets visuels, et les media queries pour le responsive design.
+                            </p>
+
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-js"></i> JavaScript (ES6+)</h4>
+                                    <p>Langage de programmation principal, utilisant les fonctionnalités modernes comme
+                                        <code>async/await</code>, les fonctions fléchées, et la manipulation du DOM.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-html5"></i> HTML5</h4>
+                                    <p>Structure sémantique moderne avec éléments HTML5 pour une meilleure accessibilité
+                                        et référencement.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-css3-alt"></i> CSS3</h4>
+                                    <p>Styles avancés avec variables CSS, animations, transitions, et design responsive
+                                        avec media queries.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-calendar-alt"></i> Calendly</h4>
+                                    <p>Intégration de l'API Calendly pour permettre la prise de rendez-vous directement
+                                        depuis le chatbot.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Compétences techniques -->
+                        <section class="detail-section">
+                            <h2>Compétences techniques mises en œuvre</h2>
+                            <p>
+                                Ce projet m'a permis de renforcer mes compétences en développement front-end avec
+                                JavaScript vanilla. J'ai conçu un système de gestion d'état pour suivre la conversation,
+                                créé une interface utilisateur moderne avec animations CSS avancées, implémenté une
+                                logique de conversation guidée avec validation des données, géré les événements DOM de
+                                manière optimale, intégré des API externes (Calendly), créé un design responsive et
+                                accessible, optimisé les performances en évitant les frameworks lourds, et développé une
+                                architecture modulaire et maintenable.
+                            </p>
+
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4>Gestion d'état</h4>
+                                    <p>Création d'un système de gestion d'état pour suivre la progression de la conversation.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Animations CSS</h4>
+                                    <p>Implémentation d'animations fluides et modernes pour améliorer l'expérience utilisateur.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Logique de conversation</h4>
+                                    <p>Développement d'un système de conversation guidée avec validation et redirection intelligente.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Intégration API</h4>
+                                    <p>Intégration de l'API Calendly pour la prise de rendez-vous selon la localisation.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Design responsive</h4>
+                                    <p>Création d'une interface adaptative qui s'ajuste à toutes les tailles d'écran.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Architecture modulaire</h4>
+                                    <p>Organisation du code en modules réutilisables et maintenables.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Conclusion -->
+                        <section class="detail-section">
+                            <h2>Conclusion</h2>
+                            <p>
+                                Ce projet m'a permis de créer un chatbot fonctionnel et esthétiquement moderne sans
+                                dépendre de frameworks externes. L'expérience acquise dans la gestion d'état, les
+                                animations CSS, et l'intégration d'API externes me donne une base solide pour le
+                                développement de projets web interactifs. Le chatbot offre une expérience utilisateur
+                                fluide et professionnelle qui améliore significativement l'engagement des visiteurs sur
+                                le site.
+                            </p>
+                        </section>
+
+                        <!-- Palette de couleurs -->
+                        <section class="detail-section">
+                            <h2 class="color-palette-title">Palette de couleurs</h2>
+                            <p style="margin-bottom: 32px; color: var(--text-secondary); font-size: 0.9375rem;">
+                                Ce chatbot utilise une palette de <strong>6</strong> couleurs principales
+                            </p>
+                            <div class="color-palette">
+                                <div class="color-swatch" style="background-color: #0086FF;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex" style="color: white;">HEX #0086FF</span>
+                                        <span class="color-preview" style="color: white;">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #0066cc;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex" style="color: white;">HEX #0066cc</span>
+                                        <span class="color-preview" style="color: white;">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #1C1F22;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex" style="color: white;">HEX #1C1F22</span>
+                                        <span class="color-preview" style="color: white;">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #202428;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex" style="color: white;">HEX #202428</span>
+                                        <span class="color-preview" style="color: white;">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #EFEFEF;">
+                                    <div class="color-swatch-content" style="color: #1C1F22;">
+                                        <span class="color-hex">HEX #EFEFEF</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #ffffff; border: 1px solid #e0e0e0;">
+                                    <div class="color-swatch-content" style="color: #1C1F22;">
+                                        <span class="color-hex">HEX #ffffff</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Liens -->
+                        <section class="detail-section">
+                            <h2>Liens</h2>
+                            <div class="project-links">
+                                <a href="index.html" class="link-btn"><i class="fas fa-external-link-alt"></i> Voir le
+                                    chatbot</a>
+                                <a href="#" class="link-btn"><i class="fab fa-js"></i> Code
+                                    JavaScript</a>
+                                <a href="#" class="link-btn"><i class="fab fa-css3-alt"></i>
+                                    Code CSS</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-projects">
+            <div class="container">
+                <h2>Autres projets</h2>
+                <div class="projects-grid">
+                    <a href="ecommerce.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ecommerce/page_accueil.png" alt="Site E-commerce" loading="lazy">
+                        </div>
+                        <h3>SIO-SHOES</h3>
+                        <p>Site e-commerce de vente de chaussures développé avec Symfony</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">Symfony</span>
+                            <span class="tech-small">PHP</span>
+                            <span class="tech-small">MySQL</span>
+                        </div>
+                    </a>
+                    <a href="gestion.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ecommerce/gestion/accueil.png" alt="Logiciel de gestion" loading="lazy">
+                        </div>
+                        <h3>Logiciel de gestion</h3>
+                        <p>Application de gestion d'entreprise avec base de données complexe</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">C#</span>
+                            <span class="tech-small">SQL</span>
+                            <span class="tech-small">WPF</span>
+                        </div>
+                    </a>
+                    <a href="iss-tracking.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ISS/ISS.png" alt="Suivi de l'ISS" loading="lazy">
+                        </div>
+                        <h3>Suivi de l'ISS</h3>
+                        <p>Application web de suivi de la Station Spatiale Internationale en temps réel</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">JavaScript</span>
+                            <span class="tech-small">Leaflet</span>
+                            <span class="tech-small">API</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span data-i18n="footer.backToTop">Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <!-- NOUVEAU FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <script src="assets/js/toc-island.js"></script>
+    <script src="assets/js/code-highlight.js"></script>
+    <script src="assets/js/typing-effect.js"></script>
+
+    <!-- Nouveaux scripts -->
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+
+    <script>
+        // Initialiser le highlight.js
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

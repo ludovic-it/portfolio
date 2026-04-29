@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <!-- SEO Meta Tags -->
+    <title>Ludovic.C - Portfolio BTS SIO SLAM | Développeur Web</title>
+    <meta name="description"
+        content="Portfolio de Ludovic CHAMPROBERT - Développeur BTS SIO SLAM spécialisé en PHP/Symfony, développement web et cybersécurité. Découvrez mes projets, compétences et expériences.">
+    <meta name="keywords"
+        content="développeur web, Symfony, PHP, BTS SIO, portfolio, Ludovic CHAMPROBERT, développeur applications">
+    <meta name="author" content="Ludovic CHAMPROBERT">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-domaine.com/index.html">
+    <meta property="og:title" content="Ludovic.C - Portfolio BTS SIO SLAM">
+    <meta property="og:description"
+        content="Découvrez mes projets, compétences et expériences en développement d'applications web.">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/og-image.jpg">
+    <meta property="og:site_name" content="Ludovic.C - Portfolio">
+    <meta property="og:locale" content="fr_FR">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://votre-domaine.com/index.html">
+    <meta name="twitter:title" content="Ludovic.C - Portfolio BTS SIO SLAM">
+    <meta name="twitter:description"
+        content="Découvrez mes projets, compétences et expériences en développement d'applications web.">
+    <meta name="twitter:image" content="https://votre-domaine.com/assets/images/twitter-image.jpg">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Ludovic CHAMPROBERT",
+        "jobTitle": "Étudiant BTS SIO SLAM",
+        "url": "https://votre-domaine.com",
+        "sameAs": [
+            "https://github.com/ludovic-it",
+            "https://www.linkedin.com/in/ludovic-champrobert/"
+        ],
+        "knowsAbout": ["Développement Web", "PHP", "Symfony", "JavaScript", "HTML/CSS"],
+        "alumniOf": {
+            "@type": "EducationalOrganization",
+            "name": "BTS SIO"
+        }
+    }
+    </script>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#4A7FFF">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preload" href="assets/fonts/FRICK.woff2" as="font" type="font/woff2" crossorigin>
+
+
+    <!-- Police FRICK pour les titres bleus -->
+    <style>
+        @font-face {
+            font-family: 'FRICK';
+            src: url('assets/fonts/FRICK.woff2') format('woff2'),
+                url('assets/fonts/FRICK.woff') format('woff'),
+                url('assets/fonts/FRICK.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/css_index.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+    <!-- animations.css désactivé - animations retirées sauf celles spécifiées -->
+
+    <!-- Scripts de compatibilité (chargés tôt) -->
+    <script src="assets/js/browser-compat.js"></script>
+    <script src="assets/js/font-loader.js"></script>
+
+    <!-- Script BTS Modal Premium -->
+    <script>
+        function openBTSModal(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            const modal = document.getElementById('bts-modal');
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                // Force reflow
+                void modal.offsetHeight;
+                modal.classList.add('show');
+            }
+            return false;
+        }
+
+        function closeBTSModal() {
+            const modal = document.getElementById('bts-modal');
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }, 400);
+            }
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('bts-modal');
+                if (modal && getComputedStyle(modal).display !== 'none') {
+                    closeBTSModal();
+                }
+            }
+        });
+    </script>
+
+    <!-- Nouveaux CSS pour améliorations -->
+    <link rel="stylesheet" href="assets/css/toast.css">
+    <!-- scroll-reveal.css désactivé - animations retirées -->
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/collapsible.css">
+    <link rel="stylesheet" href="assets/css/skills-certifications.css">
+    <!-- scroll-to-top-enhanced.css désactivé - animations retirées -->
+    <!-- scroll-progress.css désactivé - animations retirées -->
+    <!-- text-effects.css désactivé - animations retirées -->
+    <!-- image-hover-effects.css désactivé - animations retirées -->
+    <!-- form-animations.css désactivé - animations retirées -->
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <!-- svg-animations.css désactivé - animations retirées -->
+
+    <!-- CSS supplémentaires (déjà chargé dans le head) -->
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active" data-i18n="nav.profil">Profil</a>
+                <a href="projets.html" class="nav-link" data-i18n="nav.projets">Projets</a>
+                <a href="parcours.html" class="nav-link" data-i18n="nav.parcours">Parcours</a>
+                <a href="veille.html" class="nav-link" data-i18n="nav.veille">Veille</a>
+                <a href="contact.html" class="nav-contact" data-i18n="nav.contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-header">
+        <canvas id="hero-canvas"></canvas>
+
+        <div class="hero-content">
+            <div class="hero-name-container">
+                <div class="hero-name hero-name-first text-primary">LUDOVIC</div>
+                <div class="hero-name hero-name-second text-primary">CHAMPROBERT</div>
+            </div>
+            <div class="hero-role" data-i18n="hero.role">Étudiant en informatique</div>
+            <div class="hero-actions">
+                <a href="contact.html" class="btn-primary hover-lift" data-i18n="hero.contact">Me contacter</a>
+                <a href="assets/documents/CV_Ludovic.pdf" download class="btn-outline hover-lift"
+                    data-i18n="hero.cv">Mon CV</a>
+                <a href="assets/documents/Tableau%20de%20synthese_2026.pdf" class="btn-outline hover-lift" target="_blank"
+                    rel="noopener noreferrer">Tableau de synthèse (PDF)</a>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-layout">
+                <div class="about-content">
+                    <div class="about-meta">
+                        <span class="about-label" data-i18n="about.label">PROFIL</span>
+                    </div>
+                    <h2 class="about-title gradient-text" data-i18n="about.title">À propos de moi</h2>
+                    <p class="about-text" data-i18n="about.text1">Actuellement en formation pour devenir
+                        développeur d'applications, je suis passionné par la création de solutions numériques
+                        innovantes. Mon parcours unique, combinant une expérience militaire au 40ème Régiment de
+                        Transmission et une reconversion dans le développement, m'a permis de développer une solide
+                        éthique de travail et des compétences en résolution de problèmes.</p>
+                    <p class="about-text" data-i18n="about.text2">Ma passion pour la programmation s'exprime à
+                        travers divers projets, notamment en PHP/Symfony et le développement web.Je m'intéresse
+                        particulièrement à la cybersécurité et au développement d'applications sécurisées. </p>
+                </div>
+                <div class="about-animation">
+                    <canvas id="dots-grid-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BTS SECTION -->
+    <section class="bts-section">
+        <div class="container">
+            <div class="bts-layout">
+                <div class="bts-content">
+                    <div class="bts-meta">
+                        <span class="bts-label" data-i18n="bts.label">FORMATION</span>
+                    </div>
+                    <h2 class="bts-title" data-i18n="bts.title">BTS SIO</h2>
+                    <p class="bts-subtitle" data-i18n="bts.subtitle">Services Informatiques aux Organisations</p>
+                    <p class="bts-text" data-i18n="bts.description">Le BTS Services Informatiques aux Organisations est
+                        une formation en deux ans
+                        qui prépare aux métiers de l'informatique. Il propose deux spécialités distinctes adaptées aux
+                        différents profils et aspirations professionnelles. Cette formation diplômante de niveau Bac+2
+                        permet d'acquérir des compétences techniques solides dans le domaine de l'informatique, tout en
+                        développant des compétences transversales en communication, gestion de projet et travail en
+                        équipe.</p>
+                    <div class="bts-link">
+                        <button type="button" id="open-bts-modal" class="bts-link-button"
+                            onclick="openBTSModal(event); return false;" data-i18n="bts.discoverOptions">→ Découvrir les
+                            options</button>
+                    </div>
+                </div>
+                <div class="bts-animation">
+                    <canvas id="bts-dots-grid-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BTS OPTIONS MODAL REDESIGNED -->
+    <div id="bts-modal" class="bts-modal-premium" style="display: none;">
+        <div class="bts-modal-overlay-premium" onclick="closeBTSModal()"></div>
+        <div class="bts-modal-content-premium">
+            <button class="bts-modal-close-premium" onclick="closeBTSModal()" aria-label="Fermer">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="bts-modal-header-premium">
+                <h2 class="bts-modal-title-premium">BTS SIO</h2>
+                <p class="bts-modal-subtitle-premium">Services Informatiques aux Organisations</p>
+            </div>
+
+            <div class="bts-modal-body-premium">
+                <!-- Intro Context -->
+                <div class="bts-intro-premium">
+                    <p class="intro-lead">Le diplôme de référence pour devenir un expert du numérique. Une formation complète alliant technique, gestion de projet et cybersécurité.</p>
+                    <p>Le <strong>BTS Services Informatiques aux Organisations</strong> est un diplôme d'État de niveau Bac+2 qui forme des techniciens supérieurs capables de répondre aux besoins des entreprises en matière d'informatique. Cette formation de deux ans allie théorie et pratique, avec des stages en entreprise et des projets concrets.</p>
+                    <p>Que vous choisissiez l'option <strong>SLAM</strong> (Solutions Logicielles et Applications Métiers) ou <strong>SISR</strong> (Solutions d'Infrastructure, Systèmes et Réseaux), vous développerez des compétences techniques solides ainsi que des savoir-faire en gestion de projet, cybersécurité, droit et économie.</p>
+                </div>
+
+                <!-- Options Split -->
+                <div class="bts-options-container-premium">
+
+                    <!-- OPTION SLAM -->
+                    <div class="bts-option-card-premium slam-theme active-option">
+                        <div class="card-bg-decoration"></div>
+                        <div class="card-content">
+                            <div class="card-top">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div class="option-titles">
+                                    <h3>Option SLAM</h3>
+                                    <span>Solutions Logicielles & Applications Métiers</span>
+                                </div>
+                                <span class="status-badge"><i class="fas fa-check"></i> Mon choix</span>
+                            </div>
+
+                            <div class="card-description">
+                                <p>La voie du <strong>développement pur</strong>. Conception d'applications, sites web dynamiques, et solutions logicielles sur mesure pour répondre aux besoins spécifiques des entreprises.</p>
+                            </div>
+
+                            <div class="option-details-section">
+                                <div class="option-compétences">
+                                    <h4><i class="fas fa-code"></i> Compétences acquises</h4>
+                                    <ul class="compétences-list">
+                                        <li>Développement d'applications web et mobiles</li>
+                                        <li>Conception et gestion de bases de données</li>
+                                        <li>Programmation orientée objet (POO)</li>
+                                        <li>Architecture logicielle et design patterns</li>
+                                        <li>Intégration et déploiement continu (CI/CD)</li>
+                                        <li>Tests unitaires et fonctionnels</li>
+                                    </ul>
+                                </div>
+                                <div class="option-debouchés">
+                                    <h4><i class="fas fa-briefcase"></i> Débouchés professionnels</h4>
+                                    <ul class="debouchés-list">
+                                        <li>Développeur web full-stack</li>
+                                        <li>Développeur d'applications mobiles</li>
+                                        <li>Concepteur-développeur d'applications</li>
+                                        <li>Intégrateur web</li>
+                                        <li>Chef de projet technique</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="tech-cloud-premium">
+                                <span class="tech-item"><i class="fab fa-php"></i> PHP / Symfony</span>
+                                <span class="tech-item"><i class="fab fa-js"></i> JavaScript / React</span>
+                                <span class="tech-item"><i class="fas fa-database"></i> SQL / Données</span>
+                                <span class="tech-item"><i class="fab fa-java"></i> Java / C#</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- OPTION SISR -->
+                    <div class="bts-option-card-premium sisr-theme">
+                        <div class="card-bg-decoration"></div>
+                        <div class="card-content">
+                            <div class="card-top">
+                                <div class="icon-wrapper">
+                                    <i class="fas fa-network-wired"></i>
+                                </div>
+                                <div class="option-titles">
+                                    <h3>Option SISR</h3>
+                                    <span>Solutions d'Infrastructure & Réseaux</span>
+                                </div>
+                            </div>
+
+                            <div class="card-description">
+                                <p>La voie de l'<strong>infrastructure</strong>. Administration de réseaux, serveurs, cloud computing et cybersécurité avancée pour garantir la disponibilité et la sécurité des systèmes d'information.</p>
+                            </div>
+
+                            <div class="option-details-section">
+                                <div class="option-compétences">
+                                    <h4><i class="fas fa-server"></i> Compétences acquises</h4>
+                                    <ul class="compétences-list">
+                                        <li>Administration de systèmes (Linux, Windows Server)</li>
+                                        <li>Configuration et maintenance de réseaux</li>
+                                        <li>Virtualisation et cloud computing</li>
+                                        <li>Sécurisation des infrastructures</li>
+                                        <li>Supervision et monitoring des systèmes</li>
+                                        <li>Gestion des sauvegardes et de la continuité</li>
+                                    </ul>
+                                </div>
+                                <div class="option-debouchés">
+                                    <h4><i class="fas fa-briefcase"></i> Débouchés professionnels</h4>
+                                    <ul class="debouchés-list">
+                                        <li>Administrateur systèmes et réseaux</li>
+                                        <li>Technicien support informatique</li>
+                                        <li>Ingénieur cybersécurité</li>
+                                        <li>Architecte infrastructure cloud</li>
+                                        <li>Chef de projet infrastructure</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="tech-cloud-premium">
+                                <span class="tech-item"><i class="fab fa-linux"></i> Linux / Windows</span>
+                                <span class="tech-item"><i class="fas fa-shield-alt"></i> Cybersécurité</span>
+                                <span class="tech-item"><i class="fas fa-server"></i> Virtualisation</span>
+                                <span class="tech-item"><i class="fas fa-wifi"></i> Réseaux</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Common Core -->
+                <div class="bts-footer-premium">
+                    <div class="common-skills">
+                        <h4>Tronc Commun & Compétences Transverses</h4>
+                        <div class="skills-row">
+                            <span><i class="fas fa-shield-alt"></i> Cybersécurité</span>
+                            <span><i class="fas fa-project-diagram"></i> Gestion de projet</span>
+                            <span><i class="fas fa-gavel"></i> Droit & Éco</span>
+                            <span><i class="fas fa-users"></i> Anglais Technique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HORIZONTAL SCROLL SKILLS SECTION -->
+    <section class="horizontal-skills-section" id="competences">
+        <div class="skills-sticky-container">
+            <div class="skills-header-absolute">
+                <h2 class="section-title" data-i18n="skills.title">Compétences & Certifications</h2>
+                <p class="section-subtitle" data-i18n="skills.subtitle">Défilez pour explorer mon expertise technique
+                </p>
+            </div>
+
+            <div class="horizontal-track">
+                <!-- Card 1: Frontend -->
+                <div class="skill-card-item">
+                    <div class="card-inner">
+                        <div class="card-header">
+                            <span class="card-number">01</span>
+                            <h3 data-i18n="skills.frontend.title">Frontend</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description" data-i18n="skills.frontend.description">
+                                Création d'interfaces web responsives avec cas concrets : pages projets, navigation et
+                                interactions utilisateur orientées usage.
+                            </p>
+                            <ul class="card-list">
+                                <li><span>HTML5</span> <i class="fab fa-html5"></i></li>
+                                <li><span>CSS3</span> <i class="fab fa-css3-alt"></i></li>
+                                <li><span>JavaScript</span> <i class="fab fa-js"></i></li>
+                            </ul>
+                            <div class="skill-proof-box">
+                                <ul class="skill-proof-list">
+                                    <li><span class="proof-label">Projet</span><span class="proof-value"><a href="iss-tracking.html">Suivi de l'ISS</a> et <a href="chatbot-openbiz.html">Chatbot Openbiz Dev</a></span></li>
+                                    <li><span class="proof-label">Fonctionnalité</span><span class="proof-value">Carte interactive et interface conversationnelle</span></li>
+                                    <li><span class="proof-label">Livrable</span><span class="proof-value">Démonstration web + code source</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Backend -->
+                <div class="skill-card-item">
+                    <div class="card-inner">
+                        <div class="card-header">
+                            <span class="card-number">02</span>
+                            <h3 data-i18n="skills.backend.title">Backend</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description" data-i18n="skills.backend.description">
+                                Développement backend autour de besoins métier : catalogue, traitement de données,
+                                persistance et logique serveur.
+                            </p>
+                            <ul class="card-list">
+                                <li><span>PHP</span> <i class="fab fa-php"></i></li>
+                                <li><span>Symfony</span> <i class="fab fa-symfony"></i></li>
+                                <li><span>MySQL</span> <i class="fas fa-database"></i></li>
+                            </ul>
+                            <div class="skill-proof-box">
+                                <ul class="skill-proof-list">
+                                    <li><span class="proof-label">Projet</span><span class="proof-value"><a href="ecommerce.html">Site E-commerce</a> et <a href="gestion.html">Application de Gestion</a></span></li>
+                                    <li><span class="proof-label">Fonctionnalité</span><span class="proof-value">Catalogue, panier et traitement des données métier</span></li>
+                                    <li><span class="proof-label">Livrable</span><span class="proof-value">Rapport de stage + tableau de synthèse</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Logiciel -->
+                <div class="skill-card-item">
+                    <div class="card-inner">
+                        <div class="card-header">
+                            <span class="card-number">03</span>
+                            <h3 data-i18n="skills.software.title">Logiciel</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description" data-i18n="skills.software.description">
+                                Développement d'applications orientées objet avec logique métier, modularité et tests
+                                de bon fonctionnement.
+                            </p>
+                            <ul class="card-list">
+                                <li><span>Python</span> <i class="fab fa-python"></i></li>
+                                <li><span>C#</span> <i class="fas fa-code"></i></li>
+                            </ul>
+                            <div class="skill-proof-box">
+                                <ul class="skill-proof-list">
+                                    <li><span class="proof-label">Projet</span><span class="proof-value"><a href="gestion.html">Application de Gestion</a> et <a href="coach.html">Coach</a></span></li>
+                                    <li><span class="proof-label">Fonctionnalité</span><span class="proof-value">Architecture applicative, calcul et suivi utilisateur</span></li>
+                                    <li><span class="proof-label">Livrable</span><span class="proof-value">Versions testables + documentation</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: DevOps -->
+                <div class="skill-card-item">
+                    <div class="card-inner">
+                        <div class="card-header">
+                            <span class="card-number">04</span>
+                            <h3 data-i18n="skills.devops.title">DevOps</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description" data-i18n="skills.devops.description">
+                                Organisation du travail en équipe via versionnement, suivi d'évolution et déploiements
+                                reproductibles.
+                            </p>
+                            <ul class="card-list">
+                                <li><span>Docker</span> <i class="fab fa-docker"></i></li>
+                                <li><span>GitHub</span> <i class="fab fa-github"></i></li>
+                                <li><span>VS Code</span> <i class="fas fa-terminal"></i></li>
+                            </ul>
+                            <div class="skill-proof-box">
+                                <ul class="skill-proof-list">
+                                    <li><span class="proof-label">Projet</span><span class="proof-value"><a href="projets.html">Ensemble des projets du portfolio</a></span></li>
+                                    <li><span class="proof-label">Fonctionnalité</span><span class="proof-value">Versionnement, suivi d'itérations et déploiements reproductibles</span></li>
+                                    <li><span class="proof-label">Livrable</span><span class="proof-value">Dépôts GitHub + historique des évolutions</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: CMS -->
+                <div class="skill-card-item">
+                    <div class="card-inner">
+                        <div class="card-header">
+                            <span class="card-number">05</span>
+                            <h3 data-i18n="skills.cms.title">CMS</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description" data-i18n="skills.cms.description">
+                                Mise en place de sites administrables pour répondre rapidement à un besoin client.
+                            </p>
+                            <ul class="card-list">
+                                <li><span>WordPress</span> <i class="fab fa-wordpress"></i></li>
+                            </ul>
+                            <div class="skill-proof-box">
+                                <ul class="skill-proof-list">
+                                    <li><span class="proof-label">Projet</span><span class="proof-value"><a href="parcours.html">Stage iConnected Store</a></span></li>
+                                    <li><span class="proof-label">Fonctionnalité</span><span class="proof-value">Intégration de contenu et adaptation d'interface</span></li>
+                                    <li><span class="proof-label">Livrable</span><span class="proof-value">Site vitrine opérationnel</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Certifications -->
+                <div class="skill-card-item">
+                    <div class="card-inner cert-card-highlight">
+                        <div class="card-header">
+                            <span class="card-number">06</span>
+                            <h3 data-i18n="skills.certs.title">Certifs</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-description" data-i18n="skills.certs.description">
+                                Compétences techniques validées par des organismes de formation reconnus.
+                            </p>
+                            <ul class="card-list-links">
+                                <li>
+                                    <a href="assets/documents/certificat javascript.pdf" class="cert-link" target="_blank" rel="noopener noreferrer">
+                                        <span>OpenCR JS</span>
+                                        <i class="fas fa-check-circle"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="cert-link">
+                                        <span>OpenCR HTML/CSS</span>
+                                        <i class="fas fa-check-circle"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="assets/documents/certification-pix.pdf" class="cert-link" target="_blank" rel="noopener noreferrer">
+                                        <span>Certification Pix</span>
+                                        <i class="fas fa-check-circle"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="scroll-progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span data-i18n="footer.backToTop">Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <!-- NOUVEAU FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de
+                        confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts existants -->
+    <script src="assets/js/hero-animation.js"></script>
+    <script src="assets/js/hero-parallax.js"></script>
+    <!-- button-ripple.js désactivé - animations retirées -->
+    <!-- script.js désactivé - animations retirées -->
+    <script src="assets/js/horizontal-scroll.js"></script>
+
+    <!-- Nouveaux scripts pour améliorations -->
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <!-- enhanced-scroll-animations.js désactivé - animations retirées -->
+    <!-- scroll-reveal.js désactivé - animations retirées -->
+    <script src="assets/js/accessibility.js"></script>
+    <!-- lazy-load.js désactivé - animations retirées -->
+    <script src="assets/js/pwa-install.js"></script>
+    <script src="assets/js/collapsible.js"></script>
+    <script src="assets/js/dots-grid-animation.js"></script>
+    <!-- button-enhancements.js désactivé - animations retirées -->
+    <!-- parallax.js désactivé - animations retirées -->
+    <!-- scroll-to-top-enhanced.js désactivé - animations retirées -->
+    <!-- scroll-progress.js désactivé - animations retirées -->
+    <!-- stats-counter.js désactivé - animations retirées -->
+    <!-- smooth-scroll-enhanced.js désactivé - animations retirées -->
+    <script>
+        // Escape key pour fermer la modal
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('bts-modal');
+                if (modal && modal.style.display !== 'none') {
+                    closeBTSModal();
+                }
+            }
+        });
+    </script>
+    <!-- Cookie Consent Modal -->
+    <div id="cookie-consent-overlay" class="cookie-overlay" style="display: none;">
+        <div class="cookie-box">
+            <div class="cookie-header">
+                <i class="fas fa-cookie-bite cookie-icon"></i>
+                <div class="cookie-header-text">
+                    <h3>Cookies & Confidentialité</h3>
+                    <p>Ce site utilise des cookies essentiels pour garantir son bon fonctionnement. Veuillez faire un
+                        choix pour continuer.</p>
+                </div>
+            </div>
+
+            <!-- Cookie Details Section -->
+            <div class="cookie-details-section">
+                <button id="cookie-details-btn" class="cookie-details-btn" type="button">
+                    <span>Voir les détails</span><span class="cookie-arrow">▼</span>
+                </button>
+                <div id="cookie-details-content" class="cookie-details-content" style="display: none;">
+                    <h4>Types de cookies utilisés</h4>
+                    <div class="cookie-detail-item">
+                        <strong>Cookies essentiels</strong>
+                        <p>Ces cookies sont nécessaires au fonctionnement du site. Ils permettent notamment de mémoriser
+                            vos préférences et d'assurer la sécurité de votre navigation. Ces cookies ne peuvent pas
+                            être désactivés.</p>
+                    </div>
+                    <div class="cookie-detail-item">
+                        <strong>Cookies de préférences</strong>
+                        <p>Ces cookies permettent au site de mémoriser vos choix (langue, région, etc.) pour améliorer
+                            votre expérience de navigation.</p>
+                    </div>
+                    <p class="cookie-policy-link">
+                        <a href="cookies.html" target="_blank">En savoir plus sur notre politique des cookies</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="cookie-buttons">
+                <button id="cookie-acceptor" class="cookie-btn cookie-accept">Accepter</button>
+                <button id="cookie-rejector" class="cookie-btn cookie-reject">Refuser</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/cookie-consent.js"></script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+    <script src="assets/js/debug-tech-tag.js"></script>
+</body>
+
+</html>

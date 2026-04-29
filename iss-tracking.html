@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- SEO Meta Tags -->
+    <title>Suivi de l'ISS en Temps Réel | Portfolio Ludovic.C</title>
+    <meta name="description"
+        content="Application web de suivi de la Station Spatiale Internationale en temps réel. Développée avec JavaScript, Leaflet et l'API Where the ISS at.">
+    <meta name="keywords" content="JavaScript, Leaflet, API, ISS, Web Application, Real-time tracking">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votre-domaine.com/iss-tracking.html">
+    <meta property="og:title" content="Suivi de l'ISS en Temps Réel">
+    <meta property="og:description"
+        content="Application web de suivi de la Station Spatiale Internationale en temps réel développée avec JavaScript et Leaflet.">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/ISS/ISS.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Suivi de l'ISS en Temps Réel">
+    <meta name="twitter:description" content="Application web de suivi de l'ISS en temps réel.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Fragment+Mono:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+
+    <!-- Nouveaux CSS -->
+    <link rel="stylesheet" href="assets/css/scroll-reveal.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/breadcrumbs.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/css_project-detail.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+</head>
+
+<body>
+
+    <main>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <div class="container">
+                <div class="breadcrumbs-nav">
+                    <a href="index.html">Accueil</a>
+                    <span class="separator">/</span>
+                    <a href="projets.html">Projets</a>
+                    <span class="separator">/</span>
+                    <span class="current">Suivi de l'ISS</span>
+                </div>
+            </div>
+        </nav>
+
+        <section class="project-detail">
+            <div class="container">
+                <div class="project-header">
+                    <a href="projets.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
+                    <h1>Suivi de l'ISS en Temps Réel</h1>
+                    <p class="project-subtitle">Application web de suivi de la Station Spatiale Internationale développée avec JavaScript et Leaflet</p>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="project-hero-image">
+                    <img src="assets/images/ISS/ISS.png"
+                        alt="Station Spatiale Internationale" class="hero-img" loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=1200&h=600&fit=crop'">
+                </div>
+
+                <div class="project-content-wrapper">
+                    <div class="project-main">
+                        <!-- Présentation du projet -->
+                        <section class="detail-section">
+                            <h2>Présentation du projet</h2>
+                            <p>
+                                Dans le cadre de ma formation, j'ai développé une application web permettant de suivre en temps réel
+                                la position de la Station Spatiale Internationale (ISS) à l'aide de JavaScript, Leaflet et d'une API
+                                de géolocalisation. L'objectif était de concevoir une interface web permettant aux utilisateurs de
+                                visualiser la position actuelle de l'ISS sur une carte interactive, ainsi que ses coordonnées précises
+                                (latitude, longitude), son altitude et sa vitesse.
+                            </p>
+                            <p>
+                                L'application utilise l'API Where the ISS at pour récupérer les données en temps réel de la station
+                                spatiale, et la bibliothèque Leaflet pour afficher une carte interactive. Les informations sont mises
+                                à jour automatiquement toutes les secondes, offrant un suivi en temps réel de la trajectoire de l'ISS.
+                            </p>
+                        </section>
+
+                        <!-- Fonctionnalités principales -->
+                        <section class="detail-section">
+                            <h2>Fonctionnalités principales</h2>
+                            <p>
+                                L'application affiche une carte interactive centrée sur la position actuelle de l'ISS, avec un marqueur
+                                personnalisé représentant la station spatiale. Les utilisateurs peuvent visualiser en temps réel les
+                                coordonnées géographiques (latitude et longitude), l'altitude en kilomètres et la vitesse en kilomètres
+                                par heure.
+                            </p>
+                            <p>
+                                La carte est entièrement interactive : les utilisateurs peuvent zoomer, déplacer la vue et explorer
+                                la trajectoire de l'ISS autour de la Terre. Le marqueur se déplace automatiquement toutes les secondes
+                                pour refléter la nouvelle position de la station.
+                            </p>
+
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-globe"></i> Cartographie Interactive</h4>
+                                    <p>Carte Leaflet avec OpenStreetMap permettant de zoomer, déplacer et explorer la trajectoire de l'ISS.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-sync-alt"></i> Mise à Jour Temps Réel</h4>
+                                    <p>Actualisation automatique de la position toutes les secondes grâce à setInterval().</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-rocket"></i> Marqueur Personnalisé</h4>
+                                    <p>Icône personnalisée de l'ISS affichée sur la carte à la position exacte de la station.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-chart-line"></i> Données Précisées</h4>
+                                    <p>Affichage des coordonnées, altitude et vitesse avec formatage précis et animations visuelles.</p>
+                                </div>
+                            </div>
+
+                            <h3>Intégration de l'API</h3>
+                            <p>
+                                L'application utilise l'API Where the ISS at (endpoint : <code>https://api.wheretheiss.at/v1/satellites/25544</code>)
+                                pour récupérer les données de l'ISS. Cette API retourne un objet JSON contenant les informations de
+                                localisation en temps réel, notamment la latitude, la longitude, l'altitude et la vitesse de la station.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">const api_url = 'https://api.wheretheiss.at/v1/satellites/25544';
+
+async function GetISS() {
+    const response = await fetch(api_url);
+    const data = await response.json();
+
+    const { latitude, longitude, altitude, velocity } = data;
+    
+    document.getElementById('lat').textContent = latitude.toFixed(2) + '°';
+    document.getElementById('lon').textContent = longitude.toFixed(2) + '°';
+    document.getElementById('alt').textContent = altitude.toFixed(2) + ' km';
+    document.getElementById('speed').textContent = velocity.toFixed(2) + ' km/h';
+
+    marker.setLatLng([latitude, longitude]);
+    map.setView([latitude, longitude], 4);
+}</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- Architecture -->
+                        <section class="detail-section">
+                            <h2>Architecture</h2>
+                            <p>
+                                Le projet utilise une architecture front-end simple et efficace, basée sur JavaScript vanilla pour
+                                la logique applicative, Leaflet pour la cartographie interactive, et Bootstrap pour le design responsive.
+                                L'application est constituée de trois fichiers principaux : un fichier HTML pour la structure, un fichier
+                                CSS pour le style, et un fichier JavaScript pour la logique métier.
+                            </p>
+
+                            <h3>Structure du projet</h3>
+                            <p>
+                                Le projet est organisé de manière claire avec les fichiers suivants :
+                            </p>
+                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li><code>index.html</code> : Structure HTML de l'application avec intégration Bootstrap et Leaflet</li>
+                                <li><code>index.js</code> : Logique JavaScript pour l'appel API, la gestion de la carte et la mise à jour des données</li>
+                                <li><code>style.css</code> : Styles CSS personnalisés avec animations et effets visuels modernes</li>
+                                <li><code>Assets/iss.png</code> : Icône personnalisée de l'ISS utilisée comme marqueur sur la carte</li>
+                            </ul>
+
+                            <h3>Initialisation de la carte Leaflet</h3>
+                            <p>
+                                La carte Leaflet est initialisée avec une vue centrée sur les coordonnées [0, 0] et un niveau de zoom
+                                de 2, permettant une vue globale de la Terre. Les tuiles OpenStreetMap sont utilisées comme fond de carte.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">const map = L.map('issMap').setView([0, 0], 2);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);</code></pre>
+                            </div>
+
+                            <h3>Création du marqueur personnalisé</h3>
+                            <p>
+                                Un marqueur personnalisé est créé à l'aide de l'icône de l'ISS stockée dans le dossier Assets. Les
+                                dimensions et l'ancre du marqueur sont définies pour assurer un positionnement précis sur la carte.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">const issIcon = L.icon({
+    iconUrl: 'Assets/iss.png',
+    iconSize: [50, 32],
+    iconAnchor: [25, 16]
+});
+
+const marker = L.marker([0, 0], { icon: issIcon }).addTo(map);</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- Développement -->
+                        <section class="detail-section">
+                            <h2>Développement</h2>
+
+                            <h3>Fonction GetISS() et mise à jour automatique</h3>
+                            <p>
+                                La fonction GetISS() est une fonction asynchrone qui effectue un appel fetch à l'API pour récupérer
+                                les données de l'ISS. Une fois les données récupérées, elle met à jour les éléments DOM affichant
+                                les coordonnées, l'altitude et la vitesse, puis repositionne le marqueur sur la carte et centre la vue
+                                sur la nouvelle position.
+                            </p>
+                            <p>
+                                Pour assurer une mise à jour en temps réel, la fonction setInterval() est utilisée pour appeler GetISS()
+                                toutes les secondes (1000 millisecondes). Des animations CSS sont appliquées aux valeurs lors de leur
+                                mise à jour pour améliorer l'expérience utilisateur.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-javascript">async function GetISS() {
+    const response = await fetch(api_url);
+    const data = await response.json();
+
+    const { latitude, longitude, altitude, velocity } = data;
+
+    const latEl = document.getElementById('lat');
+    const lonEl = document.getElementById('lon');
+    const altEl = document.getElementById('alt');
+    const speedEl = document.getElementById('speed');
+
+    latEl.textContent = latitude.toFixed(2) + '°';
+    lonEl.textContent = longitude.toFixed(2) + '°';
+    altEl.textContent = altitude.toFixed(2) + ' km';
+    speedEl.textContent = velocity.toFixed(2) + ' km/h';
+
+    latEl.classList.add('updated');
+    lonEl.classList.add('updated');
+    altEl.classList.add('updated');
+    speedEl.classList.add('updated');
+
+    setTimeout(() => {
+        latEl.classList.remove('updated');
+        lonEl.classList.remove('updated');
+        altEl.classList.remove('updated');
+        speedEl.classList.remove('updated');
+    }, 500);
+
+    marker.setLatLng([latitude, longitude]);
+    map.setView([latitude, longitude], 4);
+}
+
+GetISS();
+setInterval(GetISS, 1000);</code></pre>
+                            </div>
+
+                            <h3>Design responsive avec Bootstrap</h3>
+                            <p>
+                                Bootstrap 5.3 est utilisé pour créer une interface responsive et moderne. La grille Bootstrap permet
+                                d'organiser les éléments de manière adaptative : les informations sont affichées dans une carte à gauche
+                                sur les grands écrans, et empilées verticalement sur les petits écrans. La hauteur de la carte utilise
+                                l'unité relative vh (viewport height) pour s'adapter à toutes les tailles d'écran.
+                            </p>
+
+                            <h3>Animations et effets visuels</h3>
+                            <p>
+                                Le CSS personnalisé inclut de nombreuses animations et effets visuels pour améliorer l'expérience utilisateur :
+                            </p>
+                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary);">
+                                <li>Fond animé avec étoiles clignotantes en arrière-plan</li>
+                                <li>Animations d'apparition pour les cartes (fadeIn, slideIn)</li>
+                                <li>Effets de survol (hover) avec transformations et changements de couleurs</li>
+                                <li>Animations sur les valeurs lors de leur mise à jour</li>
+                                <li>Dégradés de couleurs pour les en-têtes et les valeurs</li>
+                                <li>Point pulsant dans la navbar indiquant le statut en direct</li>
+                            </ul>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-css">#issMap {
+    height: 60vh;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+}
+
+.value.updated {
+    animation: valueUpdate 0.5s ease;
+}
+
+@keyframes valueUpdate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); color: #00ff88; }
+    100% { transform: scale(1); }
+}</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- Technologies utilisées -->
+                        <section class="detail-section">
+                            <h2>Technologies utilisées</h2>
+                            <p>
+                                Le projet a été réalisé avec <strong>JavaScript</strong> (ES6+) pour la logique applicative et les appels API,
+                                <strong>Leaflet</strong> pour la cartographie interactive, <strong>Bootstrap 5.3</strong> pour le design responsive,
+                                <strong>Font Awesome</strong> pour les icônes, et <strong>l'API Where the ISS at</strong> pour récupérer les données
+                                de la station spatiale en temps réel. Le design utilise des unités CSS modernes (vh pour la hauteur responsive)
+                                et des animations CSS avancées pour une expérience utilisateur optimale.
+                            </p>
+
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-js"></i> JavaScript (ES6+)</h4>
+                                    <p>Langage de programmation principal, utilisant les fonctionnalités modernes comme
+                                        <code>async/await</code>, <code>fetch()</code>, et les fonctions fléchées.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-map"></i> Leaflet</h4>
+                                    <p>Bibliothèque JavaScript open-source pour créer des cartes interactives et
+                                        responsives, utilisée ici pour afficher la position de l'ISS.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-network-wired"></i> API Where the ISS at</h4>
+                                    <p>API REST gratuite fournissant les données en temps réel de la position de l'ISS,
+                                        incluant latitude, longitude, altitude et vitesse.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fab fa-bootstrap"></i> Bootstrap 5.3</h4>
+                                    <p>Framework CSS pour créer une interface responsive et moderne avec système de grille
+                                        et composants pré-construits.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Compétences techniques -->
+                        <section class="detail-section">
+                            <h2>Compétences techniques mises en œuvre</h2>
+                            <p>
+                                Ce projet m'a permis de renforcer mes compétences en développement web front-end. J'ai manipulé des API REST
+                                avec fetch() et async/await, utilisé la bibliothèque Leaflet pour créer des cartes interactives, implémenté
+                                des mises à jour automatiques avec setInterval(), créé des animations CSS et des effets visuels modernes,
+                                développé une interface responsive avec Bootstrap, travaillé avec le DOM pour la mise à jour dynamique des
+                                données, et optimisé l'expérience utilisateur avec des animations et des transitions fluides.
+                            </p>
+
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4>Intégration d'API REST</h4>
+                                    <p>Utilisation de fetch() et async/await pour récupérer des données en temps réel depuis une API externe.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Cartographie interactive</h4>
+                                    <p>Intégration et configuration de la bibliothèque Leaflet pour créer des cartes interactives.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Mises à jour automatiques</h4>
+                                    <p>Implémentation de mises à jour périodiques avec setInterval() pour un suivi en temps réel.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Animations CSS</h4>
+                                    <p>Création d'animations et d'effets visuels pour améliorer l'expérience utilisateur.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Design responsive</h4>
+                                    <p>Développement d'une interface adaptative utilisant Bootstrap et unités CSS modernes.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4>Manipulation du DOM</h4>
+                                    <p>Mise à jour dynamique des éléments DOM avec animations et transitions fluides.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Conclusion -->
+                        <section class="detail-section">
+                            <h2>Conclusion</h2>
+                            <p>
+                                Ce projet m'a permis de mettre en pratique mes compétences en développement web front-end, en intégrant
+                                une API externe et une bibliothèque de cartographie de manière efficace. J'ai développé une application
+                                complète, fonctionnelle et visuellement attractive, tout en approfondissant ma maîtrise de JavaScript moderne,
+                                des API REST, de Leaflet et des techniques CSS avancées. L'expérience acquise me donne une base solide pour
+                                le développement d'applications web interactives et en temps réel.
+                            </p>
+                        </section>
+
+                        <!-- Palette de couleurs -->
+                        <section class="detail-section">
+                            <h2 class="color-palette-title">Palette de couleurs</h2>
+                            <p style="margin-bottom: 32px; color: var(--text-secondary); font-size: 0.9375rem;">
+                                Ce site utilise une palette de <strong>6</strong> couleurs principales
+                            </p>
+                            <div class="color-palette">
+                                <div class="color-swatch" style="background-color: #1e3c72;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex" style="color: white;">HEX #1e3c72</span>
+                                        <span class="color-preview" style="color: white;">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #2a5298;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex" style="color: white;">HEX #2a5298</span>
+                                        <span class="color-preview" style="color: white;">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #667eea;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex" style="color: white;">HEX #667eea</span>
+                                        <span class="color-preview" style="color: white;">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #764ba2;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex" style="color: white;">HEX #764ba2</span>
+                                        <span class="color-preview" style="color: white;">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #7e22ce;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex" style="color: white;">HEX #7e22ce</span>
+                                        <span class="color-preview" style="color: white;">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #ffffff; border: 1px solid #e0e0e0;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #ffffff</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Liens -->
+                        <section class="detail-section">
+                            <h2>Liens et ressources</h2>
+                            <div class="project-links">
+                                <a href="#" class="link-btn"><i class="fab fa-github"></i> Code Source</a>
+                                <a href="https://wheretheiss.at/" target="_blank" class="link-btn"><i class="fas fa-book"></i> Documentation API</a>
+                                <a href="https://leafletjs.com/" target="_blank" class="link-btn"><i class="fas fa-book"></i> Documentation Leaflet</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-projects">
+            <div class="container">
+                <h2>Autres projets</h2>
+                <div class="projects-grid">
+                    <a href="ecommerce.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ecommerce/page_accueil.png" alt="Site E-commerce" loading="lazy">
+                        </div>
+                        <h3>SIO-SHOES</h3>
+                        <p>Site e-commerce de vente de chaussures développé avec Symfony</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">Symfony</span>
+                            <span class="tech-small">PHP</span>
+                            <span class="tech-small">MySQL</span>
+                        </div>
+                    </a>
+                    <a href="gestion.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ecommerce/gestion/accueil.png" alt="Logiciel de gestion" loading="lazy">
+                        </div>
+                        <h3>Logiciel de gestion</h3>
+                        <p>Application de gestion d'entreprise avec base de données complexe</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">C#</span>
+                            <span class="tech-small">SQL</span>
+                            <span class="tech-small">WPF</span>
+                        </div>
+                    </a>
+                    <a href="coach.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/coach/coach-hero.png" alt="Application mobile Coach" loading="lazy"
+                                onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop'">
+                        </div>
+                        <h3>Coach</h3>
+                        <p>Application mobile multiplateforme pour calculer l'Indice de Masse Grasse (IMG)</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">.NET MAUI</span>
+                            <span class="tech-small">C#</span>
+                            <span class="tech-small">XAML</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span data-i18n="footer.backToTop">Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <!-- NOUVEAU FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <script src="assets/js/toc-island.js"></script>
+    <script src="assets/js/code-highlight.js"></script>
+    <script src="assets/js/typing-effect.js"></script>
+
+    <!-- Nouveaux scripts -->
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+
+    <script>
+        // Initialiser le highlight.js
+        hljs.highlightAll();
+
+        // Toggle TOC dropdown
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocHeader = document.querySelector('.toc-header');
+            const tocIsland = document.querySelector('.toc-island');
+            if (tocHeader && tocIsland) {
+                tocHeader.addEventListener('click', () => {
+                    tocIsland.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+/* Accessibility Styles */
+.skip-link {
+    display: none !important; /* Bouton désactivé - complètement caché */
+}
+
+/* Enhanced Focus Indicators */
+*:focus-visible {
+    outline: 3px solid var(--primary-color, #4A7FFF);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Ensure sufficient contrast for interactive elements */
+button:not(:disabled),
+a:not([aria-disabled="true"]) {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Improve text contrast */
+.text-secondary {
+    color: var(--text-secondary, #666666);
+}
+
+/* Dark mode contrast adjustments */
+.dark-mode .text-secondary {
+    color: var(--text-secondary, #b0b0b0);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    * {
+        border-width: 2px !important;
+    }
+    
+    .btn-primary,
+    .btn-outline {
+        border-width: 3px !important;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Ensure landmark regions are properly identified */
+main,
+nav,
+header,
+footer,
+aside,
+section[role="region"] {
+    display: block;
+}
+
+/* Improve form accessibility */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    min-height: 44px;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+input:required,
+textarea:required {
+    border-left: 3px solid var(--primary-color, #4A7FFF);
+}
+
+input:invalid:not(:focus):not(:placeholder-shown),
+textarea:invalid:not(:focus):not(:placeholder-shown) {
+    border-color: #ef4444;
+}
+
+/* Improve link visibility */
+a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+a:focus {
+    text-decoration-thickness: 2px;
+}
+
+/* Improve button accessibility */
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Ensure images have proper alt text styling */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+img[alt=""] {
+    border: 2px dashed #ccc;
+}
+
+/* Improve table accessibility */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    font-weight: 600;
+    text-align: left;
+    padding: 12px;
+    background: var(--surface-color, #f8f9fa);
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid var(--border-color, #e5e5e5);
+}
+

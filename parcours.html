@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Mon Parcours - Portfolio Ludovic.C | Expériences Professionnelles</title>
+    <meta name="description"
+        content="Découvrez mon parcours professionnel : stages, formations et expériences en développement web et informatique.">
+    <meta name="keywords" content="parcours professionnel, stages développeur, expérience professionnelle, BTS SIO">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-domaine.com/parcours.html">
+    <meta property="og:title" content="Mon Parcours - Portfolio Ludovic.C">
+    <meta property="og:description" content="Découvrez mon parcours professionnel et mes expériences.">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mon Parcours - Portfolio Ludovic.C">
+    <meta name="twitter:description" content="Découvrez mon parcours professionnel et mes expériences.">
+
+    <link rel="stylesheet" href="assets/css/css_index.css">
+    <link rel="stylesheet" href="assets/css/css_parcours.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Police FRICK pour les titres -->
+    <style>
+        @font-face {
+            font-family: 'FRICK';
+            src: url('assets/fonts/FRICK.woff2') format('woff2'),
+                url('assets/fonts/FRICK.woff') format('woff'),
+                url('assets/fonts/FRICK.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+
+    <!-- Nouveaux CSS -->
+    <link rel="stylesheet" href="assets/css/toast.css">
+    <link rel="stylesheet" href="assets/css/scroll-reveal.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/svg-animations.css">
+    <link rel="stylesheet" href="assets/css/timeline-enhanced.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+
+    <!-- Scripts de compatibilité (chargés tôt) -->
+    <script src="assets/js/browser-compat.js"></script>
+    <script src="assets/js/font-loader.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-i18n="nav.profil">Profil</a>
+                <a href="projets.html" class="nav-link" data-i18n="nav.projets">Projets</a>
+                <a href="parcours.html" class="nav-link active" data-i18n="nav.parcours">Parcours</a>
+                <a href="veille.html" class="nav-link" data-i18n="nav.veille">Veille</a>
+                <a href="contact.html" class="nav-contact" data-i18n="nav.contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="parcours-main">
+        <div class="container">
+            <h1 class="parcours-title" data-i18n="parcours.monParcours">Mon Parcours</h1>
+
+            <div class="timeline-container">
+                <!-- Timeline line simple avec barre de progression -->
+                <div class="timeline-line" id="timelineLine">
+                    <div class="timeline-progress" id="timelineProgress"></div>
+                </div>
+
+                <!-- Timeline items -->
+                <div class="timeline-items">
+                    <!-- 1. Open Biz Dev - Stage -->
+                    <div class="timeline-item" data-date="2025-11">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-card-header">
+                                <span class="timeline-date-range">
+                                    <i class="fas fa-calendar"></i>
+                                    nov. 2025 - 19 déc. 2025 · 6 semaines
+                                </span>
+                            </div>
+                            <h2 class="timeline-title">Stagiaire en développement Web</h2>
+                            <div class="timeline-meta">
+                                <span><i class="fas fa-briefcase"></i> Open Biz Dev · Stage</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Ville de Paris, Île-de-France, France · À
+                                    distance</span>
+                            </div>
+                            <p class="timeline-description">
+                                Intégré au sein d'une agence de business développement digital, j'ai contribué à la mise
+                                en œuvre de projets numériques à destination d'entreprises françaises et africaines.
+                            </p>
+                            <div class="timeline-tasks">
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Participation au développement de solutions digitales pour les clients de
+                                        l'agence (création de sites web, intégration, tests).</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Appui au pôle "Business Development Afrique" sur les projets web et
+                                        l'accompagnement digital des PME.</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Collaboration avec les équipes techniques et marketing pour la mise en ligne
+                                        de sites performants.</span>
+                                </div>
+                            </div>
+                            <div class="timeline-tags">
+                                <span>Développement web</span>
+                            </div>
+                            <div class="timeline-actions">
+                                <a href="assets/documents/Open Biz DEV.pdf" target="_blank"
+                                    class="timeline-view-btn">
+                                    <i class="fas fa-eye"></i>
+                                    <span data-i18n="common.viewReport">Voir le rapport de stage</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Burger King -->
+                    <div class="timeline-item" data-date="2025-11">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-card-header">
+                                <span class="timeline-badge">ACTIVE</span>
+                                <span class="timeline-date-range">
+                                    <i class="fas fa-calendar"></i>
+                                    nov. 2025 - aujourd'hui · 2 mois
+                                </span>
+                            </div>
+                            <h2 class="timeline-title">Employé service restauration</h2>
+                            <div class="timeline-meta">
+                                <span><i class="fas fa-briefcase"></i> BURGER KING® France · CDI</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Amiens, Hauts-de-France, France · Sur
+                                    site</span>
+                            </div>
+                            <p class="timeline-description">
+                                Actuellement en poste, je participe activement au bon fonctionnement du restaurant et au
+                                maintien de la qualité de service dans un environnement dynamique.
+                            </p>
+                            <div class="timeline-tasks">
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Participation à la préparation et au service des commandes clients dans le
+                                        respect des normes qualité et hygiène.</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Gestion du flux client et maintien d'un service rapide et efficace en période
+                                        d'affluence.</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Esprit d'équipe, rigueur et respect des procédures internes.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. iConnected Store - Stage -->
+                    <div class="timeline-item" data-date="2025-05">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-card-header">
+                                <span class="timeline-date-range">
+                                    <i class="fas fa-calendar"></i>
+                                    mai 2025 - juin 2025 · 2 mois
+                                </span>
+                            </div>
+                            <h2 class="timeline-title">Stagiaire en développement Web</h2>
+                            <div class="timeline-meta">
+                                <span><i class="fas fa-briefcase"></i> iconnected store · Stage</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Orléans, Centre-Val de Loire, France · Sur
+                                    site</span>
+                            </div>
+                            <p class="timeline-description">
+                                Durant ce stage, j'ai pu appliquer mes connaissances en développement web en créant un
+                                site vitrine complet pour une entreprise locale.
+                            </p>
+                            <div class="timeline-tasks">
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Conception et développement d'un site web vitrine pour la société (HTML, CSS,
+                                        WordPress).</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Intégration de contenu et amélioration de l'expérience utilisateur.</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Découverte du cycle complet de création d'un site web professionnel.</span>
+                                </div>
+                            </div>
+                            <div class="timeline-tags">
+                                <span>JavaScript</span>
+                                <span>Développement web</span>
+                            </div>
+                            <div class="timeline-actions">
+                                <a href="assets/documents/Iconnected store.pdf" target="_blank"
+                                    class="timeline-view-btn">
+                                    <i class="fas fa-eye"></i>
+                                    <span data-i18n="common.viewReport">Voir le rapport de stage</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. BTS SIO -->
+                    <div class="timeline-item" data-date="2024-09">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-card-header">
+                                <span class="timeline-badge" data-i18n="parcours.active">ACTIVE</span>
+                                <span class="timeline-date-range">
+                                    <i class="fas fa-calendar"></i>
+                                    sept. 2024 - juil. 2026
+                                </span>
+                            </div>
+                            <h2 class="timeline-title" data-i18n="parcours.bts.title">BTS services informatiques aux organisations</h2>
+                            <div class="timeline-meta">
+                                <span><i class="fas fa-graduation-cap"></i> Lycée Edouard Gand</span>
+                                <span data-i18n="parcours.informatique">Informatique</span>
+                            </div>
+                            <p class="timeline-description" data-i18n="parcours.bts.description">
+                                Formation en développement et maintenance des applications, gestion des systèmes et
+                                réseaux, assistance et conseil, travail en équipe et gestion de projet.
+                            </p>
+                            <div class="timeline-tasks">
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span data-i18n="parcours.bts.task1">Développement et maintenance des applications</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span data-i18n="parcours.bts.task2">Gestion des systèmes et réseaux</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span data-i18n="parcours.bts.task3">Assistance et conseil</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span data-i18n="parcours.bts.task4">Travail en équipe et gestion de projet</span>
+                                </div>
+                            </div>
+                            <div class="timeline-tags">
+                                <span>JavaScript</span>
+                                <span>C#</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Armée de Terre -->
+                    <div class="timeline-item" data-date="2021-10">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-card-header">
+                                <span class="timeline-date-range">
+                                    <i class="fas fa-calendar"></i>
+                                    oct. 2021 - sept. 2024 · 3 ans
+                                </span>
+                            </div>
+                            <h2 class="timeline-title">Technicien service d'assistance informatique</h2>
+                            <div class="timeline-meta">
+                                <span><i class="fas fa-briefcase"></i> Armée de Terre · CDD</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Thionville, Grand Est, France · Sur
+                                    site</span>
+                            </div>
+                            <p class="timeline-description">
+                                Pendant trois ans au sein du 40ᵉ Régiment de Transmissions, j'ai assuré le support
+                                informatique et la maintenance des systèmes de communication militaires.
+                            </p>
+                            <div class="timeline-tasks">
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Support informatique de premier niveau pour les systèmes de communication et
+                                        réseaux du régiment.</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Maintenance préventive et curative des postes utilisateurs et serveurs.</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Gestion du parc informatique et assistance technique aux personnels
+                                        militaires.</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Mise en place et surveillance des réseaux de communication sécurisés sur le
+                                        terrain.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Audiovisuel - Stage -->
+                    <div class="timeline-item" data-date="2019-05">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-card-header">
+                                <span class="timeline-date-range">
+                                    <i class="fas fa-calendar"></i>
+                                    26 mai 2019 - 20 juin 2020
+                                </span>
+                            </div>
+                            <h2 class="timeline-title">Stagiaire en Audiovisuel</h2>
+                            <div class="timeline-meta">
+                                <span><i class="fas fa-briefcase"></i> Association nogentaise de l'audiovisuel ·
+                                    Stage</span>
+                                <span><i class="fas fa-map-marker-alt"></i> Creil, Hauts-de-France, France · Sur
+                                    site</span>
+                            </div>
+                            <p class="timeline-description">
+                                Stage en audiovisuel centré sur la production et la post-production de contenus
+                                multimédias.
+                            </p>
+                            <div class="timeline-tasks">
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Montage vidéo</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Photographie</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Réalisation de micro-trottoirs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. Bac Pro -->
+                    <div class="timeline-item" data-date="2017-09">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="timeline-card-header">
+                                <span class="timeline-date-range">
+                                    <i class="fas fa-calendar"></i>
+                                    sept. 2017 - juin 2020
+                                </span>
+                            </div>
+                            <h2 class="timeline-title">Baccalauréat professionnel systèmes électroniques numériques</h2>
+                            <div class="timeline-meta">
+                                <span><i class="fas fa-graduation-cap"></i> lycée arthur rimbaud</span>
+                            </div>
+                            <p class="timeline-description">
+                                Formation en systèmes électroniques numériques avec stage en audiovisuel à l'Association
+                                nogentaise de l'audiovisuel - Creil (26 Mai 2019 - 20 Juin 2020).
+                            </p>
+                            <div class="timeline-tasks">
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Montage vidéo</span>
+                                </div>
+                                <div class="timeline-task">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <span>Photographie, impression numériques</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span data-i18n="footer.backToTop">Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+    <!-- Nouveaux scripts -->
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+    <script src="assets/js/timeline-scroll.js"></script>
+    <script src="assets/js/timeline-enhanced.js"></script>
+    <script src="assets/js/smooth-scroll-enhanced.js"></script>
+    <script src="assets/js/page-transitions.js"></script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+</body>
+
+</html>

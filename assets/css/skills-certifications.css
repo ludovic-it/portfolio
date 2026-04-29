@@ -1,0 +1,253 @@
+/* Horizontal Scrolling Skills Section - LIGHT THEME */
+:root {
+    --skills-bg: #ffffff;
+    /* Light grey/white background */
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --accent-color: var(--primary-color);
+    /* Blue from site */
+    --border-color: #e5e5e5;
+}
+
+.horizontal-skills-section {
+    position: relative;
+    background-color: var(--skills-bg);
+    color: var(--text-main);
+    /* Make the section tall enough to scroll */
+    height: 300vh;
+}
+
+.skills-sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: var(--skills-bg);
+}
+
+.skills-header-absolute {
+    position: absolute;
+    top: 40px;
+    left: 5vw;
+    z-index: 10;
+}
+
+.skills-header-absolute .section-title {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.skills-header-absolute .section-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.horizontal-track {
+    display: flex;
+    gap: 40px;
+    padding-left: 5vw;
+    /* Start padding */
+    padding-right: 10vw;
+    /* End padding */
+    height: 70vh;
+    /* Card height area */
+    align-items: center;
+    will-change: transform;
+}
+
+/* Individual Card Items */
+.skill-card-item {
+    min-width: 400px;
+    width: 25vw;
+    height: 60vh;
+    flex-shrink: 0;
+}
+
+/* Light Theme Card Design */
+.card-inner {
+    width: 100%;
+    height: 100%;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Soft shadow */
+}
+
+.card-inner:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--accent-color);
+}
+
+/* Card Header */
+.card-header .card-number {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    /* Blue number */
+    margin-bottom: 16px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+.card-header h3 {
+    font-size: 2.5rem;
+    line-height: 1;
+    margin: 0;
+    color: var(--accent-color);
+    /* Dark title */
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+/* Card Body */
+.card-description {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.card-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f0f4ff;
+    /* Light blue tint */
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    font-weight: 600;
+}
+
+.card-list li i {
+    color: var(--accent-color);
+}
+
+/* Certifications specific links */
+.card-list-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cert-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    color: #333;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+    font-weight: 500;
+}
+
+.cert-link:hover {
+    background: white;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.cert-link i {
+    color: #22c55e;
+    /* Green checkmark */
+}
+
+/* Highlight Card Style (Certifications) */
+.cert-card-highlight {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+    border: 2px solid var(--accent-color);
+}
+
+/* Progress Bar */
+.scroll-progress-bar {
+    position: absolute;
+    bottom: 40px;
+    left: 5vw;
+    width: 200px;
+    height: 4px;
+    background: #e5e5e5;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .horizontal-skills-section {
+        height: auto;
+    }
+
+    .skills-sticky-container {
+        position: relative;
+        height: auto;
+        display: block;
+        padding: 60px 0;
+    }
+
+    .horizontal-track {
+        flex-direction: column;
+        height: auto;
+        padding: 0 24px;
+        gap: 24px;
+        transform: none !important;
+        /* Disable JS transform on mobile */
+    }
+
+    .skills-header-absolute {
+        position: relative;
+        top: 0;
+        left: 0;
+        padding: 0 24px 40px;
+    }
+
+    .skill-card-item {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+    }
+
+    .scroll-progress-bar {
+        display: none;
+    }
+
+    .card-header h3 {
+        font-size: 2rem;
+    }
+}

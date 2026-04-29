@@ -1,0 +1,77 @@
+/* Collapsible Text Component */
+.collapsible-container {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.collapsible-content {
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease,
+                mask-image 0.3s ease,
+                -webkit-mask-image 0.3s ease;
+}
+
+/* État initial : collapsed */
+.collapsible-auto .collapsible-content {
+    max-height: 150px;
+    mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+}
+
+/* État expanded */
+.collapsible-auto.expanded .collapsible-content {
+    max-height: 10000px !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    opacity: 1;
+}
+
+.collapsible-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    color: var(--primary-color, #4A7FFF);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    padding: 8px 0;
+    transition: color 0.2s ease;
+    font-family: inherit;
+}
+
+.collapsible-toggle:hover {
+    color: var(--primary-dark, #3366CC);
+}
+
+.collapsible-toggle i {
+    font-size: 0.875rem;
+    transition: transform 0.3s ease;
+}
+
+.collapsible-toggle.expanded i,
+.collapsible-auto.expanded .collapsible-toggle i {
+    transform: rotate(180deg);
+}
+
+/* Auto-collapse for long content */
+.collapsible-auto {
+    position: relative;
+}
+
+.collapsible-auto .collapsible-content {
+    max-height: 150px;
+    mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+}
+
+.collapsible-auto.expanded .collapsible-content {
+    max-height: 10000px !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    opacity: 1;
+}
+

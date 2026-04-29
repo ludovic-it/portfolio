@@ -1,0 +1,170 @@
+/* Coach – Sélecteur de versions V1 à V4 – Code couleur site (#4A7FFF) */
+
+/* Dégager le contenu sous la navbar fixe (top: 2rem + hauteur nav) */
+.coach-versions-section {
+    padding: 140px 0 5rem;
+    min-height: 70vh;
+    background: linear-gradient(180deg, rgba(74, 127, 255, 0.04) 0%, rgba(255, 255, 255, 0) 30%);
+}
+
+.coach-versions-section .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    color: var(--text-secondary, #666);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+    border: 1px solid transparent;
+}
+
+.coach-versions-section .back-link:hover {
+    color: var(--primary-color, #4A7FFF);
+    background: rgba(74, 127, 255, 0.08);
+    border-color: rgba(74, 127, 255, 0.2);
+}
+
+.coach-versions-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+    position: relative;
+}
+
+.coach-versions-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 0.5rem;
+    color: var(--primary-color, #4A7FFF);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.coach-versions-header .subtitle {
+    color: var(--text-secondary, #666);
+    font-size: 1.125rem;
+}
+
+.coach-versions-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.75rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+    .coach-versions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .coach-versions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .coach-versions-section {
+        padding-top: 120px;
+    }
+}
+
+.coach-version-card {
+    display: block;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.98) 100%);
+    border: 2px solid rgba(74, 127, 255, 0.12);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+.coach-version-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(74, 127, 255, 0.06) 0%, rgba(107, 154, 255, 0.04) 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 0;
+}
+
+.coach-version-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(74, 127, 255, 0.2);
+    border-color: var(--primary-color, #4A7FFF);
+}
+
+.coach-version-card:hover::before {
+    opacity: 1;
+}
+
+.coach-version-card .version-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color, #4A7FFF) 0%, var(--primary-dark, #3A6FEF) 100%);
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    border-radius: 50%;
+    margin-bottom: 1.25rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 16px rgba(74, 127, 255, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coach-version-card:hover .version-badge {
+    transform: scale(1.08);
+    box-shadow: 0 6px 24px rgba(74, 127, 255, 0.45);
+}
+
+.coach-version-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary, #1a1a1a);
+    transition: color 0.2s;
+    position: relative;
+    z-index: 1;
+}
+
+.coach-version-card:hover h2 {
+    color: var(--primary-color, #4A7FFF);
+}
+
+.coach-version-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary, #666);
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.coach-version-card.coach-version-placeholder {
+    opacity: 0.92;
+}
+
+.coach-version-card.coach-version-placeholder .version-badge {
+    background: linear-gradient(135deg, #666 0%, #555 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.coach-version-card.coach-version-placeholder:hover .version-badge {
+    background: linear-gradient(135deg, var(--primary-light, #6B9AFF) 0%, var(--primary-color, #4A7FFF) 100%);
+    box-shadow: 0 6px 20px rgba(74, 127, 255, 0.4);
+}

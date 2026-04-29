@@ -1,0 +1,219 @@
+/* SVG Animations and Illustrations */
+
+/* Animation de dessin pour les SVG (stroke-dasharray) */
+.svg-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawPath 3s ease-in-out forwards;
+}
+
+@keyframes drawPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Animation au scroll pour les SVG */
+.svg-animate-on-scroll {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.svg-animate-on-scroll.visible {
+    opacity: 1;
+}
+
+.svg-animate-on-scroll.visible .svg-path {
+    animation: drawPath 2s ease-in-out forwards;
+}
+
+/* Icônes SVG animées pour les compétences */
+.skill-icon-svg {
+    width: 64px;
+    height: 64px;
+    transition: transform 0.3s ease;
+}
+
+.skill-icon-svg:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.skill-icon-svg path,
+.skill-icon-svg circle,
+.skill-icon-svg rect {
+    fill: var(--primary-color);
+    transition: fill 0.3s ease;
+}
+
+.skill-icon-svg:hover path,
+.skill-icon-svg:hover circle,
+.skill-icon-svg:hover rect {
+    fill: var(--primary-light);
+}
+
+/* Animation de pulsation pour les icônes */
+@keyframes pulse-svg {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.svg-pulse {
+    animation: pulse-svg 2s ease-in-out infinite;
+}
+
+/* Animation de rotation */
+@keyframes rotate-svg {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.svg-rotate {
+    animation: rotate-svg 3s linear infinite;
+}
+
+/* Illustration SVG de fond animée */
+.svg-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.05;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.svg-background svg {
+    width: 100%;
+    height: 100%;
+}
+
+.svg-background path {
+    fill: var(--primary-color);
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    25% {
+        transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+        transform: translateY(-40px) translateX(-10px);
+    }
+    75% {
+        transform: translateY(-20px) translateX(10px);
+    }
+}
+
+/* Wave SVG animé */
+.svg-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+.svg-wave svg {
+    width: 100%;
+    height: 100%;
+}
+
+.svg-wave path {
+    fill: var(--primary-color);
+    animation: wave-animation 3s ease-in-out infinite;
+}
+
+@keyframes wave-animation {
+    0%, 100% {
+        d: path("M0,50 Q250,20 500,50 T1000,50 L1000,100 L0,100 Z");
+    }
+    50% {
+        d: path("M0,50 Q250,80 500,50 T1000,50 L1000,100 L0,100 Z");
+    }
+}
+
+/* Particules SVG animées */
+.svg-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.svg-particles circle {
+    fill: var(--primary-color);
+    opacity: 0.3;
+    animation: particle-float 8s ease-in-out infinite;
+}
+
+@keyframes particle-float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-100px) translateX(50px);
+        opacity: 0.6;
+    }
+}
+
+/* SVG avec effet de glow */
+.svg-glow path,
+.svg-glow circle,
+.svg-glow rect {
+    filter: drop-shadow(0 0 8px var(--primary-color));
+    transition: filter 0.3s ease;
+}
+
+.svg-glow:hover path,
+.svg-glow:hover circle,
+.svg-glow:hover rect {
+    filter: drop-shadow(0 0 16px var(--primary-light));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .skill-icon-svg {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .svg-background {
+        opacity: 0.03;
+    }
+}
+
+/* Respecter prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .svg-path,
+    .svg-pulse,
+    .svg-rotate,
+    .svg-background path,
+    .svg-wave path,
+    .svg-particles circle {
+        animation: none;
+    }
+    
+    .skill-icon-svg:hover {
+        transform: scale(1.05);
+    }
+}
+
+

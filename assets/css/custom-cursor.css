@@ -1,0 +1,58 @@
+/* Custom Cursor */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease, border-width 0.3s ease;
+    mix-blend-mode: difference;
+}
+
+.custom-cursor.cursor-hover {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+    background: rgba(74, 127, 255, 0.1);
+}
+
+.cursor-trail {
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+}
+
+/* Désactiver sur mobile */
+@media (hover: none) and (pointer: coarse) {
+    .custom-cursor,
+    .cursor-trail {
+        display: none;
+    }
+    
+    body {
+        cursor: auto !important;
+    }
+}
+
+/* Respecter prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .custom-cursor,
+    .cursor-trail {
+        display: none;
+    }
+    
+    body {
+        cursor: auto !important;
+    }
+}
+
+

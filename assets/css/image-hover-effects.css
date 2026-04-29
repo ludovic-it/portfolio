@@ -1,0 +1,101 @@
+
+.image-tilt {
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+.image-tilt-container {
+    perspective: 1000px;
+}
+
+.image-tilt-container:hover .image-tilt {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) scale(1.05);
+}
+
+
+.image-zoom-overlay {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.image-zoom-overlay img {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.image-zoom-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(74, 127, 255, 0.3), rgba(107, 154, 255, 0.3));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.image-zoom-overlay:hover img {
+    transform: scale(1.15);
+}
+
+.image-zoom-overlay:hover::before {
+    opacity: 1;
+}
+
+
+.image-magnetic {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+
+.image-reveal-text {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-reveal-text::after {
+    content: attr(data-text);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    font-weight: 600;
+    font-size: 1.25rem;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+.image-reveal-text:hover::after {
+    transform: translateY(0);
+}
+
+/* Parallax on hover */
+.image-parallax-hover {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+/* Appliquer aux images de projets et veille */
+.project-main-image,
+.project-sharp-image,
+.veille-image img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+}
+
+.project-item-link:hover .project-main-image,
+.project-item-link:hover .project-sharp-image,
+.veille-card:hover .veille-image img {
+    transform: scale(1.1) translateY(-5px);
+}
+
+

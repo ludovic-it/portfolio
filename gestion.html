@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Site de Gestion du Personnel | Portfolio Ludovic.C</title>
+    <meta name="description"
+        content="Site web de gestion du personnel développé en PHP avec architecture MVC. Authentification sécurisée, gestion des employés, interface responsive avec Bootstrap.">
+    <meta name="keywords" content="PHP, MVC, MySQL, Bootstrap, gestion personnel, authentification, BTS SIO">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votre-domaine.com/gestion.html">
+    <meta property="og:title" content="Site de Gestion du Personnel">
+    <meta property="og:description"
+        content="Application web de gestion du personnel avec architecture MVC, authentification sécurisée et interface responsive.">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Site de Gestion du Personnel">
+    <meta name="twitter:description"
+        content="Application web PHP MVC pour la gestion du personnel avec authentification sécurisée.">
+
+    <link rel="stylesheet" href="assets/css/css_project-detail.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Fragment+Mono:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+
+    <!-- Nouveaux CSS -->
+    <link rel="stylesheet" href="assets/css/scroll-reveal.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/breadcrumbs.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+</head>
+
+<body>
+
+    <main>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <div class="container">
+                <div class="breadcrumbs-nav">
+                    <a href="index.html">Accueil</a>
+                    <span class="separator">/</span>
+                    <a href="projets.html">Projets</a>
+                    <span class="separator">/</span>
+                    <span class="current">Gestion du Personnel</span>
+                </div>
+            </div>
+        </nav>
+
+        <section class="project-detail">
+            <div class="container">
+                <div class="project-header">
+                    <a href="projets.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
+                    <h1>Site de Gestion du Personnel</h1>
+                    <p class="project-subtitle">Application web de gestion du personnel développée en PHP avec
+                        architecture MVC</p>
+                </div>
+
+                <!-- Hero Image - Page d'accueil -->
+                <div class="project-hero-image">
+                    <img src="assets/images/ecommerce/gestion/accueil.png"
+                        alt="Page d'accueil - Site de gestion du personnel" class="hero-img" loading="lazy">
+                </div>
+
+                <!-- Video Section -->
+                <div class="project-video-section">
+                    <h2>Démonstration</h2>
+                    <div class="project-video-grid video-grid-small">
+                        <div class="video-item video-style-framed" data-video="assets/videos/ajout.mp4">
+                            <img src="assets/images/ecommerce/gestion/ajout-employe.png" alt="Démonstration ajout d'employé"
+                                class="video-poster">
+                            <video class="video-player" muted loop preload="metadata">
+                                <source src="assets/videos/ajout.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item video-style-framed" data-video="assets/videos/modif.mp4">
+                            <img src="assets/images/ecommerce/gestion/accueil.png" alt="Démonstration modification"
+                                class="video-poster">
+                            <video class="video-player" muted loop preload="metadata">
+                                <source src="assets/videos/modif.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-content-wrapper">
+                    <div class="project-main">
+                        <!-- Présentation du projet -->
+                        <section class="detail-section">
+                            <h2>Présentation du projet</h2>
+                            <p>
+                                Dans le cadre de ma formation en <strong>BTS SIO option SLAM</strong>, j'ai développé un
+                                <strong>site web de gestion du personnel</strong> en PHP avec une architecture
+                                <strong>MVC (Modèle-Vue-Contrôleur)</strong>. L'application utilise une base de données
+                                <strong>MySQL</strong> via phpMyAdmin et <strong>Bootstrap</strong> pour assurer le
+                                responsive
+                                de l'interface utilisateur.
+                            </p>
+                            <p>
+                                Les mots de passe sont hashés avec <strong>SHA-256 avec salage</strong> pour sécuriser
+                                le stockage
+                                des mots de passe utilisateurs.
+                            </p>
+
+                            <!-- Capture d'écran - Architecture MVC -->
+                            <div class="project-screenshot">
+                                <img src="assets/images/ecommerce/gestion/architecture.png"
+                                    alt="Architecture MVC du projet" class="screenshot-img" loading="lazy">
+                                <p class="screenshot-caption">Architecture MVC du projet</p>
+                            </div>
+                        </section>
+
+                        <!-- Page d'accueil -->
+                        <section class="detail-section">
+                            <h2>1. Page d'accueil (index.php)</h2>
+                            <p>
+                                La page d'accueil sert de point d'entrée à l'application et redirige automatiquement
+                                l'utilisateur vers la page de connexion.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-php">case "login":
+default:
+    require_once "controleurs/C_login.php";
+    $controleur = new C_login();
+    $controleur->action_afficher();
+    break;</code></pre>
+                            </div>
+
+                            <!-- Capture d'écran - Page d'accueil -->
+                            <div class="project-screenshot">
+                                <img src="assets/images/ecommerce/gestion/index.png"
+                                    alt="Page d'accueil redirigeant vers la connexion" class="screenshot-img"
+                                    loading="lazy">
+                                <p class="screenshot-caption">Page d'accueil - Redirection vers la connexion</p>
+                            </div>
+                        </section>
+
+                        <!-- Système d'authentification -->
+                        <section class="detail-section">
+                            <h2>2. Système d'authentification</h2>
+
+                            <h3>2.1 Page de connexion (login.php)</h3>
+                            <p>
+                                L'utilisateur arrive sur cette page et dispose de deux options : se connecter avec des
+                                identifiants existants ou s'inscrire pour créer un nouveau compte.
+                            </p>
+
+                            <!-- Capture d'écran - Page de connexion -->
+                            <div class="project-screenshot">
+                                <img src="assets/images/ecommerce/gestion/login.png" alt="Page de connexion"
+                                    class="screenshot-img" loading="lazy">
+                                <p class="screenshot-caption">Page de connexion avec options de connexion et
+                                    d'inscription</p>
+                            </div>
+
+                            <h3>2.2 Inscription</h3>
+                            <p>
+                                Lors de l'inscription, le système collecte les informations utilisateur, hache le mot de
+                                passe
+                                avec un salage SHA-256 et stocke les données sécurisées en base de données.
+                            </p>
+
+                            <!-- Capture d'écran - Page d'inscription -->
+                            <div class="project-screenshot">
+                                <img src="assets/images/ecommerce/gestion/inscription.png"
+                                    alt="Formulaire d'inscription" class="screenshot-img" loading="lazy">
+                                <p class="screenshot-caption">Formulaire d'inscription</p>
+                            </div>
+
+                            <h3>2.3 Page d'accueil utilisateur</h3>
+                            <p>
+                                Après connexion réussie, l'utilisateur accède à la page d'accueil qui possède plusieurs
+                                fonctionnalités : un accès via un bouton déroulant "Liste des employés" et l'affichage
+                                des employés stockés en base de données sous forme de tableau.
+                            </p>
+
+                            <!-- Capture d'écran - Page d'accueil utilisateur -->
+                            <div class="project-screenshot">
+                                <img src="assets/images/ecommerce/gestion/accueil-user.png"
+                                    alt="Page d'accueil utilisateur avec liste des employés" class="screenshot-img"
+                                    loading="lazy">
+                                <p class="screenshot-caption">Page d'accueil utilisateur avec tableau des employés</p>
+                            </div>
+                        </section>
+
+                        <!-- Fonctionnalités -->
+                        <section class="detail-section">
+                            <h2>3. Fonctionnalités principales</h2>
+
+                            <h3>3.1 Ajout d'employés</h3>
+                            <p>
+                                Fonctionnalité permettant d'ajouter de nouveaux employés via un formulaire de saisie
+                                des informations employé.
+                            </p>
+
+                            <!-- Capture d'écran - Formulaire d'ajout d'employé -->
+                            <div class="project-screenshot">
+                                <img src="assets/images/ecommerce/gestion/ajout-employe.png"
+                                    alt="Formulaire d'ajout d'employé" class="screenshot-img" loading="lazy">
+                                <p class="screenshot-caption">Formulaire de saisie des informations employé</p>
+                            </div>
+
+                            <h3>3.2 Déconnexion</h3>
+                            <p>
+                                Un bouton de déconnexion est accessible depuis l'interface principale, permettant une
+                                gestion sécurisée de la session utilisateur.
+                            </p>
+                        </section>
+
+                        <!-- Interface utilisateur -->
+                        <section class="detail-section">
+                            <h2>4. Interface utilisateur</h2>
+
+                            <h3>4.1 Site responsive</h3>
+                            <p>
+                                Le site utilise Bootstrap pour une navbar responsive ainsi que des boutons et des
+                                tableaux responsives pour l'affichage des données.
+                            </p>
+
+                            <h3>4.2 Éléments d'interface</h3>
+                            <p>
+                                L'interface comprend une barre de navigation principale avec menu responsive, des
+                                boutons au design cohérent avec Bootstrap, et des tableaux pour une présentation claire
+                                des données employés.
+                            </p>
+
+                            <!-- Capture d'écran - Interface responsive -->
+                            <div class="project-screenshot">
+                                <img src="assets/images/ecommerce/gestion/responsive.png"
+                                    alt="Interface responsive sur mobile" class="screenshot-img" loading="lazy">
+                                <p class="screenshot-caption">Interface responsive avec Bootstrap</p>
+                            </div>
+                        </section>
+
+                        <!-- Base de données et sécurité -->
+                        <section class="detail-section">
+                            <h2>5. Base de données et sécurité</h2>
+
+                            <h3>5.1 Sécurité des données</h3>
+                            <p>
+                                Les mots de passe sont hachés avec <strong>SHA-256 et salage</strong> pour garantir
+                                la sécurité des données utilisateurs.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-php">$mdp_hashed = password_hash($mdp, PASSWORD_DEFAULT);
+
+// Vérification du mot de passe
+if (password_verify($mdp, $user['mdp']))
+{
+    $_SESSION['login'] = $login_safe;
+    header("Location: index.php?page=accueil");
+    exit();
+}
+else
+{
+    $this->action_afficher("Mot de passe incorrect.");
+}</code></pre>
+                            </div>
+
+                            <p>
+                                <code>password_verify</code> permet de vérifier si les mots de passe rentrés en
+                                paramètre
+                                sont valides et affiche donc la page d'accueil en cas de succès.
+                            </p>
+
+                            <!-- Capture d'écran - Structure de la base de données -->
+                            <div class="project-screenshot">
+                                <img src="assets/images/ecommerce/gestion/database.png"
+                                    alt="Structure de la base de données MySQL" class="screenshot-img" loading="lazy">
+                                <p class="screenshot-caption">Structure de la base de données MySQL</p>
+                            </div>
+                        </section>
+
+                        <!-- Technologies utilisées -->
+                        <section class="detail-section">
+                            <h2>6. Technologies utilisées</h2>
+                            <div class="tech-stack">
+                                <span class="tech-tag">PHP</span>
+                                <span class="tech-tag">MVC</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Bootstrap</span>
+                                <span class="tech-tag">phpMyAdmin</span>
+                                <span class="tech-tag">SHA-256</span>
+                            </div>
+                        </section>
+
+
+
+                        <!-- Conclusion -->
+                        <section class="detail-section">
+                            <h2>7. Conclusion</h2>
+                            <p>
+                                Ce site de gestion du personnel offre une architecture MVC bien structurée, une sécurité
+                                pour l'authentification avec hashage SHA-256, une interface responsive grâce à
+                                Bootstrap, des tableaux pour la gestion des employés et un formulaire pour ajouter un
+                                nouvel employé.
+                            </p>
+                            <p>
+                                Ce projet m'a permis de renforcer mes compétences en développement web avec PHP,
+                                en architecture MVC, en gestion de bases de données MySQL et en sécurité web.
+                            </p>
+                        </section>
+
+                        <!-- Palette de couleurs -->
+                        <section class="detail-section">
+                            <h2 class="color-palette-title">Palette de couleurs</h2>
+                            <p style="margin-bottom: 32px; color: var(--text-secondary); font-size: 0.9375rem;">
+                                Ce site utilise une palette de <strong>6</strong> couleurs principales
+                            </p>
+                            <div class="color-palette">
+                                <div class="color-swatch" style="background-color: #1a1a1a;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #1a1a1a</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #6f42c1;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #6f42c1</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #0dcaf0;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #0dcaf0</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #dc3545;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #dc3545</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #ffc107;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #ffc107</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #ffffff; border: 1px solid #e0e0e0;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #ffffff</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Liens -->
+                        <section class="detail-section">
+                            <h2>8. Liens et ressources</h2>
+                            <div class="project-links">
+                                <a href="https://github.com/ludovic-it/PHP_MVC" target="_blank" class="link-btn">
+                                    <i class="fab fa-github"></i> Code Source GitHub
+                                </a>
+                                <a href="assets/documents/Fiche_Gestion_Personnel.pdf" target="_blank" class="link-btn">
+                                    <i class="fas fa-file-pdf"></i> Documentation complète
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-projects">
+            <div class="container">
+                <h2>Autres projets</h2>
+                <div class="projects-grid">
+                    <a href="ecommerce.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ecommerce/page_accueil.png" alt="Site E-commerce" loading="lazy">
+                        </div>
+                        <h3>SIO-SHOES</h3>
+                        <p>Site e-commerce de vente de chaussures développé avec Symfony</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">Symfony</span>
+                            <span class="tech-small">PHP</span>
+                            <span class="tech-small">MySQL</span>
+                        </div>
+                    </a>
+                    <a href="coach.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/coach/coach-hero.png" alt="Application mobile Coach" loading="lazy"
+                                onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop'">
+                        </div>
+                        <h3>Coach</h3>
+                        <p>Application mobile multiplateforme pour calculer l'Indice de Masse Grasse (IMG)</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">.NET MAUI</span>
+                            <span class="tech-small">C#</span>
+                            <span class="tech-small">XAML</span>
+                        </div>
+                    </a>
+                    <a href="iss-tracking.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ISS/ISS.png" alt="Suivi de l'ISS" loading="lazy">
+                        </div>
+                        <h3>Suivi de l'ISS</h3>
+                        <p>Application web de suivi de la Station Spatiale Internationale en temps réel</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">JavaScript</span>
+                            <span class="tech-small">Leaflet</span>
+                            <span class="tech-small">API</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span data-i18n="footer.backToTop">Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <!-- NOUVEAU FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <script src="assets/js/toc-island.js"></script>
+    <script src="assets/js/code-highlight.js"></script>
+    <script src="assets/js/typing-effect.js"></script>
+
+    <!-- Nouveaux scripts -->
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+    <script src="assets/js/video-hover.js"></script>
+
+    <script>
+        // Initialiser le highlight.js
+        hljs.highlightAll();
+
+        // Toggle TOC dropdown
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocHeader = document.querySelector('.toc-header');
+            const tocIsland = document.querySelector('.toc-island');
+            if (tocHeader && tocIsland) {
+                tocHeader.addEventListener('click', () => {
+                    tocIsland.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+</body>
+
+</html>

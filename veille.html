@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Veille Technologique - Portfolio Ludovic.C | Tendances IT</title>
+    <meta name="description"
+        content="Deux fiches de veille : le numérique au service des armées (sources ministère, DGA, cyber.gouv) et l'automatisation du travail du développeur. Langage clair.">
+    <meta name="keywords"
+        content="veille technologique, BTS SIO, défense nationale, numérique, armées françaises, développement web, automatisation, n8n">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-domaine.com/veille.html">
+    <meta property="og:title" content="Veille Technologique - Portfolio Ludovic.C">
+    <meta property="og:description" content="Défense, numérique et automatisation : deux axes de veille pour un développeur, avec sources officielles.">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/veille-defense-numerique-hero.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Veille Technologique - Portfolio Ludovic.C">
+    <meta name="twitter:description" content="Veille : numérique et armées françaises + automatisation du travail de développeur.">
+
+    <link rel="stylesheet" href="assets/css/css_index.css">
+    <link rel="stylesheet" href="assets/css/css_veille.css">
+    <link rel="stylesheet" href="assets/css/image-hover-effects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Police FRICK pour les titres -->
+    <style>
+        @font-face {
+            font-family: 'FRICK';
+            src: url('assets/fonts/FRICK.woff2') format('woff2'),
+                url('assets/fonts/FRICK.woff') format('woff'),
+                url('assets/fonts/FRICK.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+
+    <!-- Nouveaux CSS -->
+    <link rel="stylesheet" href="assets/css/toast.css">
+    <link rel="stylesheet" href="assets/css/scroll-reveal.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+    <link rel="stylesheet" href="assets/css/search.css">
+    <link rel="stylesheet" href="assets/css/scroll-progress.css">
+
+    <!-- Scripts de compatibilité (chargés tôt) -->
+    <script src="assets/js/browser-compat.js"></script>
+    <script src="assets/js/font-loader.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-i18n="nav.profil">Profil</a>
+                <a href="projets.html" class="nav-link" data-i18n="nav.projets">Projets</a>
+                <a href="parcours.html" class="nav-link" data-i18n="nav.parcours">Parcours</a>
+                <a href="veille.html" class="nav-link active" data-i18n="nav.veille">Veille</a>
+                <a href="contact.html" class="nav-contact" data-i18n="nav.contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Particules animées en arrière-plan -->
+    <canvas id="veille-particles" class="veille-particles-canvas"></canvas>
+
+    <!-- Indicateur de progression de scroll -->
+    <div class="scroll-progress-indicator">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <main>
+        <section class="veille-section">
+            <div class="container">
+                <div class="veille-header reveal" data-reveal="scale">
+                    <div class="veille-header-content">
+                        <div class="veille-title-wrapper">
+                            <h2 class="section-title gradient-text" data-i18n="veille.title">Veille Technologique</h2>
+                            <div class="veille-title-decoration">
+                                <span class="decoration-line"></span>
+                                <i class="fas fa-lightbulb decoration-icon"></i>
+                                <span class="decoration-line"></span>
+                            </div>
+                        </div>
+                        <p class="veille-intro">
+                            Je présente deux sujets qui se répondent : d'abord le <strong>numérique au service des armées françaises</strong> (modernisation, cyberdéfense, méthodes inspirantes pour un développeur — sources ministère, DGA, cyber.gouv.fr), puis <strong>l'automatisation</strong> du travail du développeur (n8n, tests sur GitHub, alertes entre services). Langage accessible pour l'oral ; chaque fiche cite des sources vérifiables.
+                        </p>
+                        <div class="veille-header-stats-mini">
+                            <div class="mini-stat">
+                                <i class="fas fa-fire"></i>
+                                <span>Mise à jour active</span>
+                            </div>
+                            <div class="mini-stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Tendances IT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contrôles de vue -->
+                <div class="veille-controls reveal" data-reveal="fade">
+                    <div class="view-controls">
+                        <span class="view-label">Affichage :</span>
+                        <div class="view-buttons-wrapper">
+                            <button class="view-btn active" data-view="grid" aria-label="Vue en grille" title="Vue en grille">
+                                <i class="fas fa-th" aria-hidden="true"></i>
+                                <span>Grille</span>
+                            </button>
+                            <button class="view-btn" data-view="list" aria-label="Vue en liste" title="Vue en liste">
+                                <i class="fas fa-list" aria-hidden="true"></i>
+                                <span>Liste</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="veille-grid" id="veille-grid" role="region" aria-label="Articles de veille technologique">
+                    <article class="veille-card reveal" data-veille="avions-chasse" data-category="defense-numerique" data-tags="défense,cyberdéfense,innovation" data-date="2026-04-29" data-reading-time="7" role="article" aria-labelledby="veille-avions-title">
+                        <div class="veille-image">
+                            <img src="assets/images/veille-defense-numerique-hero.png" loading="lazy" alt="Illustration veille sur le numérique et la défense nationale">
+                            <div class="veille-card-badge">
+                                <i class="fas fa-shield-alt"></i>
+                                <span data-i18n="veille.avions.badge">Défense</span>
+                            </div>
+                            <div class="veille-new-badge">
+                                <i class="fas fa-sparkles"></i>
+                                <span>Récent</span>
+                            </div>
+                            <div class="veille-hover-overlay">
+                                <div class="veille-preview">
+                                    <p>Armées, cyberdéfense et leçons pour le métier de développeur : un angle original pour le jury.</p>
+                                    <button class="veille-read-more">
+                                        <span>Lire l'article</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="veille-content">
+                            <div class="veille-meta">
+                                <span class="veille-date"><i class="far fa-calendar"></i> <span data-i18n="veille.meta.recent">Mise à jour récente</span></span>
+                                <span class="veille-reading-time"><i class="far fa-clock"></i> 7 <span data-i18n="veille.meta.readingTime">min de lecture</span></span>
+                            </div>
+                            <h3 id="veille-avions-title"><span data-i18n="veille.avions.title">Le numérique au service des armées : modernisation et leçons pour un développeur</span> <i class="fas fa-arrow-right veille-arrow" aria-hidden="true"></i></h3>
+                            <p data-i18n="veille.avions.description">Lien entre défense nationale, innovation et pratiques du développement — sources officielles, peu de jargon.</p>
+                            <div class="veille-sources">
+                                <button class="source-tag clickable-tag" data-tag="défense" title="Filtrer par : défense">
+                                    <i class="fas fa-shield-alt"></i> 
+                                    <span data-i18n="veille.avions.tag1">Défense</span>
+                                </button>
+                                <button class="source-tag clickable-tag" data-tag="cyberdéfense" title="Filtrer par : cyberdéfense">
+                                    <i class="fas fa-user-shield"></i> 
+                                    <span data-i18n="veille.avions.tag2">Cyberdéfense</span>
+                                </button>
+                                <button class="source-tag clickable-tag" data-tag="innovation" title="Filtrer par : innovation">
+                                    <i class="fas fa-lightbulb"></i> 
+                                    <span data-i18n="veille.avions.tag3">Innovation</span>
+                                </button>
+                            </div>
+                            <div class="veille-actions">
+                                <button class="veille-action-btn" data-action="share" aria-label="Partager cet article" title="Partager">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="veille-action-btn" data-action="bookmark" aria-label="Ajouter aux favoris" title="Favoris">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="veille-card reveal" data-veille="automatisation" data-category="devops" data-tags="n8n,tests automatiques,notifications" data-date="2026-04-29" data-reading-time="8" role="article" aria-labelledby="veille-automatisation-title" style="animation-delay: 0.1s;">
+                        <div class="veille-image" >
+                            <img src="assets/images/veille-dev-automation-hero.png" alt="Illustration veille sur l'automatisation pour développeurs web">
+                            <div class="veille-card-badge" >
+                                <i class="fas fa-robot" ></i>
+                                <span data-i18n="veille.automatisation.badge">Automatisation</span>
+                            </div>
+                            <div class="veille-hover-overlay">
+                                <div class="veille-preview">
+                                    <p>Schémas n8n, tests sur GitHub, alertes entre sites : des exemples pour gagner du temps au quotidien.</p>
+                                    <button class="veille-read-more">
+                                        <span>Lire l'article</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="veille-content">
+                            <div class="veille-meta">
+                                <span class="veille-date"><i class="far fa-calendar"></i> <span data-i18n="veille.meta.recent">Mise à jour récente</span></span>
+                                <span class="veille-reading-time"><i class="far fa-clock"></i> 8 <span data-i18n="veille.meta.readingTime">min de lecture</span></span>
+                            </div>
+                            <h3 id="veille-automatisation-title"><span data-i18n="veille.automatisation.title">Automatiser son travail de développeur</span> <i class="fas fa-arrow-right veille-arrow" aria-hidden="true"></i></h3>
+                            <p data-i18n="veille.automatisation.description">Moins de gestes répétitifs : enchaîner les tâches avec n8n, GitHub et des notifications entre services.</p>
+                            <div class="veille-sources">
+                                <button class="source-tag clickable-tag" data-tag="n8n" title="Filtrer par : n8n">
+                                    <i class="fab fa-node-js"></i> 
+                                    <span data-i18n="veille.automatisation.tag1">n8n</span>
+                                </button>
+                                <button class="source-tag clickable-tag" data-tag="tests automatiques" title="Filtrer par : tests automatiques">
+                                    <i class="fab fa-github"></i> 
+                                    <span data-i18n="veille.automatisation.tag2">Tests auto</span>
+                                </button>
+                                <button class="source-tag clickable-tag" data-tag="notifications" title="Filtrer par : notifications">
+                                    <i class="fas fa-link"></i> 
+                                    <span data-i18n="veille.automatisation.tag3">Alertes</span>
+                                </button>
+                            </div>
+                            <div class="veille-actions">
+                                <button class="veille-action-btn" data-action="share" aria-label="Partager cet article" title="Partager">
+                                    <i class="fas fa-share-alt"></i>
+                                </button>
+                                <button class="veille-action-btn" data-action="bookmark" aria-label="Ajouter aux favoris" title="Favoris">
+                                    <i class="far fa-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="veille-stats reveal" data-reveal="scale">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="stat-number" data-counter data-target="2" data-duration="1500">0</div>
+                        <div class="stat-label" data-i18n="veille.stats.subjects">Sujets suivis</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-link"></i></div>
+                        <div class="stat-number" data-counter data-target="22" data-duration="2000" data-suffix="+">0</div>
+                        <div class="stat-label" data-i18n="veille.stats.sources">Sources consultées</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-sync-alt"></i></div>
+                        <div class="stat-number" data-i18n="veille.stats.update">Mise à jour</div>
+                        <div class="stat-label" data-i18n="veille.stats.regular">Régulière</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL ARTICLE -->
+    <div id="veille-modal" class="veille-modal">
+        <div class="veille-modal-overlay"></div>
+        <div class="veille-modal-content">
+            <button class="veille-modal-close" id="close-veille-modal" aria-label="Fermer">×</button>
+            <div id="veille-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span data-i18n="footer.backToTop">Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+    <!-- Nouveaux scripts -->
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+    <script src="assets/js/stats-counter.js"></script>
+    <script src="assets/js/scroll-progress.js"></script>
+
+    <script>
+        // Articles de veille
+        const veilleArticles = {
+            'avions-chasse': {
+                title: 'Le numérique au service des armées : modernisation et leçons pour un développeur',
+                category: 'Défense nationale & numérique',
+                date: '29 avril 2026',
+                source: 'defense.gouv.fr, DGA, cyber.gouv.fr',
+                image: 'assets/images/veille-defense-numerique-hero.png',
+                content: `
+                    <div class="article-intro">
+                        <p>Veille sur la modernisation des armées, la cyberdéfense et les parallèles avec le métier de développeur — sources institutionnelles.</p>
+                    </div>
+                    <div class="article-section">
+                        <h4>Innovation</h4>
+                        <p>DGA, équipements, recrutement numérique ; validation avant mise en service.</p>
+                    </div>
+                    <div class="article-section">
+                        <h4>Méthode</h4>
+                        <p>Vérifier avant diffusion, droits d'accès, plan de repli — utile aussi en développement web.</p>
+                    </div>
+                    <div class="article-sources">
+                        <h4>Sources</h4>
+                        <ul>
+                            <li><a href="https://www.defense.gouv.fr/" target="_blank">Ministère des Armées</a></li>
+                            <li><a href="https://www.defense.gouv.fr/dga" target="_blank">Direction générale de l'armement</a></li>
+                            <li><a href="https://www.cyber.gouv.fr/" target="_blank">cyber.gouv.fr</a></li>
+                        </ul>
+                    </div>
+                `
+            },
+            'automatisation': {
+                title: 'Automatiser son travail de développeur',
+                category: 'Développement web & automatisation',
+                date: '29 avril 2026',
+                source: 'Documentation n8n et GitHub',
+                image: 'assets/images/veille-dev-automation-hero.png',
+                content: `
+                    <div class="article-intro">
+                        <p>Fiche simple : schémas n8n, tests automatiques sur GitHub, alertes entre services.</p>
+                    </div>
+                    <div class="article-section">
+                        <h4>Outils</h4>
+                        <p>n8n pour enchaîner des étapes ; GitHub pour lancer des contrôles à chaque modification.</p>
+                    </div>
+                    <div class="article-section">
+                        <h4>Qualité</h4>
+                        <p>Vérifier les données reçues, limiter les droits, penser au coût et aux doublons.</p>
+                    </div>
+                    <div class="article-sources">
+                        <h4>Sources</h4>
+                        <ul>
+                            <li><a href="https://docs.n8n.io/" target="_blank">Documentation n8n</a></li>
+                            <li><a href="https://docs.github.com/en/actions" target="_blank">Tests et tâches sur GitHub</a></li>
+                            <li><a href="https://owasp.org/www-project-api-security/" target="_blank">Bonnes pratiques OWASP pour les interfaces web</a></li>
+                        </ul>
+                    </div>
+                `
+            }
+        };
+
+        // Gestion du modal
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('veille-modal');
+            const modalBody = document.getElementById('veille-modal-body');
+            const closeBtn = document.getElementById('close-veille-modal');
+            const overlay = document.querySelector('.veille-modal-overlay');
+            const cards = document.querySelectorAll('.veille-card');
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const veilleId = card.getAttribute('data-veille');
+                    
+                    // Redirection vers les pages de détail
+                    if (veilleId === 'avions-chasse') {
+                        window.location.href = 'veille-avions-chasse.html';
+                    } else if (veilleId === 'automatisation') {
+                        window.location.href = 'veille-automatisation.html';
+                    }
+                });
+            });
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            };
+
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (overlay) overlay.addEventListener('click', closeModal);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+
+            // Mobile menu toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            // Système de vue
+            const veilleCards = document.querySelectorAll('.veille-card');
+            const veilleGrid = document.getElementById('veille-grid');
+            const viewButtons = document.querySelectorAll('.view-btn');
+            let currentView = 'grid';
+
+
+            // Système de vue (grille/liste)
+            viewButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    viewButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentView = btn.getAttribute('data-view');
+                    
+                    // Animation de transition fluide
+                    veilleGrid.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+                    veilleGrid.style.opacity = '0.6';
+                    veilleGrid.style.transform = 'scale(0.98)';
+                    
+                    setTimeout(() => {
+                        veilleGrid.classList.toggle('list-view', currentView === 'list');
+                        veilleGrid.style.opacity = '1';
+                        veilleGrid.style.transform = 'scale(1)';
+                        
+                        // Réanimer les cartes
+                        veilleCards.forEach((card, index) => {
+                            card.style.animationDelay = `${index * 0.1}s`;
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            
+                            setTimeout(() => {
+                                card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        });
+                    }, 250);
+                });
+            });
+
+
+            // Actions (partage, favoris)
+            const actionButtons = document.querySelectorAll('.veille-action-btn');
+            actionButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const action = btn.getAttribute('data-action');
+                    const card = btn.closest('.veille-card');
+                    const veilleId = card.getAttribute('data-veille');
+                    
+                    if (action === 'share') {
+                        shareArticle(veilleId, card);
+                    } else if (action === 'bookmark') {
+                        toggleBookmark(btn, veilleId);
+                    }
+                });
+            });
+
+            function shareArticle(veilleId, card) {
+                const title = card.querySelector('h3')?.textContent || '';
+                const url = window.location.href;
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: title,
+                        text: 'Découvrez cet article de veille technologique',
+                        url: url
+                    }).catch(err => console.log('Erreur de partage:', err));
+                } else {
+                    // Fallback : copier le lien
+                    navigator.clipboard.writeText(url).then(() => {
+                        showToast('Lien copié dans le presse-papiers !');
+                    });
+                }
+            }
+
+            function toggleBookmark(btn, veilleId) {
+                const icon = btn.querySelector('i');
+                const isBookmarked = icon.classList.contains('fas');
+                
+                if (isBookmarked) {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    btn.setAttribute('aria-label', 'Ajouter aux favoris');
+                    showToast('Retiré des favoris');
+                } else {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    btn.setAttribute('aria-label', 'Retirer des favoris');
+                    showToast('Ajouté aux favoris');
+                }
+            }
+
+            function showToast(message) {
+                // Utiliser le système de toast existant si disponible
+                if (window.showToast) {
+                    window.showToast(message);
+                } else {
+                    console.log(message);
+                }
+            }
+
+            // Effet magnétique amélioré sur les cartes
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                veilleCards.forEach(card => {
+                    let isHovering = false;
+                    
+                    card.addEventListener('mouseenter', () => {
+                        isHovering = true;
+                    });
+                    
+                    card.addEventListener('mousemove', (e) => {
+                        if (!isHovering) return;
+                        
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        const moveX = (x - centerX) / 25;
+                        const moveY = (y - centerY) / 25;
+                        
+                        // Ajouter une rotation subtile
+                        const rotateY = moveX * 0.5;
+                        const rotateX = -moveY * 0.5;
+                        
+                        card.style.setProperty('--magnetic-x', `${moveX}px`);
+                        card.style.setProperty('--magnetic-y', `${moveY}px`);
+                        card.style.setProperty('--rotate-y', `${rotateY}deg`);
+                        card.style.setProperty('--rotate-x', `${rotateX}deg`);
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        isHovering = false;
+                        card.style.setProperty('--magnetic-x', '0px');
+                        card.style.setProperty('--magnetic-y', '0px');
+                        card.style.setProperty('--rotate-y', '0deg');
+                        card.style.setProperty('--rotate-x', '0deg');
+                    });
+                });
+            }
+
+            // Parallaxe subtile sur les cartes (seulement si pas de préférence reduced-motion)
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                let ticking = false;
+                function updateParallax() {
+                    if (ticking) return;
+                    ticking = true;
+                    requestAnimationFrame(() => {
+                        veilleCards.forEach((card) => {
+                            const rect = card.getBoundingClientRect();
+                            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                            if (isVisible && card.style.display !== 'none') {
+                                const offset = (rect.top - window.innerHeight / 2) * 0.03;
+                                card.style.setProperty('--parallax-offset', `${offset}px`);
+                            }
+                        });
+                        ticking = false;
+                    });
+                }
+                window.addEventListener('scroll', updateParallax, { passive: true });
+                updateParallax(); // Initial call
+            }
+
+            // Animation de particules en arrière-plan
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                initParticles();
+            }
+
+            // Indicateur de progression de scroll
+            const progressBar = document.querySelector('.scroll-progress-bar');
+            if (progressBar) {
+                function updateScrollProgress() {
+                    const windowHeight = window.innerHeight;
+                    const documentHeight = document.documentElement.scrollHeight;
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+                    progressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
+                }
+                
+                window.addEventListener('scroll', updateScrollProgress, { passive: true });
+                updateScrollProgress();
+            }
+
+            // Animation de révélation progressive des cartes au scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            entry.target.classList.add('revealed');
+                        }, index * 100);
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            veilleCards.forEach(card => {
+                cardObserver.observe(card);
+            });
+
+            // Effet de parallaxe amélioré pour les images
+            function updateImageParallax() {
+                veilleCards.forEach(card => {
+                    const rect = card.getBoundingClientRect();
+                    const image = card.querySelector('.veille-image img');
+                    if (image && rect.top < window.innerHeight && rect.bottom > 0) {
+                        const scrolled = window.pageYOffset;
+                        const rate = scrolled * 0.1;
+                        image.style.transform = `translateY(${rate * 0.3}px) scale(1.05)`;
+                    }
+                });
+            }
+
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                window.addEventListener('scroll', updateImageParallax, { passive: true });
+            }
+        });
+
+        function initParticles() {
+            const canvas = document.getElementById('veille-particles');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const particles = [];
+            const particleCount = 50;
+            let animationId = null;
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+            
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 1;
+                    this.speedX = (Math.random() - 0.5) * 0.5;
+                    this.speedY = (Math.random() - 0.5) * 0.5;
+                    this.opacity = Math.random() * 0.5 + 0.2;
+                }
+                
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+                }
+                
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(74, 127, 255, ${this.opacity})`;
+                    ctx.fill();
+                }
+            }
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+            
+            function animate() {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                    }
+                    return;
+                }
+                
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                // Connecter les particules proches
+                particles.forEach((p1, i) => {
+                    particles.slice(i + 1).forEach(p2 => {
+                        const dx = p1.x - p2.x;
+                        const dy = p1.y - p2.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 120) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(74, 127, 255, ${0.1 * (1 - distance / 120)})`;
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(p1.x, p1.y);
+                            ctx.lineTo(p2.x, p2.y);
+                            ctx.stroke();
+                        }
+                    });
+                });
+                
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+    </script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+</body>
+
+</html>

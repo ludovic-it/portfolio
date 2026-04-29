@@ -1,0 +1,638 @@
+/* ===== PARCOURS PAGE STYLES ===== */
+/* Les styles de base (navbar, variables, etc.) viennent de css_index.css */
+
+.parcours-main {
+    padding: 140px 0 80px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, 
+        var(--background-color) 0%, 
+        rgba(74, 127, 255, 0.02) 50%, 
+        var(--background-color) 100%);
+    color: var(--text-primary);
+    position: relative;
+}
+
+.parcours-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(74, 127, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(107, 154, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.parcours-main > .container {
+    position: relative;
+    z-index: 1;
+}
+
+.parcours-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 80px;
+    color: var(--primary-color);
+    font-family: 'FRICK', 'Inter', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+/* ===== TIMELINE CONTAINER ===== */
+.timeline-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* Timeline line simple avec barre de progression */
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: rgba(74, 127, 255, 0.15);
+    border-radius: 2px;
+    z-index: 1;
+    margin-left: -2px;
+    overflow: hidden;
+}
+
+.timeline-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom,
+            var(--primary-color) 0%,
+            var(--primary-light) 100%);
+    border-radius: 2px;
+    transition: height 0.3s ease;
+}
+
+.timeline-items {
+    position: relative;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 60px;
+    transition: opacity 0.6s ease;
+}
+
+.timeline-item.active,
+.timeline-item.visible {
+    opacity: 1;
+}
+
+/* Les cartes commencent transparentes mais visibles pour le debug */
+.timeline-card {
+    opacity: 0;
+    /* Assurer que les cartes sont visibles même si opacity est 0 */
+    visibility: visible;
+    display: block;
+}
+
+/* Alternance gauche/droite */
+.timeline-item:nth-child(odd) {
+    padding-right: calc(50% + 50px);
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    padding-left: calc(50% + 50px);
+    text-align: left;
+}
+
+/* Le marker - centré sur la ligne */
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    width: 24px;
+    height: 24px;
+    background: var(--background-color);
+    border: 4px solid var(--primary-color);
+    border-radius: 50%;
+    z-index: 20;
+    box-shadow: 0 0 0 4px rgba(74, 127, 255, 0.15),
+                0 4px 12px rgba(74, 127, 255, 0.2);
+    margin-left: -12px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.timeline-marker::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.timeline-item.active .timeline-marker,
+.timeline-item.visible .timeline-marker {
+    background: var(--primary-color);
+    box-shadow: 0 0 0 6px rgba(74, 127, 255, 0.25),
+                0 6px 20px rgba(74, 127, 255, 0.3);
+    transform: scale(1.15);
+}
+
+.timeline-item.active .timeline-marker::before,
+.timeline-item.visible .timeline-marker::before {
+    opacity: 1;
+    background: white;
+}
+
+/* Animation pulse pour les marqueurs actifs */
+@keyframes pulse-ring {
+    0% {
+        box-shadow: 0 0 0 0 rgba(74, 127, 255, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 0 20px rgba(74, 127, 255, 0);
+    }
+}
+
+.timeline-item.active .timeline-marker {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.timeline-card {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(74, 127, 255, 0.1);
+    border: 1px solid rgba(74, 127, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+    display: inline-block;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fallback pour navigateurs sans support backdrop-filter */
+@supports (backdrop-filter: blur(20px)) or (-webkit-backdrop-filter: blur(20px)) {
+    .timeline-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+}
+
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74, 127, 255, 0.05), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.timeline-card:hover::before {
+    left: 100%;
+}
+
+.timeline-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        var(--primary-color) 0%, 
+        var(--primary-light) 50%, 
+        var(--primary-color) 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(74, 127, 255, 0.15),
+                0 0 0 1px rgba(74, 127, 255, 0.2);
+    border-color: rgba(74, 127, 255, 0.3);
+}
+
+.timeline-card:hover::after {
+    transform: scaleX(1);
+}
+
+.timeline-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.timeline-badge {
+    background: linear-gradient(135deg, rgba(74, 127, 255, 0.2), rgba(107, 154, 255, 0.25));
+    color: var(--primary-color);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(74, 127, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(74, 127, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Fallback pour navigateurs sans support backdrop-filter */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    .timeline-badge {
+        background: linear-gradient(135deg, rgba(74, 127, 255, 0.15), rgba(107, 154, 255, 0.2));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+.timeline-badge::before {
+    content: '⚡';
+    font-size: 0.875rem;
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.timeline-card:hover .timeline-badge {
+    background: linear-gradient(135deg, rgba(74, 127, 255, 0.25), rgba(107, 154, 255, 0.3));
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(74, 127, 255, 0.2);
+    border-color: rgba(74, 127, 255, 0.5);
+}
+
+.timeline-date-range {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timeline-date-range i {
+    font-size: 0.75rem;
+    color: var(--text-light);
+}
+
+.timeline-title {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.timeline-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+}
+
+.timeline-meta span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timeline-meta i {
+    font-size: 0.875rem;
+    width: 16px;
+    color: var(--text-light);
+}
+
+.timeline-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-size: 1rem;
+}
+
+.timeline-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.timeline-task {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+}
+
+.timeline-task:hover {
+    color: var(--text-primary);
+    transform: translateX(4px);
+}
+
+.timeline-task i {
+    color: var(--primary-color);
+    font-size: 0.875rem;
+    margin-top: 4px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.timeline-task:hover i {
+    transform: scale(1.2) rotate(5deg);
+    color: var(--primary-light);
+}
+
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.timeline-tags span {
+    background: linear-gradient(135deg, rgba(74, 127, 255, 0.15), rgba(107, 154, 255, 0.2));
+    color: var(--primary-color);
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(74, 127, 255, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default;
+}
+
+/* Fallback pour navigateurs sans support backdrop-filter */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    .timeline-tags span {
+        background: linear-gradient(135deg, rgba(74, 127, 255, 0.1), rgba(107, 154, 255, 0.15));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+/* ===== TIMELINE ACTIONS (BOUTONS DE VISUALISATION) ===== */
+.timeline-actions {
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.timeline-view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(74, 127, 255, 0.3),
+                0 0 0 0 rgba(74, 127, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.timeline-view-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.timeline-view-btn:hover::before {
+    left: 100%;
+}
+
+.timeline-view-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(74, 127, 255, 0.4),
+                0 0 0 4px rgba(74, 127, 255, 0.2);
+}
+
+.timeline-view-btn:active {
+    transform: translateY(-1px) scale(1);
+    box-shadow: 0 4px 12px rgba(74, 127, 255, 0.3);
+}
+
+.timeline-view-btn i {
+    font-size: 1.125rem;
+    transition: transform 0.3s ease;
+}
+
+.timeline-view-btn:hover i {
+    transform: scale(1.15) rotate(5deg);
+}
+
+/* ===== AMÉLIORATIONS VISUELLES ===== */
+
+/* Effet de brillance sur les cartes */
+.timeline-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74, 127, 255, 0.05), transparent);
+    transition: left 0.6s ease;
+    pointer-events: none;
+}
+
+.timeline-card:hover::before {
+    left: 100%;
+}
+
+/* Amélioration du marker avec animation pulse */
+@keyframes pulse-ring {
+    0% {
+        box-shadow: 0 0 0 0 rgba(74, 127, 255, 0.4);
+    }
+
+    100% {
+        box-shadow: 0 0 0 20px rgba(74, 127, 255, 0);
+    }
+}
+
+.timeline-item.active .timeline-marker {
+    animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+
+
+/* Effet de survol sur les badges */
+.timeline-card:hover .timeline-badge {
+    background: linear-gradient(135deg, rgba(74, 127, 255, 0.25), rgba(107, 154, 255, 0.3));
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(74, 127, 255, 0.2);
+    border-color: rgba(74, 127, 255, 0.5);
+}
+
+/* Amélioration des tags avec effet hover */
+.timeline-tags span:hover {
+    background: linear-gradient(135deg, rgba(74, 127, 255, 0.2), rgba(107, 154, 255, 0.25));
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(74, 127, 255, 0.2);
+    border-color: rgba(74, 127, 255, 0.4);
+}
+
+/* Titre de la page avec effet de dégradé amélioré */
+.parcours-title {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 50%, var(--primary-color) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    animation: titleGradient 3s ease infinite;
+}
+
+@keyframes titleGradient {
+    0%, 100% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+}
+
+.parcours-title::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--primary-color) 20%, 
+        var(--primary-light) 50%, 
+        var(--primary-color) 80%, 
+        transparent 100%);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(74, 127, 255, 0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .timeline-line-wrapper {
+        left: 30px;
+        margin-left: 0;
+    }
+    
+    .timeline-progress-indicator {
+        left: 30px;
+        transform: translateX(-50%);
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 70px;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .timeline-marker {
+        left: 30px;
+        margin-left: -10px;
+    }
+
+    .timeline-card {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .parcours-main {
+        padding: 120px 0 60px;
+    }
+
+    .parcours-title {
+        margin-bottom: 48px;
+        font-size: 2rem;
+    }
+
+    .timeline-container {
+        padding: 0 20px;
+    }
+
+    .timeline-card {
+        padding: 24px;
+    }
+
+    .timeline-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .timeline-item {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .parcours-title {
+        font-size: 1.75rem;
+    }
+
+    .timeline-card {
+        padding: 20px;
+    }
+
+    .timeline-title {
+        font-size: 1.125rem;
+    }
+
+    .timeline-description {
+        font-size: 0.9375rem;
+    }
+}

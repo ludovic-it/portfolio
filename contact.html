@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Contact - Portfolio Ludovic.C | Prendre Contact</title>
+    <meta name="description"
+        content="Contactez Ludovic CHAMPROBERT pour discuter de vos projets ou opportunités d'emploi. Réponse généralement en 24h.">
+    <meta name="keywords" content="contact développeur, recrutement développeur, projet web">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://votre-domaine.com/contact.html">
+    <meta property="og:title" content="Contact - Portfolio Ludovic.C">
+    <meta property="og:description" content="Discutons de vos projets ou opportunités d'emploi.">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Contact - Portfolio Ludovic.C">
+    <meta name="twitter:description" content="Discutons de vos projets ou opportunités d'emploi.">
+
+    <link rel="stylesheet" href="assets/css/css_index.css">
+    <link rel="stylesheet" href="assets/css/css_contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Police FRICK pour les titres -->
+    <style>
+        @font-face {
+            font-family: 'FRICK';
+            src: url('assets/fonts/FRICK.woff2') format('woff2'),
+                url('assets/fonts/FRICK.woff') format('woff'),
+                url('assets/fonts/FRICK.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+
+    <!-- Scripts de compatibilité (chargés tôt) -->
+    <script src="assets/js/browser-compat.js"></script>
+    <script src="assets/js/font-loader.js"></script>
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- Nouveaux CSS -->
+    <link rel="stylesheet" href="assets/css/toast.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-i18n="nav.profil">Profil</a>
+                <a href="projets.html" class="nav-link" data-i18n="nav.projets">Projets</a>
+                <a href="parcours.html" class="nav-link" data-i18n="nav.parcours">Parcours</a>
+                <a href="veille.html" class="nav-link" data-i18n="nav.veille">Veille</a>
+                <a href="contact.html" class="nav-contact" data-i18n="nav.contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="contact-main">
+        <!-- Éléments décoratifs flottants pour l'animation -->
+        <div class="floating-shapes">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+        <!-- Particules décoratives -->
+        <div class="particles-container">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-4"></div>
+            <div class="particle particle-5"></div>
+        </div>
+        <!-- Effet de lumière dynamique -->
+        <div class="light-effect"></div>
+        <!-- Rayons de lumière -->
+        <div class="light-rays">
+            <div class="light-ray ray-1"></div>
+            <div class="light-ray ray-2"></div>
+            <div class="light-ray ray-3"></div>
+        </div>
+        <!-- Grille décorative -->
+        <div class="grid-overlay"></div>
+        <div class="contact-container">
+            <div class="contact-content-wrapper">
+                <div class="contact-left">
+                    <h1 class="contact-title" data-i18n="contact.title">Contact.</h1>
+                    <p class="contact-description" data-i18n="contact.description">
+                        <i class="fas fa-envelope-open-text" style="color: var(--primary-color); margin-right: 8px;"></i>
+                        Je serais ravi d'avoir de vos nouvelles. Envoyez-moi un message et commençons la conversation.
+                    </p>
+
+                    <div class="contact-quote-card">
+                        <div class="quote-icon">"</div>
+                            <p class="quote-text" data-i18n="contact.quote">
+                            <i class="fas fa-quote-left" style="color: var(--primary-color); opacity: 0.3; margin-right: 8px;"></i>
+                            De la rigueur militaire à la créativité du code, mon parcours atypique est ma plus grande force. Il me permet d'aborder le développement logiciel avec discipline, précision et esprit d'innovation.
+                        </p>
+                        <div class="quote-author">
+                            <div class="quote-author-info">
+                                <strong data-i18n="contact.author">
+                                    <i class="fas fa-user" style="margin-right: 6px; color: var(--primary-color);"></i>
+                                    Ludovic CHAMPROBERT
+                                </strong>
+                                <span data-i18n="contact.role">
+                                    <i class="fas fa-code" style="margin-right: 6px; color: var(--text-secondary);"></i>
+                                    Développeur BTS SIO
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-right">
+                    <div class="contact-form-card">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name" data-i18n="contact.form.name">
+                                    <i class="fas fa-user"></i>
+                                    Nom
+                                </label>
+                                <input type="text" id="name" name="name" required data-i18n-placeholder="contact.form.name.placeholder" placeholder="Entrez votre nom"
+                                    aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" data-i18n="contact.form.email">
+                                    <i class="fas fa-envelope"></i>
+                                    Email
+                                </label>
+                                <input type="email" id="email" name="email" required data-i18n-placeholder="contact.form.email.placeholder" placeholder="Entrez votre email"
+                                    aria-required="true">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" data-i18n="contact.form.message">
+                                    <i class="fas fa-comment-alt"></i>
+                                    Message
+                                </label>
+                                <textarea id="message" name="message" rows="5" required
+                                    data-i18n-placeholder="contact.form.message.placeholder" placeholder="Ecrivez votre message" aria-required="true"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-submit" data-i18n="contact.form.submit">
+                                Envoyez
+                                <span class="btn-dot"></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span data-i18n="footer.backToTop">Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+
+    <!-- Nouveaux scripts -->
+    <script src="assets/js/toast.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <script src="assets/js/contact-form-validation.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+
+    <script>
+        // Initialiser EmailJS
+        emailjs.init('z0cmbUGcTGsl_6977');
+
+        // Envoi du formulaire avec EmailJS
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Envoi en cours... <span class="btn-dot"></span>';
+
+            // Envoyer l'email via EmailJS
+            emailjs.send('service_i9qujao', 'template_5twpb0n', {
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                to_email: 'champludovic91@gmail.com'
+            })
+            .then(function() {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Envoyez <span class="btn-dot"></span>';
+                
+                if (typeof toast !== 'undefined') {
+                    toast.success('Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.');
+                } else {
+                    alert('Message envoyé avec succès !');
+                }
+                
+                form.reset();
+            })
+            .catch(function(error) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Envoyez <span class="btn-dot"></span>';
+                
+                if (typeof toast !== 'undefined') {
+                    toast.error('Erreur lors de l\'envoi. Veuillez réessayer.');
+                } else {
+                    alert('Erreur lors de l\'envoi. Veuillez réessayer.');
+                }
+                console.error('EmailJS error:', error);
+            });
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        }
+    </script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+</body>
+
+</html>

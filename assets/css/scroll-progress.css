@@ -1,0 +1,33 @@
+/* Scroll Progress Bar */
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-light) 50%, var(--primary-color) 100%);
+    background-size: 200% 100%;
+    z-index: 10000;
+    transform-origin: left;
+    transition: width 0.1s ease-out;
+    box-shadow: 0 2px 8px rgba(74, 127, 255, 0.4);
+    animation: progressGlow 2s ease-in-out infinite;
+}
+
+@keyframes progressGlow {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Respecter prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-progress-bar {
+        animation: none;
+        transition: width 0.2s ease-out;
+    }
+}
+
+

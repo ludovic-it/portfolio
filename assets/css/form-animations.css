@@ -1,0 +1,143 @@
+/* Advanced Form Animations */
+/* Floating Labels */
+.form-group {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.form-group.floating-label {
+    margin-top: 24px;
+}
+
+.form-group.floating-label label {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: var(--text-light);
+    font-size: 1rem;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
+    padding: 0 4px;
+    transform-origin: left top;
+}
+
+.form-group.floating-label input:focus + label,
+.form-group.floating-label input:not(:placeholder-shown) + label,
+.form-group.floating-label textarea:focus + label,
+.form-group.floating-label textarea:not(:placeholder-shown) + label {
+    top: -12px;
+    left: 12px;
+    font-size: 0.875rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.form-group.floating-label input,
+.form-group.floating-label textarea {
+    padding-top: 20px;
+}
+
+/* Input Focus Animation */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 127, 255, 0.1),
+                0 4px 12px rgba(74, 127, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Validation States */
+.form-group.success input,
+.form-group.success textarea {
+    border-color: var(--success-color, #10B981);
+}
+
+.form-group.error input,
+.form-group.error textarea {
+    border-color: var(--error-color, #EF4444);
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Validation Icons */
+.form-group::after {
+    content: '';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.form-group.success::after {
+    content: '✓';
+    color: var(--success-color, #10B981);
+    opacity: 1;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.form-group.error::after {
+    content: '✕';
+    color: var(--error-color, #EF4444);
+    opacity: 1;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Input Icons */
+.form-group.with-icon {
+    position: relative;
+}
+
+.form-group.with-icon input,
+.form-group.with-icon textarea {
+    padding-left: 48px;
+}
+
+.form-group.with-icon .input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-light);
+    transition: color 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.form-group.with-icon input:focus ~ .input-icon,
+.form-group.with-icon textarea:focus ~ .input-icon {
+    color: var(--primary-color);
+}
+
+/* Progress Bar for Form Completion */
+.form-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(74, 127, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.form-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+

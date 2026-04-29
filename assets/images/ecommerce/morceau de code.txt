@@ -1,0 +1,65 @@
+Gestion des routes
+#[Route('/{id}/edit', name: 'app_product_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Product $product, EntityManagerInterface $entityManager): Response
+    {
+        $this->checkAccess();
+
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Produit modifié avec succès.');
+
+            return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->render('product/edit.html.twig', [
+            'product' => $product,
+            'form' => $form,
+        ]);
+    }
+
+
+Paiement Stripe et envoi d'un email
+
+ $stripePayment->startPayment($order);
+            $stripeRedirectUrl = $stripePayment->getStripeRedirectUrl();
+            return $this->redirect($stripeRedirectUrl);
+
+    // Générer PDF
+            $pdfOptions = new Options();
+            $pdfOptions->set('defaultFont', 'Arial');
+            $domPdf = new Dompdf($pdfOptions);
+            $html = $this->renderView('bill/index.html.twig', ['order' => $order]);
+            $domPdf->loadHtml($html);
+            $domPdf->setPaper('A4', 'portrait');
+            $domPdf->render();
+            $pdfContent = $domPdf->output();
+
+            // Envoyer l'email
+            $recipient = $this->getUser()?->getEmail() ?? 'jdubromelle@edouardgand.fr';
+            $htmlMail = $this->renderView('mail/orderConfirm.html.twig', ['order' => $order]);
+
+
+
+
+La pagination
+ if ($q) {
+            // utilise le QueryBuilder retourné par le repository pour permettre la pagination
+            $data = $productRepository->searchByTerm($q);
+        } else {
+            $data = $productRepository->createQueryBuilder('p')
+                ->orderBy('p.name', 'ASC');
+        }
+
+        $products = $paginator->paginate(
+            $data,
+            $request->query->getInt('page', 1),
+            12
+        );
+Le moteur de recherche
+
+
+#[Route('/search/engine', name: 'app_search_engine')]    public function index(ProductRepository $productRepository, CategoryRepository     $categoryRepository, PaginatorInterface $paginator, Request $request): Response    {        if ($request -> isMethod('GET')){            $data = $request->query->all();            $word = $data['word'];                    $data = $productRepository->searchEngine($word);            $products = $paginator->paginate(                $data,                $request->query->getInt('page',1),            );        }        return $this->render('search_engine/index.html.twig', [            'products' => $products,            'categories' => $categoryRepository ->findAll(),        ]);

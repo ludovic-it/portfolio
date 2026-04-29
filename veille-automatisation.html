@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- SEO Meta Tags -->
+    <title>Automatiser son travail de développeur | Veille Ludovic.C</title>
+    <meta name="description"
+        content="Veille accessible : enchaîner les tâches répétitives avec n8n, les tests automatiques sur GitHub et les notifications entre sites. Exemples concrets.">
+    <meta name="keywords"
+        content="veille technologique, automatisation, n8n, développement web, tests, GitHub, veille BTS">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votre-domaine.com/veille-automatisation.html">
+    <meta property="og:title" content="Automatiser son travail de développeur">
+    <meta property="og:description"
+        content="Moins de clics manuels, plus de fiabilité : idées simples pour un futur développeur web.">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/veille-dev-automation-hero.png">
+
+    <link rel="stylesheet" href="assets/css/css_index.css">
+    <link rel="stylesheet" href="assets/css/css_veille.css">
+    <link rel="stylesheet" href="assets/css/breadcrumbs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        @font-face {
+            font-family: 'FRICK';
+            src: url('assets/fonts/FRICK.woff2') format('woff2'),
+                url('assets/fonts/FRICK.woff') format('woff'),
+                url('assets/fonts/FRICK.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Hero parallax avec image de fond - Design moderne */
+        .veille-hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 80px;
+        }
+
+        .veille-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150%;
+            background-image: url('assets/images/veille-dev-automation-hero.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            will-change: transform;
+            z-index: 1;
+            filter: brightness(0.8) saturate(1.1);
+        }
+
+        .veille-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        /* Effet de particules animées en arrière-plan */
+        .veille-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(74, 127, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(107, 154, 255, 0.1) 0%, transparent 50%);
+            z-index: 2;
+            animation: particlesMove 20s ease-in-out infinite;
+        }
+
+        @keyframes particlesMove {
+            0%, 100% {
+                transform: translate(0, 0);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(30px, -30px);
+                opacity: 0.5;
+            }
+        }
+
+        .veille-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: white;
+            padding: 0 32px;
+            max-width: 1000px;
+            animation: heroContentFadeIn 1s ease-out;
+        }
+
+        @keyframes heroContentFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .veille-hero-content .article-meta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .veille-hero-content .article-category,
+        .veille-hero-content .article-date {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 18px;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .veille-hero-content .article-category:hover,
+        .veille-hero-content .article-date:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .veille-hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-family: 'FRICK', 'Inter', sans-serif;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(74, 127, 255, 0.5);
+            line-height: 1.2;
+            color: #4A7FFF;
+            animation: titleFloat 4s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes titleFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .veille-hero-content .article-source {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-style: italic;
+        }
+
+        /* Contenu principal avec révélation progressive */
+        .veille-content-wrapper {
+            position: relative;
+            background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+            z-index: 4;
+            margin-top: -100px;
+            border-radius: 40px 40px 0 0;
+            padding-top: 80px;
+            box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.15), 0 -5px 20px rgba(74, 127, 255, 0.1);
+        }
+
+        .veille-article-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 48px 100px;
+        }
+
+        .veille-article-section {
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(50px) scale(0.95);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: blur(8px);
+            padding: 56px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 252, 255, 0.98) 100%);
+            border-radius: 28px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(74, 127, 255, 0.05);
+            border: 1px solid rgba(74, 127, 255, 0.12);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .veille-article-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #4A7FFF;
+            transform: scaleY(0);
+            transition: transform 0.6s ease;
+        }
+
+        .veille-article-section.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0);
+        }
+
+        .veille-article-section.visible::before {
+            transform: scaleY(1);
+        }
+
+        .veille-article-section:hover {
+            box-shadow: 0 20px 60px rgba(74, 127, 255, 0.2), 0 8px 24px rgba(74, 127, 255, 0.15), 0 0 0 1px rgba(74, 127, 255, 0.1);
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(74, 127, 255, 0.4);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 255, 1) 100%);
+        }
+
+        .veille-article-section h4 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #4A7FFF;
+            margin: 0 0 32px 0;
+            font-family: 'FRICK', 'Inter', sans-serif;
+            position: relative;
+            line-height: 1.3;
+        }
+
+        .veille-article-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: #4A7FFF;
+            border-radius: 2px;
+            transition: width 0.5s ease;
+            box-shadow: 0 2px 8px rgba(74, 127, 255, 0.4);
+        }
+
+        .veille-article-section h4:hover::after {
+            width: 150px;
+        }
+
+        .veille-article-section p {
+            font-size: 1.1875rem;
+            color: var(--text-secondary);
+            line-height: 2;
+            margin-bottom: 24px;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+
+        .veille-article-section:hover p {
+            color: var(--text-primary);
+        }
+
+        .veille-article-section p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .veille-article-intro {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            line-height: 2;
+            font-weight: 400;
+            margin-bottom: 64px;
+            padding: 56px;
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.1) 0%, rgba(107, 154, 255, 0.06) 100%);
+            border-radius: 28px;
+            border: 2px solid rgba(74, 127, 255, 0.2);
+            position: relative;
+            box-shadow: 0 12px 48px rgba(74, 127, 255, 0.18), 0 4px 16px rgba(74, 127, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .veille-article-intro:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 16px 56px rgba(74, 127, 255, 0.25), 0 6px 20px rgba(74, 127, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 1);
+            border-color: rgba(74, 127, 255, 0.3);
+        }
+
+        .veille-article-intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: #4A7FFF;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .veille-article-intro::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74, 127, 255, 0.1) 0%, transparent 70%);
+            animation: introGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes introGlow {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translate(-20px, -20px) scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .veille-article-sources {
+            margin-top: 80px;
+            padding: 64px 56px;
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.08) 0%, rgba(107, 154, 255, 0.05) 100%);
+            border-radius: 28px;
+            border: 2px solid rgba(74, 127, 255, 0.2);
+            box-shadow: 0 12px 48px rgba(74, 127, 255, 0.15), 0 4px 16px rgba(74, 127, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .veille-article-sources:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 56px rgba(74, 127, 255, 0.22), 0 6px 20px rgba(74, 127, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 1);
+            border-color: rgba(74, 127, 255, 0.3);
+        }
+
+        .veille-article-sources::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: #4A7FFF;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .veille-article-sources h4 {
+            font-size: 1.75rem;
+            margin-bottom: 32px;
+            color: #4A7FFF;
+            font-family: 'FRICK', 'Inter', sans-serif;
+            position: relative;
+        }
+
+        .veille-article-sources ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .veille-article-sources li {
+            margin-bottom: 0;
+        }
+
+        .veille-article-sources a {
+            color: #4A7FFF;
+            text-decoration: none;
+            font-size: 1.125rem;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 24px;
+            border-radius: 14px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(74, 127, 255, 0.25);
+            margin-bottom: 8px;
+            box-shadow: 0 2px 8px rgba(74, 127, 255, 0.1);
+        }
+
+        .veille-article-sources a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #4A7FFF;
+            transform: scaleY(0);
+            transition: transform 0.4s ease;
+            border-radius: 0 2px 2px 0;
+        }
+
+        .veille-article-sources a:hover {
+            color: #4A7FFF;
+            background: rgba(255, 255, 255, 1);
+            transform: translateX(12px) scale(1.05);
+            padding-left: 28px;
+            box-shadow: 0 6px 24px rgba(74, 127, 255, 0.3), 0 2px 8px rgba(74, 127, 255, 0.2);
+            border-color: rgba(74, 127, 255, 0.5);
+        }
+
+        .veille-article-sources a:hover::before {
+            transform: scaleY(1);
+        }
+
+        .veille-article-sources a i {
+            transition: transform 0.4s ease;
+            font-size: 1rem;
+        }
+
+        .veille-article-sources a:hover i {
+            transform: translateX(6px) scale(1.15);
+        }
+
+        /* Comparaison des outils - Style tech-features-grid */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 252, 255, 0.9) 100%);
+            border: 2px solid rgba(74, 127, 255, 0.15);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(74, 127, 255, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .comparison-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .comparison-card:hover::before {
+            animation: shine 1.5s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-16px) scale(1.04);
+            box-shadow: 0 24px 72px rgba(74, 127, 255, 0.4), 0 12px 32px rgba(74, 127, 255, 0.3), 0 0 0 1px rgba(74, 127, 255, 0.2);
+            border-color: rgba(74, 127, 255, 0.6);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(245, 250, 255, 1) 100%);
+        }
+
+        .comparison-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(74, 127, 255, 0.1);
+        }
+
+        .comparison-header i {
+            font-size: 2.5rem;
+            color: #4A7FFF;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.12) 0%, rgba(107, 154, 255, 0.08) 100%);
+            border-radius: 22px;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            box-shadow: 0 6px 20px rgba(74, 127, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(74, 127, 255, 0.25);
+        }
+
+        .comparison-card:hover .comparison-header i {
+            transform: scale(1.2) rotate(8deg);
+            background: #4A7FFF;
+            color: #ffffff;
+            box-shadow: 0 12px 30px rgba(74, 127, 255, 0.4);
+            border-color: rgba(74, 127, 255, 0.5);
+        }
+
+        .comparison-header h5 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: #4A7FFF;
+            margin: 0;
+            transition: all 0.4s ease;
+            font-family: 'FRICK', 'Inter', sans-serif;
+        }
+
+        .comparison-card:hover .comparison-header h5 {
+            color: #4A7FFF;
+            transform: scale(1.05);
+        }
+
+        .comparison-content {
+            text-align: left;
+        }
+
+        .comparison-desc {
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .comparison-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 16px 0;
+        }
+
+        .comparison-features li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+        }
+
+        .comparison-features i.fa-check {
+            color: #10b981;
+        }
+
+        .comparison-features i.fa-times {
+            color: #ef4444;
+        }
+
+        .comparison-ideal {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin: 0;
+            padding-top: 16px;
+            border-top: 1px solid rgba(74, 127, 255, 0.1);
+        }
+
+        /* Cas d'usage - Style tech-features-grid */
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .use-case-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 252, 255, 0.9) 100%);
+            border: 2px solid rgba(74, 127, 255, 0.15);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(74, 127, 255, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .use-case-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .use-case-card:hover::before {
+            animation: shine 1.5s ease-in-out;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-16px) scale(1.04);
+            box-shadow: 0 24px 72px rgba(74, 127, 255, 0.4), 0 12px 32px rgba(74, 127, 255, 0.3), 0 0 0 1px rgba(74, 127, 255, 0.2);
+            border-color: rgba(74, 127, 255, 0.6);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(245, 250, 255, 1) 100%);
+        }
+
+        .use-case-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.12) 0%, rgba(107, 154, 255, 0.08) 100%);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2.5rem;
+            color: #4A7FFF;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            box-shadow: 0 6px 20px rgba(74, 127, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(74, 127, 255, 0.25);
+        }
+
+        .use-case-card:hover .use-case-icon {
+            transform: scale(1.2) rotate(8deg);
+            background: #4A7FFF;
+            color: #ffffff;
+            box-shadow: 0 12px 30px rgba(74, 127, 255, 0.4);
+            border-color: rgba(74, 127, 255, 0.5);
+        }
+
+        @keyframes iconPulse {
+            0%, 100% {
+                transform: scale(1.2) rotate(8deg);
+            }
+            50% {
+                transform: scale(1.3) rotate(12deg);
+            }
+        }
+
+        .use-case-card h5 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: #4A7FFF;
+            margin: 0 0 16px 0;
+            transition: all 0.4s ease;
+            font-family: 'FRICK', 'Inter', sans-serif;
+        }
+
+        .use-case-card:hover h5 {
+            color: #4A7FFF;
+            transform: scale(1.05);
+        }
+
+        .use-case-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .use-case-card:hover p {
+            color: var(--text-primary);
+        }
+
+        /* Highlight box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.14) 0%, rgba(107, 154, 255, 0.1) 100%);
+            border-left: 8px solid #4A7FFF;
+            border-radius: 24px;
+            padding: 48px;
+            margin: 32px 0;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 12px 40px rgba(74, 127, 255, 0.2), 0 4px 16px rgba(74, 127, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.08) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .highlight-box::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(74, 127, 255, 0.15) 0%, transparent 70%);
+            animation: highlightGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes highlightGlow {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(-20px, -20px) scale(1.1);
+                opacity: 0.6;
+            }
+        }
+
+        .highlight-box:hover {
+            transform: translateX(12px) scale(1.03);
+            box-shadow: 0 16px 56px rgba(74, 127, 255, 0.3), 0 8px 24px rgba(74, 127, 255, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            border-left-width: 10px;
+        }
+
+        .highlight-box:hover::before {
+            opacity: 1;
+        }
+
+        .highlight-box p {
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            line-height: 1.8;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* Benefits list - Style security-grid */
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .benefit-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 252, 255, 0.9) 100%);
+            border: 2px solid rgba(74, 127, 255, 0.15);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(74, 127, 255, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+        }
+
+        .benefit-item:hover::before {
+            animation: shine 1.5s ease-in-out;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-16px) scale(1.04);
+            box-shadow: 0 24px 72px rgba(74, 127, 255, 0.4), 0 12px 32px rgba(74, 127, 255, 0.3), 0 0 0 1px rgba(74, 127, 255, 0.2);
+            border-color: rgba(74, 127, 255, 0.6);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(245, 250, 255, 1) 100%);
+        }
+
+        .benefit-item i {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(74, 127, 255, 0.12) 0%, rgba(107, 154, 255, 0.08) 100%);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2.5rem;
+            color: #4A7FFF;
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            box-shadow: 0 6px 20px rgba(74, 127, 255, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(74, 127, 255, 0.25);
+            flex-shrink: 0;
+        }
+
+        .benefit-item:hover i {
+            transform: scale(1.2) rotate(8deg);
+            background: #4A7FFF;
+            color: #ffffff;
+            box-shadow: 0 12px 30px rgba(74, 127, 255, 0.4);
+            border-color: rgba(74, 127, 255, 0.5);
+        }
+
+        .benefit-item > div {
+            flex: 1;
+            text-align: center;
+        }
+
+        .benefit-item h5 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            color: #4A7FFF;
+            margin: 0 0 16px 0;
+            transition: all 0.4s ease;
+            font-family: 'FRICK', 'Inter', sans-serif;
+        }
+
+        .benefit-item:hover h5 {
+            color: #4A7FFF;
+            transform: scale(1.05);
+        }
+
+        .benefit-item p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .benefit-item:hover p {
+            color: var(--text-primary);
+        }
+
+        .veille-article-section h4 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .veille-article-section h4:hover {
+            transform: translateX(4px);
+        }
+
+        .veille-article-section h4 i {
+            font-size: 1.5rem;
+            color: #4A7FFF;
+            transition: all 0.3s ease;
+        }
+
+        .veille-article-section h4:hover i {
+            transform: scale(1.2) rotate(5deg);
+            filter: drop-shadow(0 2px 6px rgba(74, 127, 255, 0.4));
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid,
+            .use-cases-grid,
+            .benefits-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .veille-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .veille-hero {
+                min-height: 500px;
+            }
+
+            .veille-hero {
+                margin-top: 60px;
+            }
+
+            .veille-content-wrapper {
+                margin-top: -50px;
+                border-radius: 30px 30px 0 0;
+                padding-top: 50px;
+            }
+
+            .veille-article-content {
+                padding: 0 24px 60px;
+            }
+
+            .veille-article-section h4 {
+                font-size: 1.5rem;
+            }
+
+            .veille-article-intro {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+    <link rel="stylesheet" href="assets/css/scroll-progress.css">
+</head>
+
+<body>
+    <!-- Indicateur de progression de scroll -->
+    <div class="scroll-progress-indicator">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Profil</a>
+                <a href="projets.html" class="nav-link">Projets</a>
+                <a href="parcours.html" class="nav-link">Parcours</a>
+                <a href="veille.html" class="nav-link active">Veille</a>
+                <a href="contact.html" class="nav-contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero avec image de fond parallaxe -->
+        <section class="veille-hero">
+            <div class="veille-hero-bg" id="hero-bg"></div>
+            <div class="veille-hero-overlay"></div>
+            <div class="veille-hero-content">
+                <div class="article-meta">
+                    <span class="article-category">Développement web &amp; automatisation</span>
+                    <span class="article-date">29 avril 2026</span>
+                </div>
+                <h1 data-i18n="veille.automatisation.title">Automatiser son travail de développeur</h1>
+                <p class="article-source">Sources : documentation n8n, GitHub, guide sur la sécurité des interfaces web</p>
+            </div>
+        </section>
+
+        <!-- Contenu principal -->
+        <div class="veille-content-wrapper">
+            <div class="veille-article-content">
+                <div class="veille-article-section visible">
+                    <p class="veille-article-intro">
+                        En développement web, on refait souvent les <strong>mêmes gestes</strong> : lancer des tests, prévenir l'équipe sur la messagerie, copier un rapport. L'<strong>automatisation</strong>, c'est faire exécuter ces gestes par la machine, avec des règles claires et une surveillance simple. Cette fiche résume quatre approches courantes, sans jargon inutile.
+                    </p>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4><i class="fas fa-layer-group"></i> n8n : enchaîner des étapes comme un schéma</h4>
+                    <p><strong>n8n</strong> est un outil où l'on relie des blocs (recevoir un message, appeler une page web, enregistrer en base…). On peut l'installer sur son propre serveur, ce qui rassure quand on manipule des données personnelles. C'est pratique pour <em>tester une idée</em> avant d'écrire un programme plus lourd.</p>
+                    <p>Point important : un scénario déclenché depuis Internet doit avoir un <strong>mot de passe technique</strong> limité, des journaux pour voir ce qui s'est passé, et des sauvegardes des fichiers de configuration — comme pour n'importe quel site en production.</p>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4><i class="fas fa-balance-scale"></i> Quatre approches complémentaires</h4>
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <i class="fab fa-node-js"></i>
+                                <h5>n8n (scénarios visuels)</h5>
+                            </div>
+                            <div class="comparison-content">
+                                <p class="comparison-desc">Schéma + petits scripts si besoin</p>
+                                <ul class="comparison-features">
+                                    <li><i class="fas fa-check"></i> Possible sur votre serveur</li>
+                                    <li><i class="fas fa-check"></i> Déclenchement sur horaire ou sur message entrant</li>
+                                    <li><i class="fas fa-check"></i> Bloc « code » pour un calcul précis</li>
+                                    <li><i class="fas fa-times"></i> Il faut quand même de la rigueur (droits, mises à jour)</li>
+                                </ul>
+                                <p class="comparison-ideal"><strong>Idéal pour :</strong> relier deux services sans tout recoder</p>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <i class="fab fa-github"></i>
+                                <h5>GitHub Actions (tests automatiques)</h5>
+                            </div>
+                            <div class="comparison-content">
+                                <p class="comparison-desc">À chaque modification du projet</p>
+                                <ul class="comparison-features">
+                                    <li><i class="fas fa-check"></i> Vérifier le style du code et lancer les tests</li>
+                                    <li><i class="fas fa-check"></i> Construire le site et signaler les erreurs tôt</li>
+                                    <li><i class="fas fa-check"></i> Mots de passe stockés côté GitHub de façon sécurisée</li>
+                                    <li><i class="fas fa-times"></i> Sur de gros projets, attention au temps et au coût</li>
+                                </ul>
+                                <p class="comparison-ideal"><strong>Idéal pour :</strong> ne pas casser le site à chaque fusion de code</p>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <i class="fas fa-link"></i>
+                                <h5>Notifications entre sites (webhooks)</h5>
+                            </div>
+                            <div class="comparison-content">
+                                <p class="comparison-desc">Un service « prévient » l'autre tout de suite</p>
+                                <ul class="comparison-features">
+                                    <li><i class="fas fa-check"></i> Exemple : paiement validé → message au stock</li>
+                                    <li><i class="fas fa-check"></i> On vérifie la signature du message pour éviter les faux</li>
+                                    <li><i class="fas fa-check"></i> Réponse rapide au navigateur, traitement lourd après</li>
+                                    <li><i class="fas fa-times"></i> Prévoir les doublons si le message est renvoyé</li>
+                                </ul>
+                                <p class="comparison-ideal"><strong>Idéal pour :</strong> réagir vite sans surveiller la boîte mail</p>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <i class="fas fa-server"></i>
+                                <h5>File d'attente et tâches de fond</h5>
+                            </div>
+                            <div class="comparison-content">
+                                <p class="comparison-desc">Quand la tâche est longue ou nombreuse</p>
+                                <ul class="comparison-features">
+                                    <li><i class="fas fa-check"></i> Recommencer en cas d'erreur sans tout bloquer</li>
+                                    <li><i class="fas fa-check"></i> Séparer « qui envoie » et « qui traite »</li>
+                                    <li><i class="fas fa-check"></i> Plusieurs workers pour absorber les pics</li>
+                                    <li><i class="fas fa-times"></i> Installation un peu plus technique</li>
+                                </ul>
+                                <p class="comparison-ideal"><strong>Idéal pour :</strong> envois de masse ou génération de gros fichiers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4><i class="fas fa-lightbulb"></i> Exemples concrets au quotidien</h4>
+                    <div class="use-cases-grid">
+                        <div class="use-case-card">
+                            <div class="use-case-icon"><i class="fas fa-flask"></i></div>
+                            <h5>Aperçu avant fusion</h5>
+                            <p>Ouverture d'une petite version du site pour chaque proposition de modification : les collègues voient le résultat sans installer le projet sur leur machine.</p>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h5>Contrôles de sécurité réguliers</h5>
+                            <p>Vérifier les bibliothèques importées et chercher si un mot de passe n'a pas été commité par erreur : la machine le fait à chaque passage sur le dépôt.</p>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon"><i class="fas fa-code-branch"></i></div>
+                            <h5>Liste des changements pour les utilisateurs</h5>
+                            <p>Rassembler les titres des corrections et publier un court texte « nouveautés » : utile pour la communication et pour l'évaluation.</p>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon"><i class="fas fa-headset"></i></div>
+                            <h5>Quand le site tombe en panne</h5>
+                            <p>Alerte automatique vers la messagerie + ticket : moins de temps perdu à chercher qui prévenir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4><i class="fas fa-code"></i> Ce que je retiens pour mon métier</h4>
+                    <div class="highlight-box">
+                        <p>Si un robot appelle votre site plusieurs fois par erreur, il ne doit pas créer <strong>deux commandes identiques</strong>. On utilise des repères (par exemple une clé de requête côté serveur) et on vérifie toujours les données reçues. OWASP rappelle aussi de limiter le débit et les droits pour éviter les abus.</p>
+                    </div>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fas fa-rocket"></i>
+                            <div>
+                                <h5>Livrer plus sereinement</h5>
+                                <p>Les tests automatiques donnent confiance avant de mettre en ligne une nouvelle version.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-tasks"></i>
+                            <div>
+                                <h5>Moins de tâches répétitives</h5>
+                                <p>On garde son attention pour comprendre le besoin et concevoir, pas pour recopier des manipulations.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <div>
+                                <h5>Un budget à regarder</h5>
+                                <p>Les minutes de machine sur GitHub ou les exécutions n8n ont un coût : il faut le noter dans la veille comme en entreprise.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <div>
+                                <h5>Complémentarité</h5>
+                                <p>Schéma visuel pour explorer, code traditionnel pour ce qui est sensible ou très chargé.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="veille-article-sources">
+                    <h4>Sources (pour aller plus loin)</h4>
+                    <ul>
+                        <li><a href="https://docs.n8n.io/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Site de n8n — documentation</a></li>
+                        <li><a href="https://docs.github.com/en/actions" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> GitHub — lancer des tâches à chaque modification du code</a></li>
+                        <li><a href="https://docs.github.com/en/webhooks" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> GitHub — recevoir des événements d'un autre service</a></li>
+                        <li><a href="https://owasp.org/www-project-api-security/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> OWASP — bonnes pratiques pour les interfaces web (API)</a></li>
+                        <li><a href="https://community.n8n.io/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Forum d'entraide n8n</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span data-i18n="footer.backToTop">Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <!-- NOUVEAU FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+
+    <script>
+        // Effet parallaxe sur l'image de fond
+        const heroBg = document.getElementById('hero-bg');
+        let lastScroll = 0;
+
+        function updateParallax() {
+            const scrollY = window.scrollY;
+            const heroHeight = document.querySelector('.veille-hero').offsetHeight;
+            
+            if (scrollY < heroHeight) {
+                const parallaxSpeed = 0.5;
+                const translateY = scrollY * parallaxSpeed;
+                heroBg.style.transform = `translateY(${translateY}px)`;
+            }
+            
+            lastScroll = scrollY;
+        }
+
+        // Révélation progressive des sections au scroll
+        const sections = document.querySelectorAll('.veille-article-section');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Indicateur de progression de scroll
+        const progressBar = document.querySelector('.scroll-progress-bar');
+        if (progressBar) {
+            function updateScrollProgress() {
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+                progressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
+            }
+            
+            window.addEventListener('scroll', updateScrollProgress, { passive: true });
+            updateScrollProgress();
+        }
+
+        // Optimisation avec requestAnimationFrame
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateParallax();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Initialisation
+        updateParallax();
+    </script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+</body>
+
+</html>

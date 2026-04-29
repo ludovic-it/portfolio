@@ -1,0 +1,128 @@
+/* Project Filters Styles */
+.project-filters {
+    margin: 2rem 0 3rem;
+    padding: 2rem;
+    background: var(--surface-color, #f8f9fa);
+    border-radius: var(--border-radius, 24px);
+    animation: fadeInUp 0.6s ease;
+}
+
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.filters-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary, #1a1a1a);
+    margin: 0;
+}
+
+.clear-filters {
+    background: transparent;
+    border: 2px solid var(--primary-color, #4A7FFF);
+    color: var(--primary-color, #4A7FFF);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition, all 0.3s ease);
+}
+
+.clear-filters:hover {
+    background: var(--primary-color, #4A7FFF);
+    color: white;
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filter-tag {
+    padding: 10px 20px;
+    background: white;
+    border: 2px solid var(--border-color, #e5e5e5);
+    border-radius: 24px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text-secondary, #666666);
+    transition: var(--transition, all 0.3s ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-tag:hover {
+    border-color: var(--primary-color, #4A7FFF);
+    color: var(--primary-color, #4A7FFF);
+    transform: translateY(-2px);
+}
+
+.filter-tag.active {
+    background: var(--primary-color, #4A7FFF);
+    border-color: var(--primary-color, #4A7FFF);
+    color: white;
+}
+
+.filter-tag.active::before {
+    content: '✓';
+    font-weight: bold;
+}
+
+.no-results-message {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary, #666666);
+}
+
+.no-results-message i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.no-results-message p {
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Dark mode */
+.dark-mode .project-filters {
+    background: var(--bg-secondary, #2d2d2d);
+}
+
+.dark-mode .filter-tag {
+    background: var(--bg-primary, #1a1a1a);
+    border-color: var(--border-color, #404040);
+    color: var(--text-secondary, #b0b0b0);
+}
+
+.dark-mode .filter-tag:hover {
+    border-color: var(--primary-color, #4A7FFF);
+    color: var(--primary-color, #4A7FFF);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .project-filters {
+        padding: 1.5rem;
+    }
+
+    .filters-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .clear-filters {
+        width: 100%;
+        text-align: center;
+    }
+}
+

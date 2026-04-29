@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>SIO-SHOES - Site E-commerce Symfony | Portfolio Ludovic.C</title>
+    <meta name="description"
+        content="Site e-commerce de vente de chaussures développé avec Symfony. Gestion de panier, paiement Stripe, système de rôles, et administration complète.">
+    <meta name="keywords" content="Symfony, e-commerce, PHP, MySQL, Stripe, projet BTS SIO">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votre-domaine.com/ecommerce.html">
+    <meta property="og:title" content="SIO-SHOES - Site E-commerce Symfony">
+    <meta property="og:description"
+        content="Site e-commerce complet développé avec Symfony, intégrant paiement Stripe et gestion d'administration.">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/sio-shoes-accueil.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SIO-SHOES - Site E-commerce Symfony">
+    <meta name="twitter:description" content="Site e-commerce complet développé avec Symfony.">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Fragment+Mono:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+
+    <!-- Nouveaux CSS -->
+    <link rel="stylesheet" href="assets/css/scroll-reveal.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/breadcrumbs.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/css_project-detail.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+</head>
+
+<body>
+
+    <main>
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <div class="container">
+                <div class="breadcrumbs-nav">
+                    <a href="index.html">Accueil</a>
+                    <span class="separator">/</span>
+                    <a href="projets.html">Projets</a>
+                    <span class="separator">/</span>
+                    <span class="current">SIO-SHOES</span>
+                </div>
+            </div>
+        </nav>
+
+        <section class="project-detail">
+            <div class="container">
+                <div class="project-header">
+                    <a href="projets.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
+                    <h1>SIO-SHOES</h1>
+                    <p class="project-subtitle">Site e-commerce de vente de chaussures développé avec Symfony</p>
+                </div>
+
+                <!-- Hero Image - Page d'accueil -->
+                <div class="project-hero-image">
+                    <img src="assets/images/ecommerce/page_accueil.png" alt="Page d'accueil de SIO-SHOES"
+                        class="hero-img" loading="lazy"
+                        onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop'">
+                </div>
+
+                <!-- Video Section -->
+                <div class="project-video-section">
+                    <h2>Démonstration</h2>
+                    <div class="project-video-grid">
+                        <div class="video-item video-style-framed" data-video="assets/videos/pagination.mp4">
+                            <img src="assets/images/ecommerce/pagination.png" alt="Démonstration de la pagination"
+                                class="video-poster">
+                            <video class="video-player" muted loop preload="metadata">
+                                <source src="assets/videos/pagination.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item video-style-framed" data-video="assets/videos/panier.mp4">
+                            <img src="assets/images/ecommerce/panier.png" alt="Démonstration du panier" class="video-poster">
+                            <video class="video-player" muted loop preload="metadata">
+                                <source src="assets/videos/panier.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item video-style-framed" data-video="assets/videos/commande.mp4">
+                            <img src="assets/images/ecommerce/commande_admin.png" alt="Démonstration des commandes" class="video-poster">
+                            <video class="video-player" muted loop preload="metadata">
+                                <source src="assets/videos/commande.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="video-item video-style-framed" data-video="assets/videos/stripe.mp4">
+                            <img src="assets/images/ecommerce/pdf.png" alt="Démonstration Stripe" class="video-poster">
+                            <video class="video-player" muted loop preload="metadata">
+                                <source src="assets/videos/stripe.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-content-wrapper">
+                    <div class="project-main">
+                        <!-- Présentation du projet -->
+                        <section class="detail-section">
+                            <h2>Présentation du projet</h2>
+                            <p>
+                                Dans le cadre de ma formation en BTS SIO option SLAM, j'ai développé un site e-commerce
+                                SIO-SHOES de vente de chaussures à l'aide du framework Symfony.
+                                L'objectif était de concevoir un site web e-commerce permettant aux utilisateurs de
+                                naviguer
+                                parmi différents produits, de créer un compte, de gérer leur panier, de passer commande
+                                et
+                                d'effectuer un paiement en ligne.
+                            </p>
+                            <p>
+                                Le site devait également offrir aux administrateurs la possibilité de gérer les
+                                produits,
+                                les commandes et les frais de livraison par ville, tout en maintenant une interface
+                                claire
+                                et sécurisée.
+                            </p>
+                        </section>
+
+                        <!-- Fonctionnalités principales -->
+                        <section class="detail-section">
+                            <h2>Fonctionnalités principales</h2>
+                            <p>
+                                Le site affiche les produits classés par catégories et sous-catégories, avec un système
+                                de
+                                pagination pour faciliter la navigation. Les utilisateurs peuvent créer un compte, se
+                                connecter
+                                et accéder à leur panier pour ajouter, modifier ou supprimer des articles.
+                            </p>
+                            <p>
+                                Les rôles définis (USER, EDITOR, ADMIN) permettent de restreindre ou d'autoriser
+                                certaines
+                                actions, comme la gestion des produits ou des utilisateurs.
+                            </p>
+                            <p>
+                                Les commandes validées sont enregistrées en base de données et un e-mail de confirmation
+                                est
+                                envoyé automatiquement, avec un PDF généré pour le bon de commande.
+                            </p>
+
+                            <!-- Capture d'écran : Base de données -->
+                            <div class="screenshot-container">
+                                <img src="assets/images/ecommerce/bdd_ecommerce.png" alt="Base de données my_shop_dev"
+                                    class="screenshot-img"
+                                    onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop'">
+                                <p class="screenshot-caption">Base de données : my_shop_dev</p>
+                            </div>
+
+                            <h3>Les rôles</h3>
+                            <div class="features-grid roles-grid">
+                                <div class="feature-item role-card">
+                                    <span class="role-number">01</span>
+                                    <h4>Users</h4>
+                                    <p>Ils peuvent naviguer sur le site, consulter les différentes catégories, ajouter
+                                        des articles à leur panier, procéder aux paiements, s'inscrire et se
+                                        déconnecter.</p>
+                                </div>
+                                <div class="feature-item role-card">
+                                    <span class="role-number">02</span>
+                                    <h4>Editor</h4>
+                                    <p>Ils ont tous les droits des utilisateurs mais peuvent aussi ajouter, supprimer
+                                        des produits, des catégories et des villes. Accès à l'interface qui affiche les
+                                        commandes de tous les utilisateurs.</p>
+                                </div>
+                                <div class="feature-item role-card">
+                                    <span class="role-number">03</span>
+                                    <h4>Admin</h4>
+                                    <p>Ils ont tous les droits des utilisateurs et des éditeurs mais peuvent aussi gérer
+                                        tous les utilisateurs de la base de données, les supprimer ou leur attribuer des
+                                        rôles.</p>
+                                </div>
+                            </div>
+
+                            <h3>La création des entités et les migrations</h3>
+                            <p>
+                                J'ai utilisé <code>symfony console make:entity Product</code> pour créer une entité dans
+                                Symfony.
+                                Cette entité correspond à la table Product à laquelle on peut attribuer des champs (id,
+                                name, price,
+                                image et stock), ce qui permet à Symfony de générer automatiquement les méthodes get et
+                                set.
+                            </p>
+                            <p>
+                                <code>symfony console make:migration</code> génère un fichier de migration qui contient
+                                toutes les
+                                requêtes SQL pour créer ou modifier la table product, mais elle n'est pas encore envoyée
+                                dans la base,
+                                elle prépare juste le script.
+                            </p>
+                            <p>
+                                <code>symfony console doctrine:migration:migrate</code> applique les migrations à la
+                                base de données
+                                en exécutant le fichier généré par la commande précédente.
+                            </p>
+                        </section>
+
+                        <!-- Architecture -->
+                        <section class="detail-section">
+                            <h2>Architecture</h2>
+                            <p>
+                                Le projet utilise l'architecture MVC de Symfony pour organiser le code et séparer la
+                                logique métier,
+                                les données et la vue. Les entités Doctrine permettent de gérer les données et les
+                                relations avec la
+                                base MySQL, tandis que Twig et Bootstrap sont utilisés pour l'affichage des pages et le
+                                design responsive.
+                                Le composant Form de Symfony est utilisé pour la gestion des formulaires.
+                            </p>
+
+                            <h3>Gestion des routes</h3>
+                            <p>
+                                Le site utilise le système de route de Symfony pour associer chaque page à une URL. Les
+                                routes permettent
+                                de définir à quelles pages (URL) un utilisateur va pouvoir accéder. Certaines routes
+                                utilisent des paramètres
+                                dynamiques, comme l'identifiant d'un produit ou d'une commande, et l'accès à certaines
+                                pages est restreint
+                                selon les rôles utilisateurs.
+                            </p>
+                            <p>
+                                Par exemple, l'URL <code>/editor/{id}</code> permet d'afficher le détail d'un produit
+                                spécifique, tandis que
+                                <code>/product/new</code> est réservée à la création de nouveaux produits par les
+                                administrateurs ou éditeurs.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-php">#[Route('/{id}/edit', name: 'app_product_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, Product $product, EntityManagerInterface $entityManager): Response
+    {
+        $this->checkAccess();
+        $form = $this->createForm(ProductType::class, $product);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+            $this->addFlash('success', 'Produit modifié avec succès.');
+            return $this->redirectToRoute('app_product_index', [], Response::HTTP_SEE_OTHER);
+        }
+        return $this->render('product/edit.html.twig', [
+            'product' => $product,
+            'form' => $form,
+        ]);
+    }</code></pre>
+                            </div>
+                        </section>
+
+                        <!-- Développement -->
+                        <section class="detail-section">
+                            <h2>Développement</h2>
+
+                            <h3>Contrôleur Produit et gestion des stocks</h3>
+                            <p>
+                                Le ProductController gère toutes les opérations liées aux produits, y compris
+                                l'affichage de la liste,
+                                la création, la modification, la suppression, et la consultation détaillée d'un produit.
+                                Pour sécuriser
+                                l'accès aux fonctionnalités sensibles, j'ai mis en place une vérification des rôles :
+                                seuls les utilisateurs
+                                avec le rôle ADMIN ou EDITOR peuvent effectuer ces actions.
+                            </p>
+                            <p>
+                                La création et la modification des produits passent par des formulaires Symfony. Une
+                                fonctionnalité spécifique
+                                permet également d'ajouter du stock à un produit existant, tout en mettant à jour
+                                l'historique des ajouts.
+                            </p>
+
+                            <!-- Capture d'écran : Page création produit -->
+                            <div class="screenshot-container">
+                                <img src="assets/images/ecommerce/produit.png" alt="Page pour la création d'un produit"
+                                    class="screenshot-img"
+                                    onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop'">
+                                <p class="screenshot-caption">Page pour la création d'un produit</p>
+                            </div>
+
+                            <h3>Formulaires Symfony</h3>
+                            <p>
+                                J'utilise les formulaires pour gérer l'inscription des utilisateurs, l'ajout de
+                                produits, la saisie des
+                                commandes et la gestion des catégories ou des villes. Chaque formulaire est lié à
+                                l'entité correspondante.
+                            </p>
+                            <p>
+                                Par exemple, le formulaire CategoryType permet de créer ou modifier des catégories avec
+                                un champ pour le nom,
+                                lié directement à l'entité Category.
+                            </p>
+
+                            <h3>Gestion du panier et des commandes</h3>
+                            <p>
+                                Mon panier fonctionne de la manière suivante : chaque utilisateur authentifié peut
+                                ajouter des produits à son
+                                panier, peut modifier les quantités, peut supprimer des articles et peut finaliser sa
+                                commande.
+                            </p>
+                            <p>
+                                Les données de l'utilisateur sont stockées dans une session Symfony ce qui lui permet de
+                                conserver son panier
+                                même s'il change de page et qu'il navigue sur le site jusqu'à sa déconnexion.
+                            </p>
+                            <p>
+                                Les utilisateurs avec les rôles ADMIN et EDITOR ont accès à une page qui répertorie
+                                toutes les commandes qui
+                                ont été passées par tous les utilisateurs avec les informations client et ils peuvent
+                                valider si la livraison
+                                a été effectuée.
+                            </p>
+
+                            <!-- Capture d'écran : Panier -->
+                            <div class="screenshot-container">
+                                <img src="assets/images/ecommerce/panier.png"
+                                    alt="Panier avec ses différentes fonctionnalités" class="screenshot-img"
+                                    onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop'">
+                                <p class="screenshot-caption">Panier avec ses différentes fonctionnalités</p>
+                            </div>
+
+                            <!-- Capture d'écran : Page admin commandes -->
+                            <div class="screenshot-container">
+                                <img src="assets/images/ecommerce/commande_admin.png"
+                                    alt="Page d'administrateur pour la vue des commandes" class="screenshot-img"
+                                    onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop'">
+                                <p class="screenshot-caption">Page d'administrateur pour la vue des commandes</p>
+                            </div>
+
+                            <h3>Paiement Stripe et envoi d'un email</h3>
+                            <p>
+                                Pour le paiement j'ai intégré l'API Stripe qui permet de gérer les transactions de
+                                manière sécurisée sans
+                                stocker les données bancaires de l'utilisateur. Une fois que le paiement est validé, un
+                                email de confirmation
+                                est envoyé grâce à smtp4dev. Ce message contient un bon de commande au format PDF.
+                            </p>
+                            <p>
+                                Pour utiliser l'API Stripe il faut créer un compte sur Stripe qui met à disposition un
+                                environnement de test
+                                pour les développeurs qui peuvent alors effectuer des paiements à l'aide d'une clé
+                                secrète et de plusieurs codes
+                                de cartes bancaires qui permettent d'obtenir différents résultats.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-php">$stripePayment->startPayment($order);
+            $stripeRedirectUrl = $stripePayment->getStripeRedirectUrl();
+
+            return $this->redirect($stripeRedirectUrl);
+
+    // Générer PDF
+            $pdfOptions = new Options();
+            $pdfOptions->set('defaultFont', 'Arial');
+            $domPdf = new Dompdf($pdfOptions);
+            $html = $this->renderView('bill/index.html.twig', ['order' => $order]);
+            $domPdf->loadHtml($html);
+            $domPdf->setPaper('A4', 'portrait');
+            $domPdf->render();
+            $pdfContent = $domPdf->output();
+
+            // Envoyer l'email
+            $recipient = $this->getUser()?->getEmail() ?? 'test@essaiprojet.fr';
+            $htmlMail = $this->renderView('mail/orderConfirm.html.twig', ['order' => $order]);</code></pre>
+                            </div>
+
+                            <!-- Capture d'écran : Bon de commande PDF -->
+                            <div class="screenshot-container">
+                                <img src="assets/images/ecommerce/pdf.png"
+                                    alt="Bon de commande (format PDF) envoyé par mail" class="screenshot-img"
+                                    onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop'">
+                                <p class="screenshot-caption">Bon de commande (format PDF) envoyé par mail</p>
+                            </div>
+
+                            <h3>Utilisation de Bootstrap</h3>
+                            <p>
+                                J'ai utilisé Bootstrap pour la partie front-end du site SIO-SHOES notamment pour la
+                                navbar, les boutons du site
+                                et le responsive. La bibliothèque Bootstrap m'a permis d'optimiser mon efficacité.
+                            </p>
+
+                            <h3>La pagination</h3>
+                            <p>
+                                Pour faciliter la navigation dans les différentes pages, j'ai implémenté un système de
+                                pagination pour afficher
+                                les produits sur plusieurs pages. Les différents produits sont aussi classés par ordre
+                                alphabétique, et il y a
+                                un nombre limite de 12 produits par page.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-php">if ($q) {
+    // utilise le QueryBuilder retourné par le repository pour permettre la pagination
+            $data = $productRepository->searchByTerm($q);
+        } else {
+            $data = $productRepository->createQueryBuilder('p')
+                ->orderBy('p.name', 'ASC');
+        }
+        $products = $paginator->paginate(
+            $data,
+            $request->query->getInt('page', 1),
+            12
+        );</code></pre>
+                            </div>
+
+                            <!-- Capture d'écran : Pagination -->
+                            <div class="screenshot-container">
+                                <img src="assets/images/ecommerce/pagination.png"
+                                    alt="Les différentes cartes avec les résultats attendus" class="screenshot-img"
+                                    onerror="this.src='https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop'">
+                                <p class="screenshot-caption">Les différentes cartes avec les résultats attendus</p>
+                            </div>
+
+                            <h3>Le moteur de recherche</h3>
+                            <p>
+                                J'ai mis en place dans ma barre de navigation la possibilité d'effectuer des recherches.
+                                Par exemple : Si j'écris
+                                "nike" dans la barre de recherche, tous les éléments qui comportent le mot "nike" vont
+                                s'afficher à l'écran.
+                            </p>
+                            <p>
+                                La route <code>/search/engine</code> va gérer le moteur de recherche quand l'utilisateur
+                                va taper un mot dans la
+                                barre de recherche. Elle va stocker le mot tapé par l'utilisateur puis elle va chercher
+                                tous les produits dont le
+                                nom correspond à celui que l'utilisateur a tapé. Les résultats sont ensuite paginés donc
+                                affichés sur plusieurs
+                                pages si nécessaire.
+                            </p>
+
+                            <div class="code-block typing-code">
+                                <pre><code class="language-php">#[Route('/search/engine', name: 'app_search_engine')]    
+   
+        public function index(ProductRepository $productRepository, CategoryRepository     
+        $categoryRepository, PaginatorInterface $paginator, Request $request): Response    
+    {        
+        if ($request -> isMethod('GET')){            
+            $data = $request->query->all();            
+            $word = $data['word'];                    
+            $data = $productRepository->searchEngine($word);            
+            $products = $paginator->paginate(                
+                $data,                
+                $request->query->getInt('page',1),            
+            );        
+        }        
+        return $this->render('search_engine/index.html.twig', [            
+            'products' => $products,            
+            'categories' => $categoryRepository ->findAll(),        
+        ]);
+    }
+    </code></pre>
+                            </div>
+                        </section>
+
+                        <!-- Outils utilisés -->
+                        <section class="detail-section">
+                            <h2>Outils utilisés</h2>
+                            <p>
+                                Le projet a été réalisé avec <strong>Symfony</strong> pour le back-end,
+                                <strong>Twig</strong> pour les templates
+                                et <strong>Bootstrap</strong> pour le front-end responsive. La base de données
+                                <strong>MySQL</strong> a été gérée
+                                avec <strong>Doctrine ORM</strong>. <strong>Stripe</strong> a été utilisé pour le
+                                paiement en ligne,
+                                <strong>smtp4dev</strong> pour tester l'envoi d'e-mails, <strong>Dompdf</strong> pour
+                                générer automatiquement
+                                les PDF des commandes, et <strong>GitHub</strong> pour stocker mes fichiers.
+                            </p>
+                        </section>
+
+                        <!-- Compétences techniques -->
+                        <section class="detail-section">
+                            <h2>Compétences techniques mises en œuvre</h2>
+                            <p>
+                                Ce projet m'a permis de renforcer mes compétences en développement web full-stack avec
+                                Symfony. J'ai conçu des contrôleurs et routes pour gérer la logique métier, utilisé
+                                Doctrine pour les entités et relations, créé et validé des formulaires, sécurisé les
+                                actions selon les rôles utilisateurs, intégré Stripe pour le paiement, manipulé les
+                                sessions pour le panier, généré et envoyé des PDF, créé un système de gestion des rôles
+                                par l'administrateur, travaillé sur le front-end avec Twig et Bootstrap pour un rendu
+                                responsive et moderne, et stocké le code sur GitHub.
+                            </p>
+                        </section>
+
+                        <!-- Conclusion -->
+                        <section class="detail-section">
+                            <h2>Conclusion</h2>
+                            <p>
+                                Ce projet m'a permis de mettre en pratique mes compétences en développement web
+                                full-stack avec Symfony,
+                                en intégrant le front-end et le back-end de manière cohérente. J'ai conçu un site
+                                complet, sécurisé et
+                                fonctionnel, tout en approfondissant ma maîtrise du framework, de la gestion des routes,
+                                des formulaires,
+                                des entités et de l'intégration d'API externes. L'expérience acquise me donne une base
+                                solide pour le
+                                développement de projets web professionnels.
+                            </p>
+                        </section>
+
+                        <!-- Palette de couleurs -->
+                        <section class="detail-section">
+                            <h2 class="color-palette-title">Palette de couleurs</h2>
+                            <p style="margin-bottom: 32px; color: var(--text-secondary); font-size: 0.9375rem;">
+                                Ce site utilise une palette de <strong>6</strong> couleurs principales
+                            </p>
+                            <div class="color-palette">
+                                <div class="color-swatch" style="background-color: #1a1a1a;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #1a1a1a</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #6f42c1;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #6f42c1</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #0dcaf0;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #0dcaf0</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #dc3545;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #dc3545</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #ffc107;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #ffc107</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #ffffff; border: 1px solid #e0e0e0;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #ffffff</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Liens -->
+                        <section class="detail-section">
+                            <h2>Liens</h2>
+                            <div class="project-links">
+                                <a href="#" class="link-btn"><i class="fab fa-github"></i> Code Source</a>
+                                <a href="assets/documents/documentation-ecommerce.pdf" target="_blank"
+                                    class="link-btn"><i class="fas fa-file-pdf"></i> Documentation complète</a>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-projects">
+            <div class="container">
+                <h2>Autres projets</h2>
+                <div class="projects-grid">
+                    <a href="gestion.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ecommerce/gestion/accueil.png" alt="Logiciel de gestion" loading="lazy">
+                        </div>
+                        <h3>Logiciel de gestion</h3>
+                        <p>Application de gestion d'entreprise avec base de données complexe</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">C#</span>
+                            <span class="tech-small">SQL</span>
+                            <span class="tech-small">WPF</span>
+                        </div>
+                    </a>
+                    <a href="coach.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/coach/coach-hero.png" alt="Application mobile Coach" loading="lazy"
+                                onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop'">
+                        </div>
+                        <h3>Coach</h3>
+                        <p>Application mobile multiplateforme pour calculer l'Indice de Masse Grasse (IMG)</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">.NET MAUI</span>
+                            <span class="tech-small">C#</span>
+                            <span class="tech-small">XAML</span>
+                        </div>
+                    </a>
+                    <a href="iss-tracking.html" class="project-card">
+                        <div class="project-card-image">
+                            <img src="assets/images/ISS/ISS.png" alt="Suivi de l'ISS" loading="lazy">
+                        </div>
+                        <h3>Suivi de l'ISS</h3>
+                        <p>Application web de suivi de la Station Spatiale Internationale en temps réel</p>
+                        <div class="project-technologies">
+                            <span class="tech-small">JavaScript</span>
+                            <span class="tech-small">Leaflet</span>
+                            <span class="tech-small">API</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll to Top Button - Footer -->
+    <!-- Scroll to Top Button - Footer -->
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span data-i18n="footer.backToTop">Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <!-- NOUVEAU FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <script src="assets/js/toc-island.js"></script>
+    <script src="assets/js/code-highlight.js"></script>
+    <script src="assets/js/typing-effect.js"></script>
+
+    <!-- Nouveaux scripts -->
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+    <script src="assets/js/video-hover.js"></script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+
+    <script>
+        // Initialiser le highlight.js
+        hljs.highlightAll();
+
+        // Toggle TOC dropdown
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocHeader = document.querySelector('.toc-header');
+            const tocIsland = document.querySelector('.toc-island');
+            if (tocHeader && tocIsland) {
+                tocHeader.addEventListener('click', () => {
+                    tocIsland.classList.toggle('open');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+/* =========================================================
+SCROLL REVEAL – VERSION PROPRE, STABLE ET MAINTENABLE
+========================================================= */
+
+/* ---------------------------------------------------------
+BASE REVEAL
+--------------------------------------------------------- */
+.reveal {
+opacity: 0;
+visibility: visible;
+will-change: transform, opacity, filter;
+backface-visibility: hidden;
+transform: translateZ(0);
+}
+
+.reveal.revealed {
+opacity: 1;
+}
+
+/* ---------------------------------------------------------
+TRANSITIONS PAR DÉFAUT (sans animation spécifique)
+--------------------------------------------------------- */
+.reveal.revealed:not([data-reveal]) {
+transition:
+opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------------------------------------------------------
+ANIMATIONS KEYFRAMES
+--------------------------------------------------------- */
+
+/* Fade + Blur */
+@keyframes fadeInBlur {
+from {
+opacity: 0;
+filter: blur(10px);
+transform: translateY(30px) scale(0.95);
+}
+to {
+opacity: 1;
+filter: blur(0);
+transform: translateY(0) scale(1);
+}
+}
+
+/* Scale */
+@keyframes scaleIn {
+0% {
+opacity: 0;
+transform: scale(0.7) translateY(40px);
+}
+60% {
+transform: scale(1.05) translateY(-5px);
+}
+100% {
+opacity: 1;
+transform: scale(1) translateY(0);
+}
+}
+
+/* Rotate */
+@keyframes rotateIn {
+from {
+opacity: 0;
+transform: rotate(-10deg) scale(0.9) translateY(50px);
+}
+to {
+opacity: 1;
+transform: rotate(0deg) scale(1) translateY(0);
+}
+}
+
+/* Scale + Rotate */
+@keyframes scaleRotateIn {
+0% {
+opacity: 0;
+transform: scale(0.5) rotate(-15deg);
+filter: blur(5px);
+}
+60% {
+transform: scale(1.1) rotate(2deg);
+}
+100% {
+opacity: 1;
+transform: scale(1) rotate(0deg);
+filter: blur(0);
+}
+}
+
+/* Bounce */
+@keyframes bounceIn {
+0% {
+opacity: 0;
+transform: translateY(100px) scale(0.3);
+}
+50% {
+transform: translateY(-20px) scale(1.05);
+}
+70% {
+transform: translateY(10px) scale(0.95);
+}
+100% {
+opacity: 1;
+transform: translateY(0) scale(1);
+}
+}
+
+/* Elastic */
+@keyframes elasticIn {
+0% {
+opacity: 0;
+transform: scale(0.3) translateY(80px);
+}
+50% {
+transform: scale(1.1) translateY(-10px);
+}
+70% {
+transform: scale(0.95) translateY(5px);
+}
+100% {
+opacity: 1;
+transform: scale(1) translateY(0);
+}
+}
+
+.reveal[data-reveal="blur"].revealed {
+animation: fadeInBlur 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.reveal[data-reveal="scale"].revealed {
+animation: scaleIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.reveal[data-reveal="rotate"].revealed {
+animation: rotateIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.reveal[data-reveal="scale-rotate"].revealed {
+animation: scaleRotateIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.reveal[data-reveal="bounce"].revealed {
+animation: bounceIn 0.8s ease-out forwards;
+}
+
+.reveal[data-reveal="elastic"].revealed {
+animation: elasticIn 0.9s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+.reveal {
+opacity: 1 !important;
+transform: none !important;
+filter: none !important;
+animation: none !important;
+transition: none !important;
+}
+}
