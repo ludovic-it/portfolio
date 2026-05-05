@@ -685,15 +685,18 @@ h6 {
 
 /* ===== TOC ISLAND ===== */
 .toc-island {
-    position: sticky;
-    top: 24px;
+    position: fixed;
+    top: 96px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 48px);
     background: rgba(255, 255, 255, 0.98);
     border-radius: 16px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     border: 1px solid var(--border-color);
     max-width: 800px;
-    margin: 0 auto 48px;
-    z-index: 50;
+    margin: 0;
+    z-index: 1100;
     transition: var(--transition);
 }
 
@@ -1812,6 +1815,11 @@ pre code .hljs-symbol,
 }
 
 @media (max-width: 768px) {
+    .toc-island {
+        top: 84px;
+        width: calc(100% - 32px);
+    }
+
     .navbar {
         width: calc(100% - 32px);
         top: 16px;
