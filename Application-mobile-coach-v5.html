@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Coach IMG V5 - Base distante | Portfolio Ludovic.C</title>
+    <meta name="description"
+        content="Version 5 de Coach IMG : passage à une base distante via API, synchronisation des profils et gestion des erreurs réseau.">
+    <meta name="keywords"
+        content=".NET MAUI, C#, XAML, IMG, Deurenberg, Android, iOS, Windows, macOS, BTS SIO">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://votre-domaine.com/Application-mobile-coach-v5.html">
+    <meta property="og:title" content="Coach IMG V5 - Base distante">
+    <meta property="og:description"
+        content="Présentation de la V5 : API distante, synchronisation et continuité entre plusieurs appareils.">
+    <meta property="og:image" content="https://votre-domaine.com/assets/images/coach/coach-v4-hero.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coach IMG V5 - Base distante">
+    <meta name="twitter:description"
+        content="Version 5 de l'application mobile Coach IMG développée avec .NET MAUI.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Fragment+Mono:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/scroll-reveal.css">
+    <link rel="stylesheet" href="assets/css/accessibility.css">
+    <link rel="stylesheet" href="assets/css/breadcrumbs.css">
+    <link rel="stylesheet" href="assets/css/design-system.css">
+    <link rel="stylesheet" href="assets/css/css_project-detail.css">
+    <link rel="stylesheet" href="assets/css/footer-enhanced.css">
+    <link rel="stylesheet" href="assets/css/scroll-to-top-footer.css">
+    <link rel="stylesheet" href="assets/css/multilingual.css">
+</head>
+
+<body>
+    <main>
+        <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <div class="container">
+                <div class="breadcrumbs-nav">
+                    <a href="index.html">Accueil</a>
+                    <span class="separator">/</span>
+                    <a href="projets.html">Projets</a>
+                    <span class="separator">/</span>
+                    <a href="coach.html">Coach</a>
+                    <span class="separator">/</span>
+                    <span class="current">V5</span>
+                </div>
+            </div>
+        </nav>
+
+        <section class="project-detail">
+            <div class="container">
+                <div class="project-header">
+                    <a href="coach.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux versions Coach</a>
+                    <h1>Coach IMG - Version 5</h1>
+                    <p class="project-subtitle">Passage à une base distante pour partager les données entre plusieurs appareils</p>
+                </div>
+
+                <div class="project-hero-image">
+                    <img src="assets/images/coach/coach-v5-hero-ia.png" alt="Coach IMG V5"
+                        class="hero-img" loading="lazy"
+                        onerror="this.src='assets/images/coach/coach-v3-hero.png'">
+                </div>
+
+                <div class="project-content-wrapper">
+                    <div class="project-main">
+                        <section class="detail-section">
+                            <h2>Nouveautés de la Version 5 (base distante)</h2>
+                            <p>
+                                Par rapport à la V4, la V5 introduit une <strong>base de données distante</strong> accessible via une API.
+                                Le but est de ne plus limiter les données au téléphone local.
+                            </p>
+                            <p>
+                                Les profils IMG peuvent être enregistrés côté serveur puis relus depuis un autre appareil.
+                                L'application conserve les fonctions précédentes (calcul, historique, navigation) mais ajoute une couche réseau.
+                            </p>
+                            <p>
+                                Cette évolution répond à un besoin concret : éviter la perte de données lors d'un changement de téléphone
+                                et faciliter le suivi dans un contexte d'utilisation multi-support.
+                            </p>
+                            <p>
+                                En résumé, la V5 fait passer le projet d'une logique locale à une logique connectée,
+                                plus proche d'une application utilisée en conditions réelles.
+                            </p>
+
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-cloud"></i> API distante</h4>
+                                    <p>Lecture et écriture des profils IMG via des requêtes HTTP sécurisées</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-rotate"></i> Synchronisation</h4>
+                                    <p>Données cohérentes entre téléphone, émulateur ou autre session</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-wifi"></i> Gestion réseau</h4>
+                                    <p>Messages clairs en cas de serveur indisponible ou de timeout</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-lock"></i> Préparation sécurité</h4>
+                                    <p>Base prête pour authentification et contrôle d'accès côté API</p>
+                                </div>
+                            </div>
+
+                            <h3>Extraits de code (appel API et synchronisation)</h3>
+                            <p>Exemple de service C# pour récupérer les profils depuis une API distante :</p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-csharp">public async Task&lt;List&lt;ProfilDto&gt;&gt; GetProfilsAsync()
+{
+    using var response = await _httpClient.GetAsync("api/profils");
+    response.EnsureSuccessStatusCode();
+    var json = await response.Content.ReadAsStringAsync();
+    return JsonSerializer.Deserialize&lt;List&lt;ProfilDto&gt;&gt;(json) ?? new();
+}</code></pre>
+                            </div>
+                            <p>Exemple d'enregistrement du client HTTP et du service distant dans <code>MauiProgram.cs</code> :</p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-csharp">public static MauiApp CreateMauiApp()
+{
+    var builder = MauiApp.CreateBuilder();
+    builder
+        .UseMauiApp&lt;App&gt;()
+        .ConfigureFonts(fonts =&gt; fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular"));
+
+    builder.Services.AddHttpClient&lt;ProfilApiService&gt;(client =&gt;
+        client.BaseAddress = new Uri("https://api.mon-projet.fr/"));
+
+    builder.Services.AddSingleton&lt;IProfilRepository, ProfilApiRepository&gt;();
+
+    return builder.Build();
+}</code></pre>
+                            </div>
+                            <p>Structure simplifiée côté application pour séparer UI, logique métier et accès distant :</p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-plaintext">CoachIMG/
+  Models/ProfilDto.cs
+  Services/ProfilApiService.cs
+  Repositories/ProfilApiRepository.cs
+  Views/CalculPage.xaml (+ .cs)
+  Views/HistoriquePage.xaml (+ .cs)
+  ViewModels/HistoriqueViewModel.cs</code></pre>
+                            </div>
+                        </section>
+                        <section class="detail-section">
+                            <h2>Comparatif des versions (V1 → V5)</h2>
+                            <table style="width: 100%; border-collapse: collapse; margin: 24px 0;">
+                                <thead>
+                                    <tr style="background: var(--bg-secondary); border-bottom: 2px solid var(--border-color);">
+                                        <th style="padding: 12px 16px; text-align: left;">Fonctionnalité</th>
+                                        <th style="padding: 12px 16px; text-align: center;">V1</th>
+                                        <th style="padding: 12px 16px; text-align: center;">V2</th>
+                                        <th style="padding: 12px 16px; text-align: center;">V3</th>
+                                        <th style="padding: 12px 16px; text-align: center;">V4</th>
+                                        <th style="padding: 12px 16px; text-align: center;">V5</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 12px 16px;">Calcul IMG</td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 12px 16px;">Persistance JSON</td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 12px 16px;">Persistance SQLite</td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 12px 16px;">Menu dédié</td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td></tr>
+                                    <tr><td style="padding: 12px 16px;">Base distante (API)</td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td></tr>
+                                </tbody>
+                            </table>
+                        </section>
+
+                        <section class="detail-section">
+                            <h2 class="color-palette-title">Palette de couleurs</h2>
+                            <p style="margin-bottom: 32px; color: var(--text-secondary); font-size: 0.9375rem;">
+                                Cette version conserve la même palette visuelle que les versions Coach précédentes.
+                            </p>
+                            <div class="color-palette">
+                                <div class="color-swatch" style="background-color: #512BD4;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #512BD4</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #DFD8F7;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #DFD8F7</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #2B0B98;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #2B0B98</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #00008B;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #00008B</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #7D7C7C;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #7D7C7C</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                                <div class="color-swatch" style="background-color: #FFFFFF; border: 1px solid #e0e0e0;">
+                                    <div class="color-swatch-content">
+                                        <span class="color-hex">HEX #FFFFFF</span>
+                                        <span class="color-preview">Aa</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="scroll-to-top-footer">
+        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
+            <span data-i18n="footer.backToTop">Retour en haut</span>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
+                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
+                <div class="footer-links">
+                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
+                    <span class="footer-separator">|</span>
+                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
+                    <span class="footer-separator">|</span>
+                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
+                        aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <script src="assets/js/toc-island.js"></script>
+    <script src="assets/js/code-highlight.js"></script>
+    <script src="assets/js/typing-effect.js"></script>
+    <script src="assets/js/scroll-reveal.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/lazy-load.js"></script>
+    <script src="assets/js/video-hover.js"></script>
+    <script src="assets/js/scroll-to-top-footer.js"></script>
+
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

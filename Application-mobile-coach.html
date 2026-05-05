@@ -68,7 +68,7 @@
                 <div class="project-header">
                     <a href="coach.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux versions Coach</a>
                     <h1>Coach IMG – Version 1</h1>
-                    <p class="project-subtitle">Version initiale de l'application mobile multiplateforme pour calculer l'Indice de Masse Grasse</p>
+                    <p class="project-subtitle">Première version de l'application mobile qui calcule l'IMG</p>
                 </div>
 
                 <!-- Hero Image -->
@@ -79,405 +79,195 @@
 
                 <div class="project-content-wrapper">
                     <div class="project-main">
-                        <!-- Présentation du projet -->
                         <section class="detail-section">
-                            <h2>Présentation du projet</h2>
+                            <h2>Changements de la Version 1</h2>
                             <p>
-                                Dans le cadre de ma formation en BTS SIO option SLAM, j'ai développé une application mobile
-                                multiplateforme <strong>Coach IMG</strong> permettant de calculer l'Indice de Masse Grasse (IMG)
-                                d'un utilisateur en fonction de son poids, sa taille, son âge et son sexe. L'objectif était
-                                de créer une application de coaching fitness et santé accessible sur toutes les plateformes
-                                mobiles et desktop.
+                                V1 est la base du projet : calcul IMG, interface XAML, affichage d'un message et d'un smiley.
+                                C'est la version de référence avant les améliorations V2, V3, V4 et V5.
                             </p>
                             <p>
-                                L'application utilise <strong>.NET MAUI</strong> (Multi-platform App UI) version 10.0 pour
-                                garantir une expérience utilisateur cohérente sur Android, iOS, macOS et Windows. Elle permet
-                                aux utilisateurs de suivre leur composition corporelle et d'obtenir des recommandations
-                                personnalisées basées sur leur profil.
+                                Cette première étape m'a surtout permis de valider la logique métier (formule IMG), la saisie utilisateur
+                                et le rendu visuel du résultat sur mobile.
                             </p>
-                        </section>
+                            <p>
+                                En pratique, la V1 répond au besoin principal du projet : prendre des données simples (poids, taille,
+                                âge, sexe), calculer l'IMG et afficher une interprétation claire. Même si la version reste simple,
+                                elle fixe toutes les bases techniques utilisées ensuite.
+                            </p>
+                            <h3>Formule de Deurenberg (détaillée)</h3>
+                            <p>
+                                Le calcul de l'IMG repose sur la formule de Deurenberg. C'est une formule reconnue qui combine
+                                l'IMC, l'âge et le sexe pour estimer le pourcentage de masse grasse.
+                            </p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-plaintext">IMG = (1.2 × IMC) + (0.23 × âge) - (10.8 × sexe) - 5.4
 
-                        <!-- Fonctionnalités principales -->
-                        <section class="detail-section">
-                            <h2>Fonctionnalités principales</h2>
-                            <p>
-                                L'application permet aux utilisateurs de saisir leurs informations personnelles (poids,
-                                taille, âge, sexe) via une interface intuitive et de calculer instantanément leur Indice
-                                de Masse Grasse. Le résultat est affiché avec un message d'interprétation personnalisé et
-                                un indicateur visuel (smiley) pour une compréhension rapide.
-                            </p>
-
-                            <div class="features-grid">
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-calculator"></i> Calcul IMG</h4>
-                                    <p>Calcul automatique de l'Indice de Masse Grasse selon la formule de Deurenberg</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-venus-mars"></i> Profil personnalisé</h4>
-                                    <p>Adaptation du calcul selon le sexe de l'utilisateur (homme/femme)</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-smile"></i> Feedback visuel</h4>
-                                    <p>Affichage de smileys et messages pour interpréter les résultats</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-mobile-alt"></i> Multiplateforme</h4>
-                                    <p>Disponible sur Android, iOS, macOS et Windows</p>
-                                </div>
+avec :
+- IMC = poids (kg) / taille² (m)
+- sexe = 1 pour un homme, 0 pour une femme</code></pre>
                             </div>
-                        </section>
-
-                        <!-- Structure du projet -->
-                        <section class="detail-section">
-                            <h2>Structure du projet</h2>
                             <p>
-                                Le projet est organisé selon les conventions .NET MAUI avec une structure claire et maintenable.
-                                Tous les fichiers sont regroupés dans un seul projet pour cette première version.
+                                Pour la V1, cette formule est le cœur métier : l'application convertit d'abord la taille en mètres,
+                                calcule l'IMC, puis applique la formule complète. Le résultat final est affiché en pourcentage.
                             </p>
-
-                            <!-- Image structure -->
-                            <div class="screenshot-container">
-                                <img src="assets/images/coach/coach-v1-structure.png"
-                                    alt="Structure des fichiers du projet Coach IMG V1" class="screenshot-img">
-                                <p class="screenshot-caption">Organisation des fichiers et dossiers du projet .NET MAUI</p>
-                            </div>
-
-                            <h3>Fichiers principaux</h3>
-                            <div class="features-grid roles-grid">
-                                <div class="feature-item role-card">
-                                    <span class="role-number">01</span>
-                                    <h4>MauiProgram.cs</h4>
-                                    <p>Point d'entrée de l'application. Configure les services, enregistre les polices 
-                                       personnalisées (OpenSans) et initialise le logging en mode DEBUG.</p>
-                                </div>
-                                <div class="feature-item role-card">
-                                    <span class="role-number">02</span>
-                                    <h4>MainPage.xaml</h4>
-                                    <p>Interface utilisateur principale avec les champs de saisie, boutons radio pour 
-                                       le sexe, bouton de calcul et zone d'affichage des résultats.</p>
-                                </div>
-                                <div class="feature-item role-card">
-                                    <span class="role-number">03</span>
-                                    <h4>Profil.cs</h4>
-                                    <p>Modèle de données contenant les propriétés utilisateur et les méthodes de calcul 
-                                       de l'IMG avec la formule de Deurenberg.</p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Formule de calcul -->
-                        <section class="detail-section">
-                            <h2>Formule de calcul de l'IMG</h2>
-                            <p>
-                                Le calcul de l'Indice de Masse Grasse s'appuie sur la formule de Deurenberg et al. publiée 
-                                en 1991. Cette formule scientifiquement validée prend en compte l'IMC, l'âge et le sexe 
-                                pour estimer le pourcentage de masse grasse corporelle.
-                            </p>
-
-                            <!-- Image formule -->
-                            <div class="screenshot-container">
-                                <img src="assets/images/coach/coach-v1-formula.png"
-                                    alt="Formule de Deurenberg pour le calcul de l'IMG" class="screenshot-img">
-                                <p class="screenshot-caption">Formule de Deurenberg : IMG = (1.2 × IMC) + (0.23 × âge) - (10.8 × sexe) - 5.4</p>
-                            </div>
-
-                            <h3>Paramètres de la formule</h3>
+                            <h3>Lecture simple des paramètres</h3>
                             <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary); line-height: 1.8;">
-                                <li><strong>IMC</strong> : Indice de Masse Corporelle = poids (kg) / taille² (m)</li>
-                                <li><strong>Âge</strong> : Âge de l'utilisateur en années</li>
-                                <li><strong>Sexe</strong> : 1 pour homme, 0 pour femme</li>
+                                <li><strong>Poids</strong> : plus le poids augmente (à taille égale), plus l'IMG monte.</li>
+                                <li><strong>Taille</strong> : elle agit via l'IMC, donc elle influence fortement le résultat.</li>
+                                <li><strong>Âge</strong> : le terme <code>0.23 × âge</code> fait progresser l'IMG avec l'âge.</li>
+                                <li><strong>Sexe</strong> : le coefficient change le résultat selon homme/femme.</li>
                             </ul>
-
+                            <h3>Exemple oral rapide</h3>
+                            <p>
+                                Exemple : pour 70 kg, 1,75 m, 28 ans, homme. On calcule d'abord l'IMC (environ 22,86), puis on
+                                applique la formule. On obtient un IMG d'environ <strong>18,4 %</strong>, qui est ensuite interprété
+                                par l'application avec un message et un visuel.
+                            </p>
+                            <h3>Extraits de code (implémentation V1)</h3>
+                            <p>Voici comment la formule est matérialisée en C# dans le modèle métier :</p>
                             <div class="code-block typing-code">
                                 <pre><code class="language-csharp">public void CalculIMG()
 {
     double tailleEnMetres = taille / 100.0;
     double sexeValue = sexe ? 1.0 : 0.0;
-    
-    // Formule de Deurenberg (1991)
-    img = (1.2 * poids / (tailleEnMetres * tailleEnMetres)) 
-          + (0.23 * age) 
-          - (10.83 * sexeValue) 
+    img = (1.2 * poids / (tailleEnMetres * tailleEnMetres))
+          + (0.23 * age)
+          - (10.8 * sexeValue)
           - 5.4;
 }</code></pre>
                             </div>
-                        </section>
-
-                        <!-- Interprétation des résultats -->
-                        <section class="detail-section">
-                            <h2>Interprétation des résultats</h2>
-                            <p>
-                                Les seuils d'interprétation varient selon le sexe et sont basés sur les recommandations
-                                médicales standard. Chaque résultat est accompagné d'un message explicatif et d'un smiley
-                                correspondant.
-                            </p>
-
-                            <div class="features-grid roles-grid">
-                                <div class="feature-item role-card">
-                                    <span class="role-number"><i class="fas fa-venus"></i></span>
-                                    <h4>Femmes</h4>
-                                    <ul style="margin-left: 16px; margin-top: 8px; color: var(--text-secondary); font-size: 0.9rem;">
-                                        <li>IMG &lt; 25% : "maigre"</li>
-                                        <li>25% ≤ IMG ≤ 30% : "Parfait"</li>
-                                        <li>IMG &gt; 30% : "Surpoids"</li>
-                                    </ul>
-                                </div>
-                                <div class="feature-item role-card">
-                                    <span class="role-number"><i class="fas fa-mars"></i></span>
-                                    <h4>Hommes</h4>
-                                    <ul style="margin-left: 16px; margin-top: 8px; color: var(--text-secondary); font-size: 0.9rem;">
-                                        <li>IMG &lt; 15% : "Trop maigre."</li>
-                                        <li>15% ≤ IMG ≤ 20% : "Parfait."</li>
-                                        <li>IMG &gt; 20% : "Surpoids."</li>
-                                    </ul>
-                                </div>
-                                <div class="feature-item role-card">
-                                    <span class="role-number"><i class="fas fa-smile"></i></span>
-                                    <h4>Smileys</h4>
-                                    <ul style="margin-left: 16px; margin-top: 8px; color: var(--text-secondary); font-size: 0.9rem;">
-                                        <li>😊 Résultat parfait</li>
-                                        <li>😟 Masse grasse insuffisante</li>
-                                        <li>😰 Surpoids détecté</li>
-                                    </ul>
-                                </div>
-                            </div>
-
+                            <p>Interprétation du résultat selon des seuils différents homme/femme :</p>
                             <div class="code-block typing-code">
                                 <pre><code class="language-csharp">private void ResultatIMG()
 {
     if (sexe == 0) // femme
     {
-        if (img < 25.0) message = "maigre";
-        else if (img <= 30.0) message = "Parfait";
+        if (img &lt; 25.0) message = "maigre";
+        else if (img &lt;= 30.0) message = "Parfait";
         else message = "Surpoids";
     }
     else if (sexe == 1) // homme
     {
-        if (img < 15.0) message = "Trop maigre.";
-        else if (img <= 20.0) message = "Parfait.";
+        if (img &lt; 15.0) message = "Trop maigre.";
+        else if (img &lt;= 20.0) message = "Parfait.";
         else message = "Surpoids.";
     }
 }</code></pre>
                             </div>
-                        </section>
-
-                        <!-- Interface utilisateur -->
-                        <section class="detail-section">
-                            <h2>Interface utilisateur XAML</h2>
-                            <p>
-                                L'interface est construite en XAML avec un <code>VerticalStackLayout</code> pour organiser
-                                les éléments. Les champs de saisie utilisent un clavier numérique pour faciliter l'entrée
-                                des valeurs.
-                            </p>
-
-                            <h3>Éléments de l'interface</h3>
+                            <p>Extrait du clic sur « Calculer IMG » dans la page (création du profil, affichage, smiley) :</p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-csharp">Profil unProfil = new Profil(sexe, poids, taille, age);
+LblResultat.Text =
+    $"Votre IMG est de {unProfil.Img:F2} %.\n{unProfil.Message}";
+// mise à jour de l’image selon le message...</code></pre>
+                            </div>
+                            <p>Fichiers principaux dans la solution : interface XAML (<code>MainPage.xaml</code>),
+                                code-behind (<code>MainPage.xaml.cs</code>), modèle avec calcul (<code>Profil.cs</code>),
+                                bootstrap MAUI (<code>MauiProgram.cs</code>).</p>
+                            <h3>Ce que la V1 apporte concrètement</h3>
+                            <div class="features-grid">
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-calculator"></i> Calcul IMG</h4>
+                                    <p>Implémentation de la formule de Deurenberg avec affichage du pourcentage.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-mobile-alt"></i> Interface MAUI</h4>
+                                    <p>Formulaire simple avec poids, taille, âge et sexe.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-smile"></i> Retour visuel</h4>
+                                    <p>Message et smiley selon l'interprétation du résultat.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-venus-mars"></i> Personnalisation homme/femme</h4>
+                                    <p>La formule et les seuils d'interprétation s'adaptent au sexe sélectionné.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-shield-alt"></i> Gestion d'erreur de saisie</h4>
+                                    <p>Un message alerte l'utilisateur si une valeur est invalide.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-laptop-code"></i> Base de code réutilisable</h4>
+                                    <p>La logique de calcul est isolée pour faciliter les évolutions futures.</p>
+                                </div>
+                                <div class="feature-item">
+                                    <h4><i class="fas fa-mobile-screen-button"></i> Cible multi-plateforme</h4>
+                                    <p>Le projet MAUI prépare déjà Android, iOS, macOS et Windows.</p>
+                                </div>
+                            </div>
+                            <h3>Détail fonctionnel (niveau oral BTS)</h3>
                             <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary); line-height: 1.8;">
-                                <li><strong>Entry</strong> : Champs de saisie pour poids (kg), taille (cm) et âge (années)</li>
-                                <li><strong>RadioButton</strong> : Sélection exclusive du sexe (Homme/Femme)</li>
-                                <li><strong>Button</strong> : Déclenchement du calcul IMG</li>
-                                <li><strong>Label</strong> : Affichage du résultat avec pourcentage et message</li>
-                                <li><strong>Image</strong> : Smiley correspondant à l'interprétation</li>
+                                <li>L'utilisateur saisit ses données dans trois champs numériques.</li>
+                                <li>Le sexe est choisi via boutons radio, avec un choix exclusif.</li>
+                                <li>Le bouton de calcul déclenche la création d'un profil et le calcul IMG.</li>
+                                <li>Le résultat affiche un pourcentage + un message métier.</li>
+                                <li>Un smiley renforce la lecture rapide du résultat.</li>
+                                <li>En cas d'erreur de saisie, une alerte protège l'expérience utilisateur.</li>
                             </ul>
-
-                            <div class="code-block typing-code">
-                                <pre><code class="language-xml">&lt;VerticalStackLayout VerticalOptions="Center" Spacing="25" Margin="10"&gt;
-    &lt;Entry 
-        TextColor="DarkBlue"
-        FontSize="22"
-        x:Name="entPoids"
-        Placeholder="Poids en Kgs"
-        Keyboard="Numeric"&gt;
-    &lt;/Entry&gt;
-
-    &lt;Entry x:Name="entTaille" Placeholder="Taille en Cms" Keyboard="Numeric" /&gt;
-    &lt;Entry x:Name="entAge" Placeholder="Âge en années" Keyboard="Numeric" /&gt;
-
-    &lt;HorizontalStackLayout HorizontalOptions="Center" Spacing="25"&gt;
-        &lt;RadioButton x:Name="RbHomme" Content="Homme" /&gt;
-        &lt;RadioButton x:Name="RbFemme" Content="Femme" IsChecked="true" /&gt;
-    &lt;/HorizontalStackLayout&gt;
-
-    &lt;Button x:Name="BtCalculer" Text="Calculer IMG" Clicked="BtCalculer_Clicked" /&gt;
-    
-    &lt;Label x:Name="LblResultat" FontSize="18" HorizontalOptions="Center" /&gt;
-    &lt;Image x:Name="img" HeightRequest="100" WidthRequest="100" /&gt;
-&lt;/VerticalStackLayout&gt;</code></pre>
-                            </div>
+                            <h3>Pourquoi cette V1 est importante</h3>
+                            <p>
+                                Sans cette version, les améliorations suivantes n'auraient pas de base solide. La V1 valide la logique
+                                métier, le parcours utilisateur et la structure globale de l'application. Les versions V2 à V5 viennent
+                                ensuite améliorer la persistance, l'organisation du code, la navigation et la documentation.
+                            </p>
                         </section>
 
-                        <!-- Gestion des événements -->
                         <section class="detail-section">
-                            <h2>Gestion des événements</h2>
-                            <p>
-                                Le code-behind gère l'événement de clic sur le bouton de calcul. Les valeurs sont parsées
-                                et validées avant la création de l'objet Profil. Une gestion d'erreurs avec try-catch
-                                capture les erreurs de saisie.
-                            </p>
-
-                            <div class="code-block typing-code">
-                                <pre><code class="language-csharp">private void BtCalculer_Clicked(object sender, EventArgs e)
-{
-    try
-    {
-        var poids = int.Parse(entPoids.Text);
-        var taille = int.Parse(entTaille.Text);
-        var age = int.Parse(entAge.Text);
-        var sexe = RbHomme.IsChecked ? 1 : 0;
-
-        Profil unProfil = new Profil(sexe, poids, taille, age);
-
-        LblResultat.Text = $"Votre IMG est de {unProfil.Img:F2} %.\n{unProfil.Message}";
-
-        // Mise à jour du smiley selon le résultat
-        if (unProfil.Message.Contains("maigre"))
-            img.Source = "smiley_tropmaigre";
-        else if (unProfil.Message.Contains("Parfait"))
-            img.Source = "smiley_parfait";
-        else if (unProfil.Message.Contains("Surpoids"))
-            img.Source = "smiley_surpoids";
-    }
-    catch (Exception ex)
-    {
-        DisplayAlertAsync("Erreur", "Saisie incorrecte", "Ok");
-    }
-}</code></pre>
-                            </div>
-                        </section>
-
-                        <!-- Tests unitaires -->
-                        <section class="detail-section">
-                            <h2>Tests unitaires</h2>
-                            <p>
-                                Dès cette première version, un projet de tests unitaires MSTest a été mis en place pour 
-                                valider la logique de calcul de l'IMG. Cette approche garantit la fiabilité des résultats 
-                                et facilite les évolutions futures du code.
-                            </p>
-
-                            <!-- Image tests -->
-                            <div class="screenshot-container">
-                                <img src="assets/images/coach/coach-v3-tests.png"
-                                    alt="Tests unitaires MSTest avec tous les tests passés" class="screenshot-img">
-                                <p class="screenshot-caption">Exécution des tests unitaires MSTest dans Visual Studio</p>
-                            </div>
-
-                            <div class="code-block typing-code">
-                                <pre><code class="language-csharp">using mobile.Core.Modele;
-
-namespace test_MauiAppCoach
-{
-    [TestClass]
-    public sealed class Test1
-    {
-        [TestMethod]
-        public void TestMethod1()
-        {
-            // Arrange : créer un profil homme de 63kg, 171cm, 19 ans
-            Profil profil = new Profil(1, 63, 171, 19);
-
-            // Act : récupérer l'IMG calculé
-            double resultatTest = profil.Img;
-
-            // Assert : vérifier que l'IMG est proche de 13.99%
-            double resultatAttendu = 13.99;
-            double delta = 0.1;
-            
-            Assert.AreEqual(resultatAttendu, resultatTest, delta);
-        }
-    }
-}</code></pre>
-                            </div>
-
-                            <h3>Avantages des tests unitaires</h3>
-                            <div class="features-grid">
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-shield-alt"></i> Fiabilité</h4>
-                                    <p>Garantit que la formule de Deurenberg retourne les bons résultats</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-sync"></i> Non-régression</h4>
-                                    <p>Détecte immédiatement si une modification casse le calcul</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-code"></i> Documentation</h4>
-                                    <p>Les tests servent d'exemples d'utilisation de la classe Profil</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-rocket"></i> Confiance</h4>
-                                    <p>Permet de refactorer le code en toute sérénité</p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Plateformes supportées -->
-                        <section class="detail-section">
-                            <h2>Plateformes supportées</h2>
-                            <p>
-                                .NET MAUI permet de cibler plusieurs plateformes à partir d'une base de code unique.
-                                Chaque plateforme dispose de son propre dossier de configuration dans <code>Platforms/</code>.
-                            </p>
-
-                            <div class="features-grid">
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-android"></i> Android</h4>
-                                    <p>API 21.0 (Android 5.0 Lollipop) et supérieur</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-apple"></i> iOS</h4>
-                                    <p>iOS 15.0 et supérieur</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-apple"></i> macOS</h4>
-                                    <p>macOS 15.0 (Mac Catalyst) et supérieur</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-windows"></i> Windows</h4>
-                                    <p>Windows 10.0.17763.0 et supérieur</p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Technologies utilisées -->
-                        <section class="detail-section">
-                            <h2>Technologies utilisées</h2>
-                            <div class="features-grid">
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-microsoft"></i> Framework</h4>
-                                    <p><strong>.NET MAUI</strong> version 10.0</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-code"></i> Langage</h4>
-                                    <p><strong>C#</strong> (.NET 10.0)</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-paint-brush"></i> Interface</h4>
-                                    <p><strong>XAML</strong> pour les vues</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-tools"></i> IDE</h4>
-                                    <p><strong>Visual Studio 2022</strong></p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Limites de cette version -->
-                        <section class="detail-section">
-                            <h2>Limites de cette version</h2>
-                            <p>
-                                Cette première version présente certaines limitations qui seront adressées dans les
-                                versions suivantes :
-                            </p>
-
-                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary); line-height: 1.8;">
-                                <li><strong>Pas de persistance</strong> : Les données sont perdues à chaque fermeture de l'application</li>
-                                <li><strong>Architecture monolithique</strong> : Tout le code est dans un seul projet</li>
-                                <li><strong>Pas d'historique</strong> : Impossible de suivre l'évolution de son IMG dans le temps</li>
-                                <li><strong>Validation basique</strong> : Gestion d'erreurs minimale sur les saisies</li>
-                            </ul>
-
-                            <p>
-                                Ces limitations sont résolues dans la <a href="Application-mobile-coach-v2.html">Version 2</a>
-                                qui introduit la persistance des données avec la sérialisation JSON.
-                            </p>
+                            <h2>Comparatif des versions (V1 → V5)</h2>
+                            <table style="width: 100%; border-collapse: collapse; margin: 24px 0;">
+                                <thead>
+                                    <tr style="background: var(--bg-secondary); border-bottom: 2px solid var(--border-color);">
+                                        <th style="padding: 12px 16px; text-align: left;">Fonctionnalité</th>
+                                        <th style="padding: 12px 16px; text-align: center;">V1</th>
+                                        <th style="padding: 12px 16px; text-align: center;">V2</th>
+                                        <th style="padding: 12px 16px; text-align: center;">V3</th>
+                                        <th style="padding: 12px 16px; text-align: center;">V4</th>
+                                        <th style="padding: 12px 16px; text-align: center;">V5</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Calcul IMG (Deurenberg)</td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Persistance JSON</td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Persistance SQLite</td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);">
+                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Menu de navigation dédié</td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Documentation technique complète</td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </section>
 
                         <!-- Palette de couleurs -->
@@ -526,76 +316,7 @@ namespace test_MauiAppCoach
                             </div>
                         </section>
 
-                        <!-- Compétences techniques -->
-                        <section class="detail-section">
-                            <h2>Compétences techniques mises en œuvre</h2>
-                            <p>
-                                Ce projet m'a permis de développer mes compétences en développement mobile multiplateforme :
-                            </p>
-                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary); line-height: 1.8;">
-                                <li><strong>Framework .NET MAUI</strong> : Configuration et utilisation du framework multiplateforme</li>
-                                <li><strong>XAML</strong> : Création d'interfaces utilisateur déclaratives</li>
-                                <li><strong>C#</strong> : Logique métier et gestion des événements</li>
-                                <li><strong>Pattern MVC</strong> : Séparation basique entre modèle et vue</li>
-                                <li><strong>Déploiement multiplateforme</strong> : Configuration pour Android, iOS, Windows, macOS</li>
-                            </ul>
-                        </section>
-
-                        <!-- Liens -->
-                        <section class="detail-section">
-                            <h2>Liens</h2>
-                            <div class="project-links">
-                                <a href="Application-mobile-coach-v2.html" class="link-btn"><i class="fas fa-arrow-right"></i> Voir la Version 2</a>
-                                <a href="https://learn.microsoft.com/dotnet/maui/" target="_blank" class="link-btn"><i class="fas fa-book"></i> Documentation .NET MAUI</a>
-                            </div>
-                        </section>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="related-projects">
-            <div class="container">
-                <h2>Autres versions</h2>
-                <div class="projects-grid">
-                    <a href="Application-mobile-coach-v2.html" class="project-card">
-                        <div class="project-card-image">
-                            <img src="assets/images/coach/coach-v2-hero.png" alt="Coach IMG V2" loading="lazy">
-                        </div>
-                        <h3>Coach IMG V2</h3>
-                        <p>Ajout de la persistance des données avec sérialisation JSON</p>
-                        <div class="project-technologies">
-                            <span class="tech-small">.NET MAUI</span>
-                            <span class="tech-small">JSON</span>
-                            <span class="tech-small">Sérialisation</span>
-                        </div>
-                    </a>
-                    <a href="Application-mobile-coach-v3.html" class="project-card">
-                        <div class="project-card-image">
-                            <img src="assets/images/coach/coach-hero.png" alt="Coach IMG V3" loading="lazy"
-                                onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop'">
-                        </div>
-                        <h3>Coach IMG V3</h3>
-                        <p>Navigation multi-pages et nouvelles fonctionnalités</p>
-                        <div class="project-technologies">
-                            <span class="tech-small">.NET MAUI</span>
-                            <span class="tech-small">Navigation</span>
-                            <span class="tech-small">Shell</span>
-                        </div>
-                    </a>
-                    <a href="Application-mobile-coach-v4.html" class="project-card">
-                        <div class="project-card-image">
-                            <img src="assets/images/coach/coach-hero.png" alt="Coach IMG V4" loading="lazy"
-                                onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop'">
-                        </div>
-                        <h3>Coach IMG V4</h3>
-                        <p>Version finale avec toutes les améliorations</p>
-                        <div class="project-technologies">
-                            <span class="tech-small">.NET MAUI</span>
-                            <span class="tech-small">MVVM</span>
-                            <span class="tech-small">SQLite</span>
-                        </div>
-                    </a>
                 </div>
             </div>
         </section>

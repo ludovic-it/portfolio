@@ -44,34 +44,33 @@
     <style>
         /* Page styles */
         .coach-versions-section {
-            padding: 120px 0 100px;
+            padding: 120px 0 90px;
             min-height: 100vh;
         }
 
         .coach-versions-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
 
         .coach-versions-header h1 {
             font-family: 'FRICK', 'Inter', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-size: clamp(2.6rem, 6vw, 3.5rem);
             color: #4A7FFF;
             margin-bottom: 12px;
-            letter-spacing: -0.02em;
+            letter-spacing: 0.01em;
         }
 
         .coach-versions-header .subtitle {
-            font-size: 1.0625rem;
-            color: #6b7280;
+            font-size: 1.08rem;
+            color: #8b8f98;
         }
 
-        /* Grid - Style veille stats */
         .coach-versions-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-            max-width: 1000px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -88,37 +87,26 @@
             }
         }
 
-        /* Cards - Style inspiré de veille-stats */
         .coach-version-card {
             text-align: center;
-            padding: 40px 24px;
-            background: linear-gradient(135deg, rgba(74, 127, 255, 0.05) 0%, rgba(107, 154, 255, 0.05) 100%);
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            border: 2px solid transparent;
+            padding: 34px 22px;
+            background: #f6f8fc;
+            border-radius: 14px;
+            box-shadow: 0 4px 14px rgba(28, 42, 70, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            border: 1px solid #eef1f8;
             position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            min-height: 170px;
         }
 
         .coach-version-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(74, 127, 255, 0.1) 0%, rgba(107, 154, 255, 0.1) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 0;
+            content: none;
         }
 
         .coach-version-card:hover::before {
@@ -126,80 +114,62 @@
         }
 
         .coach-version-card:hover {
-            transform: translateY(-12px) scale(1.03);
-            box-shadow: 0 20px 60px rgba(74, 127, 255, 0.3), 0 8px 24px rgba(74, 127, 255, 0.2);
-            border-color: rgba(74, 127, 255, 0.4);
-            background: linear-gradient(135deg, rgba(74, 127, 255, 0.1) 0%, rgba(107, 154, 255, 0.08) 100%);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(74, 127, 255, 0.2);
+            border-color: rgba(74, 127, 255, 0.25);
+            background: #f8faff;
         }
 
         /* Icon */
         .card-icon {
-            font-size: 2rem;
+            font-size: 1.75rem;
             color: #4A7FFF;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             position: relative;
-            z-index: 1;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.25s ease;
             display: inline-block;
         }
 
         .coach-version-card:hover .card-icon {
-            transform: scale(1.3) rotate(10deg);
-            color: #6B9AFF;
-            filter: drop-shadow(0 4px 8px rgba(74, 127, 255, 0.4));
-            animation: iconBounce 0.6s ease;
+            transform: scale(1.08);
         }
 
-        @keyframes iconBounce {
-            0%, 100% {
-                transform: scale(1.3) rotate(10deg);
-            }
-            50% {
-                transform: scale(1.4) rotate(15deg);
-            }
-        }
-
-        /* Version Number */
         .version-number {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             font-weight: 700;
             color: #4A7FFF;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-family: 'FRICK', 'Inter', sans-serif;
             line-height: 1;
             position: relative;
-            z-index: 1;
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease;
         }
 
         .coach-version-card:hover .version-number {
             transform: scale(1.1);
         }
 
-        /* Version Label */
         .version-label {
-            font-size: 0.9375rem;
-            color: #6b7280;
-            font-weight: 600;
+            font-size: 0.92rem;
+            color: #2d3340;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
             position: relative;
-            z-index: 1;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
 
         .coach-version-card:hover .version-label {
             color: #4A7FFF;
         }
 
-        /* V4 Placeholder */
         .coach-version-card.coach-version-placeholder {
-            opacity: 0.7;
+            opacity: 0.92;
         }
 
         .coach-version-card.coach-version-placeholder .card-icon,
         .coach-version-card.coach-version-placeholder .version-number {
-            color: #9ca3af;
+            color: #4A7FFF;
         }
 
         .coach-version-card.coach-version-placeholder:hover {
@@ -211,17 +181,34 @@
             color: #4A7FFF;
         }
 
-        /* Back Link */
+        /* V5 non finalisée : libellés en rouge (spécificité > .coach-version-placeholder) */
+        .coach-version-card.coach-version-placeholder.coach-version-wip .card-icon,
+        .coach-version-card.coach-version-placeholder.coach-version-wip .version-number,
+        .coach-version-card.coach-version-placeholder.coach-version-wip .version-label {
+            color: #dc2626;
+        }
+
+        .coach-version-card.coach-version-placeholder.coach-version-wip:hover {
+            border-color: rgba(220, 38, 38, 0.35);
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.15);
+        }
+
+        .coach-version-card.coach-version-placeholder.coach-version-wip:hover .card-icon,
+        .coach-version-card.coach-version-placeholder.coach-version-wip:hover .version-number,
+        .coach-version-card.coach-version-placeholder.coach-version-wip:hover .version-label {
+            color: #b91c1c;
+        }
+
         .back-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             color: #6b7280;
             text-decoration: none;
-            font-size: 0.9375rem;
+            font-size: 0.88rem;
             font-weight: 500;
-            margin-bottom: 40px;
-            padding: 10px 16px;
+            margin-bottom: 28px;
+            padding: 8px 12px;
             border-radius: 10px;
             transition: all 0.25s ease;
         }
@@ -290,9 +277,16 @@
 
                     <!-- V4 -->
                     <a href="Application-mobile-coach-v4.html" class="coach-version-card coach-version-placeholder">
-                        <i class="fas fa-rocket card-icon"></i>
+                        <i class="fas fa-history card-icon"></i>
                         <span class="version-number">V4</span>
-                        <span class="version-label">À venir</span>
+                        <span class="version-label">Historique</span>
+                    </a>
+
+                    <!-- V5 -->
+                    <a href="Application-mobile-coach-v5.html" class="coach-version-card coach-version-placeholder coach-version-wip">
+                        <i class="fas fa-cloud card-icon"></i>
+                        <span class="version-number">V5</span>
+                        <span class="version-label">Base distante</span>
                     </a>
                 </div>
             </div>

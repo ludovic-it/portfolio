@@ -66,7 +66,7 @@
                 <div class="project-header">
                     <a href="projets.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
                     <h1>Chatbot Openbiz Dev</h1>
-                    <p class="project-subtitle">Assistant virtuel interactif développé avec JavaScript vanilla</p>
+                    <p class="project-subtitle">Assistant virtuel interactif développé en JavaScript</p>
                 </div>
 
                 <!-- Hero Image -->
@@ -82,16 +82,12 @@
                         <section class="detail-section">
                             <h2>Présentation du projet</h2>
                             <p>
-                                J'ai développé un chatbot interactif pour Openbiz Dev, une agence de développement web
-                                et marketing digital. Ce projet vise à créer un assistant virtuel capable de guider les
-                                visiteurs dans leur parcours de qualification, de les orienter vers les services
-                                appropriés et de faciliter la prise de rendez-vous.
+                                J'ai développé un chatbot pour Openbiz Dev afin d'aider les visiteurs à trouver le bon service
+                                et à prendre rendez-vous plus facilement.
                             </p>
                             <p>
-                                Le chatbot offre une expérience utilisateur fluide avec des animations modernes, une
-                                interface intuitive et un système de conversation guidée qui permet de collecter les
-                                informations nécessaires pour qualifier les leads et les rediriger vers l'agence la plus
-                                adaptée selon leur localisation.
+                                Le chatbot pose des questions simples, enregistre les réponses et propose la suite la plus
+                                adaptée selon le besoin et la localisation.
                             </p>
                         </section>
 
@@ -99,11 +95,8 @@
                         <section class="detail-section">
                             <h2>Fonctionnalités principales</h2>
                             <p>
-                                Le chatbot propose un système de conversation structuré en plusieurs étapes : sélection
-                                d'une catégorie de service (Étude, Site, Social), choix d'un sous-service spécifique,
-                                qualification via des questions ciblées (objectif, budget, délai), sélection de la
-                                localisation, et enfin proposition de cas clients pertinents avant de rediriger vers
-                                Calendly pour la prise de rendez-vous.
+                                La conversation suit un parcours clair : choix du service, quelques questions de besoin,
+                                choix du pays, puis proposition d'un rendez-vous via Calendly.
                             </p>
 
                             <h3>Les catégories de services</h3>
@@ -141,11 +134,10 @@
                                 <li><strong>Action finale</strong> : Redirection vers Calendly ou contact par email</li>
                             </ol>
 
-                            <h3>Gestion de l'état de conversation</h3>
+                            <h3>Suivi de la conversation</h3>
                             <p>
-                                Le chatbot maintient un état de conversation complet qui suit chaque étape du parcours
-                                utilisateur. Cet état permet de stocker toutes les réponses de l'utilisateur et de
-                                générer un résumé final personnalisé.
+                                Le chatbot garde en mémoire chaque réponse pour savoir où en est l'utilisateur et afficher
+                                un résumé final.
                             </p>
 
                             <div class="code-block typing-code">
@@ -168,12 +160,10 @@
 
                         <!-- Architecture -->
                         <section class="detail-section">
-                            <h2>Architecture</h2>
+                            <h2>Organisation du projet</h2>
                             <p>
-                                Le projet utilise une architecture modulaire basée sur JavaScript vanilla, sans
-                                framework. La séparation des responsabilités est assurée par l'organisation du code en
-                                fonctions dédiées : gestion des messages, gestion de l'état, logique de conversation, et
-                                gestion des événements utilisateur.
+                                Le projet est développé sans framework, avec un code organisé par fonctions : messages,
+                                étapes de conversation et événements utilisateur.
                             </p>
 
                             <h3>Structure des fichiers</h3>
@@ -233,11 +223,10 @@
 }</code></pre>
                             </div>
 
-                            <h3>Initialisation sécurisée</h3>
+                            <h3>Initialisation</h3>
                             <p>
-                                Le chatbot utilise une fonction d'initialisation qui vérifie que tous les éléments DOM
-                                sont présents avant d'attacher les événements. Un système de protection empêche les
-                                doubles initialisations.
+                                Une fonction vérifie que les éléments HTML existent avant d'activer le chatbot, pour éviter
+                                les erreurs et les doubles démarrages.
                             </p>
 
                             <div class="code-block typing-code">
@@ -273,9 +262,8 @@
 
                             <h3>Design et animations</h3>
                             <p>
-                                Le design utilise un système de couleurs cohérent basé sur des variables CSS, avec un
-                                thème sombre et des accents bleus. Les animations sont créées avec CSS et utilisent des
-                                transitions fluides avec des courbes de Bézier pour un rendu professionnel.
+                                Le design utilise un thème sombre avec des accents bleus. Les animations CSS rendent
+                                l'interface plus agréable sans compliquer l'usage.
                             </p>
                             <p>
                                 Les effets visuels incluent : dégradés animés, effets glassmorphism, animations de
@@ -285,10 +273,8 @@
 
                             <h3>Gestion des événements</h3>
                             <p>
-                                Les événements sont gérés avec une approche moderne utilisant <code>addEventListener</code>
-                                avec l'option <code>capture: true</code> pour garantir que les clics sont bien capturés.
-                                Les pseudo-éléments CSS utilisent <code>pointer-events: none</code> pour éviter qu'ils
-                                interceptent les interactions utilisateur.
+                                Les clics sont gérés avec <code>addEventListener</code>. J'ai aussi sécurisé les interactions
+                                pour éviter que certains effets visuels bloquent les actions utilisateur.
                             </p>
 
                             <div class="code-block typing-code">
@@ -332,9 +318,7 @@
 
                             <h3>Indicateur de frappe</h3>
                             <p>
-                                Un indicateur de frappe animé est affiché pendant que le chatbot "réfléchit" avant de
-                                répondre. Cela améliore l'expérience utilisateur en donnant un feedback visuel pendant
-                                les délais de traitement.
+                                Un indicateur visuel apparaît pendant l'attente pour montrer que le chatbot prépare sa réponse.
                             </p>
 
                             <div class="code-block typing-code">
@@ -365,11 +349,8 @@
                         <section class="detail-section">
                             <h2>Outils utilisés</h2>
                             <p>
-                                Le projet a été réalisé avec <strong>JavaScript vanilla</strong> (ES6+) pour la
-                                logique, <strong>HTML5</strong> pour la structure, et <strong>CSS3</strong> avec
-                                variables CSS, animations, et media queries pour le design responsive. Aucun framework
-                                ou bibliothèque externe n'est utilisé, ce qui garantit des performances optimales et un
-                                chargement rapide.
+                                Le projet repose sur <strong>JavaScript</strong>, <strong>HTML</strong> et <strong>CSS</strong>,
+                                sans framework lourd. Le chargement est rapide et le code reste lisible.
                             </p>
                             <p>
                                 Les fonctionnalités modernes utilisées incluent : les variables CSS pour la cohérence
@@ -403,15 +384,10 @@
 
                         <!-- Compétences techniques -->
                         <section class="detail-section">
-                            <h2>Compétences techniques mises en œuvre</h2>
+                            <h2>Compétences mobilisées</h2>
                             <p>
-                                Ce projet m'a permis de renforcer mes compétences en développement front-end avec
-                                JavaScript vanilla. J'ai conçu un système de gestion d'état pour suivre la conversation,
-                                créé une interface utilisateur moderne avec animations CSS avancées, implémenté une
-                                logique de conversation guidée avec validation des données, géré les événements DOM de
-                                manière optimale, intégré des API externes (Calendly), créé un design responsive et
-                                accessible, optimisé les performances en évitant les frameworks lourds, et développé une
-                                architecture modulaire et maintenable.
+                                Ce projet m'a permis de renforcer mes bases front-end : logique de conversation, gestion
+                                des événements, intégration de services externes et interface responsive.
                             </p>
 
                             <div class="features-grid">
@@ -446,12 +422,8 @@
                         <section class="detail-section">
                             <h2>Conclusion</h2>
                             <p>
-                                Ce projet m'a permis de créer un chatbot fonctionnel et esthétiquement moderne sans
-                                dépendre de frameworks externes. L'expérience acquise dans la gestion d'état, les
-                                animations CSS, et l'intégration d'API externes me donne une base solide pour le
-                                développement de projets web interactifs. Le chatbot offre une expérience utilisateur
-                                fluide et professionnelle qui améliore significativement l'engagement des visiteurs sur
-                                le site.
+                                Ce projet m'a montré qu'on peut créer un chatbot utile et fluide avec des technologies web
+                                simples. C'est un bon exemple de projet concret à présenter à l'oral BTS.
                             </p>
                         </section>
 

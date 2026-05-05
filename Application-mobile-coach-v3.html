@@ -4,38 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO Meta Tags -->
-    <title>Coach IMG V3 - Base de données SQLite | Portfolio Ludovic.C</title>
-    <meta name="description"
-        content="Version 3 de l'application Coach IMG avec base de données SQLite, historique des mesures, architecture en couches et tests unitaires.">
-    <meta name="keywords" content=".NET MAUI, C#, XAML, SQLite, persistance données, BTS SIO, base de données mobile">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://votre-domaine.com/Application-mobile-coach-v3.html">
-    <meta property="og:title" content="Coach IMG V3 - Base de données SQLite">
-    <meta property="og:description"
-        content="Version 3 avec base de données SQLite pour l'historique des mesures et architecture professionnelle.">
-    <meta property="og:image" content="https://votre-domaine.com/assets/images/coach/coach-v3-hero.png">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Coach IMG V3 - Base de données SQLite">
-    <meta name="twitter:description" content="Application mobile avec stockage SQLite et historique des mesures.">
-
+    <title>Coach IMG V3 - Base SQLite | Portfolio Ludovic.C</title>
+    <meta name="description" content="Version 3 de Coach IMG : nouveautés, comparatif V1 à V5 et palette de couleurs.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Fragment+Mono:ital,wght@0,400;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/default.min.css">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/scroll-reveal.css">
     <link rel="stylesheet" href="assets/css/accessibility.css">
     <link rel="stylesheet" href="assets/css/breadcrumbs.css">
     <link rel="stylesheet" href="assets/css/design-system.css">
@@ -46,19 +23,11 @@
 </head>
 
 <body>
-
     <main>
-        <!-- Breadcrumbs -->
         <nav class="breadcrumbs" aria-label="Fil d'Ariane">
             <div class="container">
                 <div class="breadcrumbs-nav">
-                    <a href="index.html">Accueil</a>
-                    <span class="separator">/</span>
-                    <a href="projets.html">Projets</a>
-                    <span class="separator">/</span>
-                    <a href="coach.html">Coach</a>
-                    <span class="separator">/</span>
-                    <span class="current">V3</span>
+                    <a href="index.html">Accueil</a><span class="separator">/</span><a href="projets.html">Projets</a><span class="separator">/</span><a href="coach.html">Coach</a><span class="separator">/</span><span class="current">V3</span>
                 </div>
             </div>
         </nav>
@@ -67,701 +36,86 @@
             <div class="container">
                 <div class="project-header">
                     <a href="coach.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux versions Coach</a>
-                    <h1>Coach IMG – Version 3</h1>
-                    <p class="project-subtitle">Évolution majeure avec base de données SQLite, historique des mesures et architecture professionnelle</p>
+                    <h1>Coach IMG - Version 3</h1>
+                    <p class="project-subtitle">Ajout de SQLite et historique des mesures</p>
                 </div>
 
-                <!-- Hero Image -->
                 <div class="project-hero-image">
-                    <img src="assets/images/coach/coach-v3-hero.png" alt="Coach IMG V3 avec base de données SQLite"
-                        class="hero-img" loading="lazy">
+                    <img src="assets/images/coach/coach-v3-hero-ia.png" alt="Coach IMG V3" class="hero-img" loading="lazy">
                 </div>
 
                 <div class="project-content-wrapper">
                     <div class="project-main">
-                        
-                        <!-- Résumé des changements V3 -->
                         <section class="detail-section">
                             <h2>Nouveautés de la Version 3</h2>
-                            <p>
-                                Cette troisième version de l'application Coach IMG représente une évolution majeure 
-                                par rapport aux <a href="Application-mobile-coach-v2.html">versions précédentes</a>. 
-                                L'accent est mis sur la <strong>persistance robuste des données</strong> 
-                                avec SQLite, l'<strong>historique des mesures</strong> et une <strong>architecture testable</strong>.
-                            </p>
-                            
+                            <p>La V3 marque une vraie étape : on passe d'une simple sauvegarde JSON à une base SQLite qui permet de suivre plusieurs mesures dans le temps.</p>
+                            <p>Concrètement, l'application ne garde plus uniquement le dernier calcul : elle enregistre un historique exploitable, avec un affichage plus utile pour l'utilisateur.</p>
+                            <p>Pour l'oral, c'est une version clé car elle montre un passage vers un vrai stockage structuré, plus proche d'une application professionnelle.</p>
                             <div class="features-grid">
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-database"></i> Base de données SQLite</h4>
-                                    <p>Stockage professionnel des données avec SQLite, permettant des requêtes complexes et un historique complet</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-history"></i> Historique des mesures</h4>
-                                    <p>Chaque calcul est horodaté avec <code>DateMesure</code> pour suivre l'évolution de l'IMG dans le temps</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-layer-group"></i> Architecture en 3 couches</h4>
-                                    <p>Séparation claire : <code>mobile</code> (UI), <code>mobile.Core</code> (logique) et couche données</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-vial"></i> Tests unitaires</h4>
-                                    <p>Projet de tests MSTest pour valider la logique de calcul IMG de manière automatisée</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-sync"></i> Double persistance</h4>
-                                    <p>Conservation du Serializer JSON en plus de SQLite pour flexibilité maximale</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-bolt"></i> Requêtes asynchrones</h4>
-                                    <p>Utilisation de <code>async/await</code> pour des opérations de base de données non-bloquantes</p>
-                                </div>
+                                <div class="feature-item"><h4><i class="fas fa-database"></i> Base SQLite</h4><p>Les profils sont stockés dans une base locale structurée et plus fiable.</p></div>
+                                <div class="feature-item"><h4><i class="fas fa-clock"></i> Date de mesure</h4><p>Chaque calcul est horodaté, ce qui permet de comparer l'évolution de l'IMG.</p></div>
+                                <div class="feature-item"><h4><i class="fas fa-history"></i> Historique complet</h4><p>La V3 permet de récupérer plusieurs entrées et pas seulement la plus récente.</p></div>
+                                <div class="feature-item"><h4><i class="fas fa-bolt"></i> Requêtes asynchrones</h4><p>La lecture/écriture en base se fait en async pour éviter de bloquer l'interface.</p></div>
+                            </div>
+                            <h3>Extraits de code (SQLite)</h3>
+                            <p>Création de la connexion et de la table au premier accès :</p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-csharp">connection = new SQLiteAsyncConnection(DatabasePath, Flags);
+await connection.CreateTableAsync&lt;Profil&gt;();</code></pre>
+                            </div>
+                            <p>Insertion d'une nouvelle mesure après calcul (profil avec date et identifiant auto) :</p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-csharp">DateTimeOffset date = DateTimeOffset.Now;
+Profil unProfil = new Profil(null, date, sexe, poids, taille, age);
+await SQLiteDbCoach.SaveItemAsync(unProfil);</code></pre>
+                            </div>
+                            <p>Lecture de tout l'historique pour l'affichage (tri par id ou date selon la requête utilisée) :</p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-csharp">var liste = await connection.QueryAsync&lt;Profil&gt;(
+    "SELECT * FROM Profil ORDER BY id DESC");</code></pre>
                             </div>
                         </section>
 
-                        <!-- Architecture V3 -->
                         <section class="detail-section">
-                            <h2>Structure du projet V3</h2>
-
-                            <h3>Organisation des fichiers</h3>
-                            <div class="code-block typing-code">
-                                <pre><code class="language-plaintext">MauiCoachV3/
-├── mobile.slnx                      # Fichier solution
-│
-├── mobile/                          # 🎨 COUCHE UI (Interface utilisateur)
-│   ├── App.xaml / App.xaml.cs       # Point d'entrée de l'application
-│   ├── AppShell.xaml                # Navigation Shell MAUI
-│   ├── MainPage.xaml                # Interface principale
-│   ├── MainPage.xaml.cs             # Code-behind avec logique UI
-│   ├── MauiProgram.cs               # Configuration MAUI
-│   ├── mobile.csproj                # Projet UI
-│   ├── Platforms/                   # Code spécifique par plateforme
-│   └── Resources/                   # AppIcon, Fonts, Images, Styles
-│
-├── mobile.Core/                     # ⚙️ COUCHE MÉTIER (Logique)
-│   ├── mobile.Core.csproj           # Projet Core (.NET 10)
-│   ├── Modele/
-│   │   └── Profil.cs                # Modèle avec attributs SQLite
-│   └── Outils/
-│       ├── SQLiteDb.cs              # ✨ NOUVEAU: Accès base de données
-│       └── Serializer.cs            # Sérialisation JSON (conservé)
-│
-└── test MauiAppCoach/               # 🧪 TESTS UNITAIRES
-    ├── test mobile.csproj
-    ├── MSTestSettings.cs
-    └── Test1.cs                     # Tests de calcul IMG</code></pre>
-                            </div>
-
-                            <h3>Avantages de cette architecture</h3>
-                            <div class="features-grid roles-grid">
-                                <div class="feature-item role-card">
-                                    <span class="role-number">01</span>
-                                    <h4>Séparation des responsabilités</h4>
-                                    <p>Le projet <code>mobile</code> gère uniquement l'interface XAML. 
-                                       Le projet <code>mobile.Core</code> contient la logique métier et l'accès aux données.</p>
-                                </div>
-                                <div class="feature-item role-card">
-                                    <span class="role-number">02</span>
-                                    <h4>Testabilité</h4>
-                                    <p>Le projet <code>test MauiAppCoach</code> peut tester la classe <code>Profil</code> 
-                                       et les calculs IMG sans dépendance à l'interface utilisateur MAUI.</p>
-                                </div>
-                                <div class="feature-item role-card">
-                                    <span class="role-number">03</span>
-                                    <h4>Réutilisabilité</h4>
-                                    <p>Le projet Core peut être référencé par d'autres applications (console, web, API) 
-                                       pour partager la logique de calcul et d'accès aux données.</p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- SQLite - NOUVELLE FONCTIONNALITÉ MAJEURE -->
-                        <section class="detail-section">
-                            <h2>Base de données SQLite</h2>
-                            <p>
-                                La fonctionnalité majeure de cette V3 est l'intégration d'une <strong>base de données SQLite</strong> 
-                                pour stocker l'historique des mesures. Contrairement à la V2 qui sauvegardait uniquement le dernier profil 
-                                en JSON, la V3 conserve <em>toutes</em> les mesures avec leur date.
-                            </p>
-
-                            <!-- Image SQLite -->
-                            <div class="screenshot-container">
-                                <img src="assets/images/coach/coach-v3-sqlite.png"
-                                    alt="Base de données SQLite avec requêtes SQL et données utilisateur" class="screenshot-img">
-                                <p class="screenshot-caption">Stockage des données utilisateur dans SQLite avec requêtes SQL</p>
-                            </div>
-
-                            <h3>Configuration de la connexion</h3>
-                            <div class="code-block typing-code">
-                                <pre><code class="language-csharp">public class SQLiteDb
-{
-    // Nom du fichier de base de données
-    public const string DatabaseFilename = "dbcoach.db3";
-
-    // Chemin complet vers le fichier (stockage local de l'app)
-    public static string DatabasePath =
-        Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), 
-            DatabaseFilename
-        );
-
-    // Options d'ouverture : créer si inexistant, lecture/écriture, cache partagé
-    public const SQLiteOpenFlags Flags = 
-        SQLiteOpenFlags.Create |
-        SQLiteOpenFlags.ReadWrite | 
-        SQLiteOpenFlags.SharedCache;
-
-    private SQLiteAsyncConnection connection;
-
-    /// &lt;summary&gt;
-    /// Initialise la connexion et crée la table si nécessaire
-    /// &lt;/summary&gt;
-    private async Task Initialize()
-    {
-        if (connection != null)
-            return;
-
-        connection = new SQLiteAsyncConnection(DatabasePath, Flags);
-        await connection.CreateTableAsync&lt;Profil&gt;();
-    }
-}</code></pre>
-                            </div>
-
-                            <h3>Opérations CRUD asynchrones</h3>
-                            <p>
-                                La classe <code>SQLiteDb</code> fournit des méthodes asynchrones pour les opérations de base de données :
-                            </p>
-
-                            <div class="code-block typing-code">
-                                <pre><code class="language-csharp">/// &lt;summary&gt;
-/// Sauvegarde ou met à jour un profil dans la base de données
-/// &lt;/summary&gt;
-public async Task&lt;int&gt; SaveItemAsync(Profil unProfil)
-{
-    await Initialize();
-
-    if (unProfil.Id != 0)
-    {
-        // Mise à jour si l'ID existe
-        return await connection.UpdateAsync(unProfil);
-    }
-    else
-    {
-        // Insertion d'un nouveau profil
-        return await connection.InsertAsync(unProfil);
-    }
-}
-
-/// &lt;summary&gt;
-/// Récupère le profil le plus récent (trié par date décroissante)
-/// &lt;/summary&gt;
-public async Task&lt;Profil&gt; GetItemsQueryAsync()
-{
-    await Initialize();
-    return await connection.FindWithQueryAsync&lt;Profil&gt;(
-        "SELECT * FROM Profil ORDER BY dateMesure DESC"
-    );
-}
-
-/// &lt;summary&gt;
-/// Récupère tous les profils pour l'historique
-/// &lt;/summary&gt;
-public async Task&lt;List&lt;Profil&gt;&gt; QueryGetItemsAsync()
-{
-    await Initialize();
-    return await connection.QueryAsync&lt;Profil&gt;(
-        "SELECT * FROM Profil ORDER BY id DESC"
-    );
-}</code></pre>
-                            </div>
-
-                            <h3>Emplacement de la base de données</h3>
-                            <div class="features-grid">
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-android"></i> Android</h4>
-                                    <p><code>/data/data/[package]/files/dbcoach.db3</code></p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-apple"></i> iOS</h4>
-                                    <p><code>Library/dbcoach.db3</code> dans le sandbox</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-windows"></i> Windows</h4>
-                                    <p><code>%LOCALAPPDATA%\[App]\dbcoach.db3</code></p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-apple"></i> macOS</h4>
-                                    <p><code>~/Library/Application Support/dbcoach.db3</code></p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Modèle Profil enrichi -->
-                        <section class="detail-section">
-                            <h2>Modèle Profil enrichi</h2>
-                            <p>
-                                La classe <code>Profil</code> a été enrichie avec des attributs SQLite pour le mapping 
-                                objet-relationnel et un champ <code>DateMesure</code> pour l'historique.
-                            </p>
-
-                            <div class="code-block typing-code">
-                                <pre><code class="language-csharp">using SQLite;
-
-[Serializable]
-public class Profil
-{
-    // Champs privés
-    private readonly Nullable&lt;int&gt; id;
-    private DateTimeOffset datemesure;    // ✨ NOUVEAU: horodatage
-    private int sexe;                      // 0 = femme, 1 = homme
-    private double poids;
-    private int taille;
-    private int age;
-    private double img;
-    private string message;
-    private string image;
-
-    // Constructeur avec tous les paramètres (incluant date)
-    public Profil(Nullable&lt;int&gt; unId, DateTimeOffset uneDate, 
-                  int unSexe, double unPoids, int uneTaille, int unAge)
-    {
-        id = unId;
-        datemesure = uneDate;
-        sexe = unSexe;
-        poids = unPoids;
-        taille = uneTaille;
-        age = unAge;
-        CalculIMG();
-        ResultatIMG();
-    }
-
-    // Constructeur par défaut (requis pour SQLite)
-    public Profil() { }
-
-    // ✨ Clé primaire auto-incrémentée pour SQLite
-    [PrimaryKey, AutoIncrement]
-    public int Id { get; set; }
-
-    // ✨ Date de la mesure pour l'historique
-    public DateTimeOffset DateMesure
-    {
-        get { return datemesure; }
-        set { datemesure = value; }
-    }
-
-    // Propriétés pour le mapping SQLite
-    public int Sexe { get; set; }
-    public double Poids { get; set; }
-    public int Taille { get; set; }
-    public int Age { get; set; }
-    public double Img { get; set; }
-    public string Message { get; set; }
-    public string Image { get; set; }
-}</code></pre>
-                            </div>
-                        </section>
-
-                        <!-- Intégration dans MainPage -->
-                        <section class="detail-section">
-                            <h2>Intégration dans l'interface</h2>
-                            <p>
-                                Le code-behind de <code>MainPage.xaml.cs</code> utilise maintenant SQLite pour 
-                                la persistance des données, avec des opérations asynchrones.
-                            </p>
-
-                            <h3>Initialisation et restauration</h3>
-                            <div class="code-block typing-code">
-                                <pre><code class="language-csharp">public partial class MainPage : ContentPage
-{
-    private Profil unProfil = null;
-    private readonly SQLiteDb SQLiteDbCoach = null;
-
-    public MainPage()
-    {
-        InitializeComponent();
-        SQLiteDbCoach = new SQLiteDb();  // Initialisation de la connexion
-        SQLiteSelect();                   // Restauration des données
-    }
-
-    /// &lt;summary&gt;
-    /// Récupère le dernier profil depuis SQLite et pré-remplit les champs
-    /// &lt;/summary&gt;
-    private async void SQLiteSelect()
-    {
-        unProfil = await SQLiteDbCoach.GetItemsQueryAsync();
-
-        if (unProfil != null)
-        {
-            // Pré-remplissage des champs
-            entPoids.Text = unProfil.Poids.ToString();
-            entTaille.Text = unProfil.Taille.ToString();
-            entAge.Text = unProfil.Age.ToString();
-
-            // Restauration du sexe
-            if (unProfil.Sexe == 1)
-                RbHomme.IsChecked = true;
-            else
-                RbFemme.IsChecked = true;
-
-            // Affichage du dernier résultat
-            AfficheResultat(unProfil);
-        }
-    }
-}</code></pre>
-                            </div>
-
-                            <h3>Calcul et sauvegarde</h3>
-                            <div class="code-block typing-code">
-                                <pre><code class="language-csharp">private void BtCalculer_Clicked(object sender, EventArgs e)
-{
-    try
-    {
-        // Horodatage de la mesure
-        DateTimeOffset date = DateTimeOffset.Now;
-        
-        // Récupération des valeurs saisies
-        var poids = int.Parse(entPoids.Text);
-        var taille = int.Parse(entTaille.Text);
-        var age = int.Parse(entAge.Text);
-        var sexe = RbHomme.IsChecked ? 1 : 0;
-
-        // Création du profil avec ID null pour auto-incrémentation
-        Profil unProfil = new Profil(null, date, sexe, poids, taille, age);
-
-        // ✨ Sauvegarde dans SQLite
-        SQLiteDbCoach.SaveItemAsync(unProfil);
-
-        // Affichage du résultat
-        LblResultat.Text = $"Votre IMG est de {unProfil.Img:F2} %.\n{unProfil.Message}";
-
-        // Mise à jour du smiley
-        UpdateSmiley(unProfil.Message);
-    }
-    catch (Exception ex)
-    {
-        DisplayAlertAsync("Erreur", "Saisie incorrecte", "Ok");
-    }
-}</code></pre>
-                            </div>
-                        </section>
-
-                        <!-- Comparaison V1 vs V2 vs V3 -->
-                        <section class="detail-section">
-                            <h2>Comparaison V1 vs V2 vs V3</h2>
-                            <p>
-                                Voici un récapitulatif complet des évolutions entre les trois versions de l'application :
-                            </p>
-
+                            <h2>Comparatif des versions (V1 → V5)</h2>
                             <table style="width: 100%; border-collapse: collapse; margin: 24px 0;">
-                                <thead>
-                                    <tr style="background: var(--bg-secondary); border-bottom: 2px solid var(--border-color);">
-                                        <th style="padding: 12px 16px; text-align: left; font-weight: 600;">Fonctionnalité</th>
-                                        <th style="padding: 12px 16px; text-align: center; font-weight: 600;">V1</th>
-                                        <th style="padding: 12px 16px; text-align: center; font-weight: 600;">V2</th>
-                                        <th style="padding: 12px 16px; text-align: center; font-weight: 600;">V3</th>
-                                    </tr>
-                                </thead>
+                                <thead><tr style="background: var(--bg-secondary); border-bottom: 2px solid var(--border-color);"><th style="padding: 12px 16px; text-align: left;">Fonctionnalité</th><th style="padding: 12px 16px; text-align: center;">V1</th><th style="padding: 12px 16px; text-align: center;">V2</th><th style="padding: 12px 16px; text-align: center;">V3</th><th style="padding: 12px 16px; text-align: center;">V4</th><th style="padding: 12px 16px; text-align: center;">V5</th></tr></thead>
                                 <tbody>
-                                    <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Calcul IMG (Deurenberg)</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Interface XAML</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Feedback visuel (smileys)</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Persistance JSON</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Restauration au démarrage</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Base de données SQLite</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Historique des mesures</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Horodatage (DateMesure)</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Opérations asynchrones</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Tests unitaires MSTest</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Attributs SQLite (ORM)</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 12px 16px;">Calcul IMG</td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 12px 16px;">Persistance JSON</td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 12px 16px;">Persistance SQLite</td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td></tr>
+                                    <tr style="border-bottom: 1px solid var(--border-color);"><td style="padding: 12px 16px;">Menu dédié</td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td></tr>
+                                    <tr><td style="padding: 12px 16px;">Documentation technique complète</td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#ef4444;"><i class="fas fa-times"></i></td><td style="padding: 12px 16px; text-align: center; color:#22c55e;"><i class="fas fa-check"></i></td></tr>
                                 </tbody>
                             </table>
                         </section>
 
-                        <!-- Dépendances -->
-                        <section class="detail-section">
-                            <h2>Dépendances NuGet</h2>
-                            <p>
-                                La V3 utilise les packages NuGet suivants :
-                            </p>
-
-                            <div class="code-block typing-code">
-                                <pre><code class="language-xml">&lt;!-- Projet mobile --&gt;
-&lt;ItemGroup&gt;
-    &lt;PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" /&gt;
-    &lt;PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" /&gt;
-    &lt;PackageReference Include="sqlite-net-pcl" Version="1.9.172" /&gt;
-&lt;/ItemGroup&gt;
-
-&lt;!-- Projet mobile.Core --&gt;
-&lt;ItemGroup&gt;
-    &lt;PackageReference Include="sqlite-net-pcl" Version="1.9.172" /&gt;
-&lt;/ItemGroup&gt;</code></pre>
-                            </div>
-
-                            <div class="features-grid">
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-cube"></i> Microsoft.Maui.Controls</h4>
-                                    <p>Framework MAUI pour le développement multiplateforme</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-database"></i> sqlite-net-pcl</h4>
-                                    <p>ORM SQLite léger avec support async pour .NET</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fas fa-bug"></i> Microsoft.Extensions.Logging.Debug</h4>
-                                    <p>Logging en mode debug pour le développement</p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Compétences acquises V3 -->
-                        <section class="detail-section">
-                            <h2>Compétences acquises avec cette version</h2>
-                            <p>
-                                Cette troisième version m'a permis d'acquérir des compétences avancées :
-                            </p>
-                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary); line-height: 1.8;">
-                                <li><strong>SQLite et ORM</strong> : Utilisation de sqlite-net-pcl pour le mapping objet-relationnel</li>
-                                <li><strong>Programmation asynchrone</strong> : Maîtrise de <code>async/await</code> pour les opérations de base de données</li>
-                                <li><strong>Requêtes SQL</strong> : Écriture de requêtes SQL paramétrées et ordonnées</li>
-                                <li><strong>Tests unitaires</strong> : Mise en place de tests MSTest pour valider la logique métier</li>
-                                <li><strong>Architecture multi-projets</strong> : Organisation d'une solution .NET avec 3 projets liés</li>
-                                <li><strong>Gestion d'historique</strong> : Conception d'un système d'horodatage des données</li>
-                                <li><strong>Attributs .NET</strong> : Utilisation de <code>[PrimaryKey]</code>, <code>[AutoIncrement]</code>, <code>[Serializable]</code></li>
-                            </ul>
-                        </section>
-
-                        <!-- Palette de couleurs -->
                         <section class="detail-section">
                             <h2 class="color-palette-title">Palette de couleurs</h2>
-                            <p style="margin-bottom: 32px; color: var(--text-secondary); font-size: 0.9375rem;">
-                                L'application utilise une palette de <strong>6</strong> couleurs principales
-                            </p>
+                            <p style="margin-bottom: 32px; color: var(--text-secondary); font-size: 0.9375rem;">L'application utilise une palette de <strong>6</strong> couleurs principales.</p>
                             <div class="color-palette">
-                                <div class="color-swatch" style="background-color: #512BD4;">
-                                    <div class="color-swatch-content">
-                                        <span class="color-hex">HEX #512BD4</span>
-                                        <span class="color-preview">Aa</span>
-                                    </div>
-                                </div>
-                                <div class="color-swatch" style="background-color: #DFD8F7;">
-                                    <div class="color-swatch-content">
-                                        <span class="color-hex">HEX #DFD8F7</span>
-                                        <span class="color-preview">Aa</span>
-                                    </div>
-                                </div>
-                                <div class="color-swatch" style="background-color: #2B0B98;">
-                                    <div class="color-swatch-content">
-                                        <span class="color-hex">HEX #2B0B98</span>
-                                        <span class="color-preview">Aa</span>
-                                    </div>
-                                </div>
-                                <div class="color-swatch" style="background-color: #00008B;">
-                                    <div class="color-swatch-content">
-                                        <span class="color-hex">HEX #00008B</span>
-                                        <span class="color-preview">Aa</span>
-                                    </div>
-                                </div>
-                                <div class="color-swatch" style="background-color: #7d7c7c;">
-                                    <div class="color-swatch-content">
-                                        <span class="color-hex">HEX #7d7c7c</span>
-                                        <span class="color-preview">Aa</span>
-                                    </div>
-                                </div>
-                                <div class="color-swatch" style="background-color: #ffffff; border: 1px solid #e0e0e0;">
-                                    <div class="color-swatch-content">
-                                        <span class="color-hex">HEX #ffffff</span>
-                                        <span class="color-preview">Aa</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Liens -->
-                        <section class="detail-section">
-                            <h2>Liens</h2>
-                            <div class="project-links">
-                                <a href="https://github.com/ludovic-it/MauiCoachV3" class="link-btn" target="_blank">
-                                    <i class="fab fa-github"></i> Code Source V3
-                                </a>
-                                <a href="Application-mobile-coach-v2.html" class="link-btn">
-                                    <i class="fas fa-arrow-left"></i> Voir la Version 2
-                                </a>
-                                <a href="Application-mobile-coach-v4.html" class="link-btn">
-                                    <i class="fas fa-arrow-right"></i> Voir la Version 4
-                                </a>
+                                <div class="color-swatch" style="background-color: #512BD4;"><div class="color-swatch-content"><span class="color-hex">HEX #512BD4</span><span class="color-preview">Aa</span></div></div>
+                                <div class="color-swatch" style="background-color: #DFD8F7;"><div class="color-swatch-content"><span class="color-hex">HEX #DFD8F7</span><span class="color-preview">Aa</span></div></div>
+                                <div class="color-swatch" style="background-color: #2B0B98;"><div class="color-swatch-content"><span class="color-hex">HEX #2B0B98</span><span class="color-preview">Aa</span></div></div>
+                                <div class="color-swatch" style="background-color: #00008B;"><div class="color-swatch-content"><span class="color-hex">HEX #00008B</span><span class="color-preview">Aa</span></div></div>
+                                <div class="color-swatch" style="background-color: #7d7c7c;"><div class="color-swatch-content"><span class="color-hex">HEX #7d7c7c</span><span class="color-preview">Aa</span></div></div>
+                                <div class="color-swatch" style="background-color: #ffffff; border: 1px solid #e0e0e0;"><div class="color-swatch-content"><span class="color-hex">HEX #ffffff</span><span class="color-preview">Aa</span></div></div>
                             </div>
                         </section>
                     </div>
                 </div>
             </div>
         </section>
-
-        <section class="related-projects">
-            <div class="container">
-                <h2>Autres versions</h2>
-                <div class="projects-grid">
-                    <a href="Application-mobile-coach.html" class="project-card">
-                        <div class="project-card-image">
-                            <img src="assets/images/coach/coach-v1-hero.png" alt="Coach IMG V1" loading="lazy">
-                        </div>
-                        <h3>Coach IMG V1</h3>
-                        <p>Version initiale avec calcul IMG et interface basique</p>
-                        <div class="project-technologies">
-                            <span class="tech-small">.NET MAUI</span>
-                            <span class="tech-small">C#</span>
-                            <span class="tech-small">XAML</span>
-                        </div>
-                    </a>
-                    <a href="Application-mobile-coach-v2.html" class="project-card">
-                        <div class="project-card-image">
-                            <img src="assets/images/coach/coach-v2-hero.png" alt="Coach IMG V2" loading="lazy">
-                        </div>
-                        <h3>Coach IMG V2</h3>
-                        <p>Persistance des données avec sérialisation JSON</p>
-                        <div class="project-technologies">
-                            <span class="tech-small">.NET MAUI</span>
-                            <span class="tech-small">JSON</span>
-                            <span class="tech-small">Sérialisation</span>
-                        </div>
-                    </a>
-                    <a href="Application-mobile-coach-v4.html" class="project-card">
-                        <div class="project-card-image">
-                            <img src="assets/images/coach/coach-hero.png" alt="Coach IMG V4" loading="lazy"
-                                onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop'">
-                        </div>
-                        <h3>Coach IMG V4</h3>
-                        <p>Version finale avec toutes les améliorations</p>
-                        <div class="project-technologies">
-                            <span class="tech-small">.NET MAUI</span>
-                            <span class="tech-small">MVVM</span>
-                            <span class="tech-small">Complet</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <!-- Scroll to Top Button - Footer -->
-    <section class="scroll-to-top-footer">
-        <button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page">
-            <span data-i18n="footer.backToTop">Retour en haut</span>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-left">
-                <p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p>
-                <p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p>
-                <div class="footer-links">
-                    <a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a>
-                    <span class="footer-separator">|</span>
-                    <a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a>
-                    <span class="footer-separator">|</span>
-                    <a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a>
-                </div>
-            </div>
-
-            <div class="footer-right">
-                <div class="social-links">
-                    <a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn"
-                        aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <section class="scroll-to-top-footer"><button class="scroll-to-top-btn-footer" aria-label="Retour en haut de la page"><span data-i18n="footer.backToTop">Retour en haut</span><i class="fas fa-arrow-up"></i></button></section>
+    <footer class="main-footer"><div class="footer-container"><div class="footer-left"><p class="copyright" data-i18n="footer.copyright">&copy; 2025 Ludovic CHAMPROBERT</p><p class="credits" data-i18n="footer.credits">Site développé avec l'assistance de GitHub Copilot</p><div class="footer-links"><a href="privacy.html" class="privacy-link" data-i18n="footer.privacy">Politique de confidentialité</a><span class="footer-separator">|</span><a href="cookies.html" class="privacy-link" data-i18n="footer.cookies">Politique des cookies</a><span class="footer-separator">|</span><a href="legal.html" class="privacy-link" data-i18n="footer.legal">Mentions légales</a></div></div><div class="footer-right"><div class="social-links"><a href="https://github.com/ludovic-it" target="_blank" class="social-btn" aria-label="GitHub"><i class="fab fa-github"></i></a><a href="https://www.linkedin.com/in/ludovic-champrobert/" target="_blank" class="social-btn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></div></div></div></footer>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/multilingual.js"></script>
-    <script src="assets/js/toc-island.js"></script>
     <script src="assets/js/code-highlight.js"></script>
-    <script src="assets/js/typing-effect.js"></script>
-
-    <!-- Scripts -->
-    <script src="assets/js/scroll-reveal.js"></script>
     <script src="assets/js/accessibility.js"></script>
-    <script src="assets/js/lazy-load.js"></script>
-    <script src="assets/js/video-hover.js"></script>
     <script src="assets/js/scroll-to-top-footer.js"></script>
-
-    <script>
-        // Initialiser le highlight.js
-        hljs.highlightAll();
-
-        // Toggle TOC dropdown
-        document.addEventListener('DOMContentLoaded', () => {
-            const tocHeader = document.querySelector('.toc-header');
-            const tocIsland = document.querySelector('.toc-island');
-            if (tocHeader && tocIsland) {
-                tocHeader.addEventListener('click', () => {
-                    tocIsland.classList.toggle('open');
-                });
-            }
-        });
-    </script>
+    <script>hljs.highlightAll();</script>
 </body>
 
 </html>

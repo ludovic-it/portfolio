@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <!-- SEO Meta Tags -->
-    <title>Automatiser son travail de développeur | Veille Ludovic.C</title>
+    <title>Automatisation au travail : gagner du temps sans se noyer | Veille Ludovic.C</title>
     <meta name="description"
-        content="Veille accessible : enchaîner les tâches répétitives avec n8n, les tests automatiques sur GitHub et les notifications entre sites. Exemples concrets.">
+        content="Synthèse sur les tâches qu'on peut confier à la machine (n8n, vérifications régulières sur GitHub) et les précautions indispensables.">
     <meta name="keywords"
-        content="veille technologique, automatisation, n8n, développement web, tests, GitHub, veille BTS">
+        content="veille BTS SIO, automatisation, n8n, GitHub, développement web, tâches répétitives">
 
     <!-- Open Graph -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://votre-domaine.com/veille-automatisation.html">
-    <meta property="og:title" content="Automatiser son travail de développeur">
+    <meta property="og:title" content="Automatisation au travail : ce qui aide vraiment">
     <meta property="og:description"
-        content="Moins de clics manuels, plus de fiabilité : idées simples pour un futur développeur web.">
+        content="Moins de clics manuels, plus de contrôles automatiques — idées simples avec n8n et GitHub.">
     <meta property="og:image" content="https://votre-domaine.com/assets/images/veille-dev-automation-hero.png">
 
     <link rel="stylesheet" href="assets/css/css_index.css">
@@ -982,11 +982,11 @@
             <div class="veille-hero-overlay"></div>
             <div class="veille-hero-content">
                 <div class="article-meta">
-                    <span class="article-category">Développement web &amp; automatisation</span>
+                    <span class="article-category">Sites web et tâches qu'on délègue à la machine</span>
                     <span class="article-date">29 avril 2026</span>
                 </div>
-                <h1 data-i18n="veille.automatisation.title">Automatiser son travail de développeur</h1>
-                <p class="article-source">Sources : documentation n8n, GitHub, guide sur la sécurité des interfaces web</p>
+                <h1 data-i18n="veille.automatisation.title">L'automatisation au travail : ce qui aide vraiment</h1>
+                <p class="article-source">Sources : guides n8n et GitHub, conseils ouverts pour sécuriser les échanges entre logiciels</p>
             </div>
         </section>
 
@@ -995,91 +995,131 @@
             <div class="veille-article-content">
                 <div class="veille-article-section visible">
                     <p class="veille-article-intro">
-                        En développement web, on refait souvent les <strong>mêmes gestes</strong> : lancer des tests, prévenir l'équipe sur la messagerie, copier un rapport. L'<strong>automatisation</strong>, c'est faire exécuter ces gestes par la machine, avec des règles claires et une surveillance simple. Cette fiche résume quatre approches courantes, sans jargon inutile.
+                        Dans la création et la maintenance de sites ou d'applications web, certaines opérations reviennent très souvent : regrouper une modification, prévenir l'équipe concernée, vérifier avant exposition au public. Le principe général de <strong>l'automatisation</strong> consiste à déléguer ces passages à un outil dès que les règles peuvent être décrites sans ambiguïté, afin de préserver le temps de conception et de correction métier.                         Ce texte évoque en particulier <strong>n8n</strong> (enchaînements visuels entre services) et les possibilités offertes par une plateforme comme <strong>GitHub</strong> pour déclencher des contrôles automatiques.
                     </p>
+                    <figure class="veille-article-figure">
+                        <img src="assets/images/veille/n8n-banner.png"
+                            alt="Visuel présentant l’automatisation n8n sous forme de plusieurs blocs et agents reliés entre eux"
+                            loading="lazy" width="1200" height="630">
+                        <figcaption>Visuel communiqué avec le projet : il montre comment n8n relie des services et des équipes (« agents », intégrations). Fichier issu du <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer">dépôt GitHub officiel</a>.</figcaption>
+                    </figure>
                 </div>
 
                 <div class="veille-article-section">
-                    <h4><i class="fas fa-layer-group"></i> n8n : enchaîner des étapes comme un schéma</h4>
-                    <p><strong>n8n</strong> est un outil où l'on relie des blocs (recevoir un message, appeler une page web, enregistrer en base…). On peut l'installer sur son propre serveur, ce qui rassure quand on manipule des données personnelles. C'est pratique pour <em>tester une idée</em> avant d'écrire un programme plus lourd.</p>
-                    <p>Point important : un scénario déclenché depuis Internet doit avoir un <strong>mot de passe technique</strong> limité, des journaux pour voir ce qui s'est passé, et des sauvegardes des fichiers de configuration — comme pour n'importe quel site en production.</p>
+                    <h4><i class="fas fa-wrench"></i> Usages fréquemment cités sur le terrain du développement web</h4>
+                    <p>Les retours d'expérience convergent souvent sur les points suivants :</p>
+                    <ul style="margin: 0 0 1rem 1.25rem; line-height: 1.6;">
+                        <li><strong>À chaque envoi sur le dossier commun</strong> : remettre le code au même format et lancer des petites vérifications — on sait vite si quelque chose casse.</li>
+                        <li><strong>Montrer le site avant de valider</strong> une modification : créer une version de démo pour que tout le monde regarde pareil sans tout réinstaller.</li>
+                        <li><strong>Être prévenu en cas de panne</strong> : un mail ou un message dans l'équipe quand une page importante ne répond plus.</li>
+                        <li><strong>Les tâches de fond ennuyeuses</strong> : par exemple faire suivre automatiquement un formulaire rempli jusqu'à un tableau ou une base, au lieu de recopier à la main.</li>
+                    </ul>
+                    <p>Cette liste n'est pas un catalogue à tout mettre en œuvre d'un coup : elle sert de grille pour repérer <strong>où le gain de temps est réel</strong> et où un dispositif automatique reste compréhensible pour l'équipe qui le garde.</p>
                 </div>
 
                 <div class="veille-article-section">
-                    <h4><i class="fas fa-balance-scale"></i> Quatre approches complémentaires</h4>
+                    <h4><i class="fas fa-layer-group"></i> Rôle de <strong>n8n</strong> dans la chaîne d'outils</h4>
+                    <p><strong>n8n</strong> sert bien quand deux logiciels ou deux boîtes mail doivent <strong>se parler automatiquement</strong> : on relie des blocs, on met un déclencheur (une heure, un message qui arrive…), éventuellement un tout petit morceau de code pour transformer un texte. Exemple tout bête : quelqu'un remplit un formulaire → ça prévient l'équipe sur la messagerie ; ou une action sur le dépôt de code → ça prévient aussi.</p>
+                    <p>Il faut quand même <strong>toujours verrouiller l'entrée</strong> : bon mot de passe, pas donner tous les pouvoirs au robot, garder une trace de ce qui s'est passé, et ne pas ouvrir une porte sans protection sur Internet. C'est pareil pour n'importe quel site sérieux mis en ligne.</p>
+
+                    <div class="veille-inline-images">
+                        <figure class="veille-article-figure">
+                            <img src="assets/images/veille/n8n-interface.png"
+                                alt="Capture de l’éditeur n8n : canevas avec nœuds reliés représentant un workflow"
+                                loading="lazy" width="960" height="540">
+                            <figcaption>Capture officielle distribuée dans le dépôt <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer">n8n-io/n8n</a> (<code>n8n-screenshot-readme.png</code>) : même idée que l’outil en production — fenêtre centrale où l’on relie des <strong>nœuds</strong> puis on teste l’exécution.</figcaption>
+                        </figure>
+                        <figure class="veille-article-figure">
+                            <img src="assets/images/veille/n8n-logo.png"
+                                alt="Logo n8n"
+                                loading="lazy" width="200" height="200" style="max-width: 200px; margin: 1.25rem auto; padding: 0 2rem;">
+                            <figcaption>Marque <strong>n8n</strong> (prononcé « n-eight-n », pour <em>nodemation</em>). Voir aussi la <a href="https://docs.n8n.io/" target="_blank" rel="noopener noreferrer">documentation en ligne</a> pour installer ou héberger l’outil.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="veille-article-section">
+                    <h4><i class="fas fa-balance-scale"></i> Quatre façons de faire, en vocabulaire simple</h4>
                     <div class="comparison-grid">
                         <div class="comparison-card">
                             <div class="comparison-header">
                                 <i class="fab fa-node-js"></i>
-                                <h5>n8n (scénarios visuels)</h5>
+                                <h5>n8n : petits dessins qui enchaînent les étapes</h5>
                             </div>
                             <div class="comparison-content">
-                                <p class="comparison-desc">Schéma + petits scripts si besoin</p>
+                                <p class="comparison-desc">On relie les blocs ; un peu de script seulement si indispensable</p>
                                 <ul class="comparison-features">
                                     <li><i class="fas fa-check"></i> Possible sur votre serveur</li>
                                     <li><i class="fas fa-check"></i> Déclenchement sur horaire ou sur message entrant</li>
                                     <li><i class="fas fa-check"></i> Bloc « code » pour un calcul précis</li>
                                     <li><i class="fas fa-times"></i> Il faut quand même de la rigueur (droits, mises à jour)</li>
                                 </ul>
-                                <p class="comparison-ideal"><strong>Idéal pour :</strong> relier deux services sans tout recoder</p>
+                                <p class="comparison-ideal"><strong>En résumé :</strong> brancher vite deux outils et tester une idée sans tout recoder depuis zéro</p>
                             </div>
                         </div>
 
                         <div class="comparison-card">
                             <div class="comparison-header">
                                 <i class="fab fa-github"></i>
-                                <h5>GitHub Actions (tests automatiques)</h5>
+                                <h5>Contrôles automatiques sur GitHub</h5>
                             </div>
                             <div class="comparison-content">
-                                <p class="comparison-desc">À chaque modification du projet</p>
+                                <p class="comparison-desc">À chaque fois qu'on modifie le projet</p>
                                 <ul class="comparison-features">
-                                    <li><i class="fas fa-check"></i> Vérifier le style du code et lancer les tests</li>
-                                    <li><i class="fas fa-check"></i> Construire le site et signaler les erreurs tôt</li>
-                                    <li><i class="fas fa-check"></i> Mots de passe stockés côté GitHub de façon sécurisée</li>
-                                    <li><i class="fas fa-times"></i> Sur de gros projets, attention au temps et au coût</li>
+                                    <li><i class="fas fa-check"></i> Remettre le code au même style et lancer les vérifications</li>
+                                    <li><i class="fas fa-check"></i> Reconstruire le site et afficher vite les problèmes</li>
+                                    <li><i class="fas fa-check"></i> Mots de passe rangés avec un emplacement prévu dans GitHub</li>
+                                    <li><i class="fas fa-times"></i> Il faut parfois surveiller la facture ou le temps de calcul</li>
                                 </ul>
-                                <p class="comparison-ideal"><strong>Idéal pour :</strong> ne pas casser le site à chaque fusion de code</p>
+                                <p class="comparison-ideal"><strong>En résumé :</strong> on attrape une erreur <em>avant</em> que la mise en ligne ne soit validée.</p>
                             </div>
                         </div>
 
                         <div class="comparison-card">
                             <div class="comparison-header">
                                 <i class="fas fa-link"></i>
-                                <h5>Notifications entre sites (webhooks)</h5>
+                                <h5>Messages automatiques d'un logiciel à l'autre</h5>
                             </div>
                             <div class="comparison-content">
-                                <p class="comparison-desc">Un service « prévient » l'autre tout de suite</p>
+                                <p class="comparison-desc">L'un prévient l'autre dès que quelque chose se passe</p>
                                 <ul class="comparison-features">
-                                    <li><i class="fas fa-check"></i> Exemple : paiement validé → message au stock</li>
-                                    <li><i class="fas fa-check"></i> On vérifie la signature du message pour éviter les faux</li>
-                                    <li><i class="fas fa-check"></i> Réponse rapide au navigateur, traitement lourd après</li>
-                                    <li><i class="fas fa-times"></i> Prévoir les doublons si le message est renvoyé</li>
+                                    <li><i class="fas fa-check"></i> Exemple : paiement confirmé → avis envoyé aux stocks</li>
+                                    <li><i class="fas fa-check"></i> Vérifier que le message est bien authentique (pas une tentative de blague)</li>
+                                    <li><i class="fas fa-check"></i> Répondre vite à l'utilisateur, traiter tranquillement après</li>
+                                    <li><i class="fas fa-times"></i> Prévenir les doublons si le même avis arrive deux fois</li>
                                 </ul>
-                                <p class="comparison-ideal"><strong>Idéal pour :</strong> réagir vite sans surveiller la boîte mail</p>
+                                <p class="comparison-ideal"><strong>En résumé :</strong> éviter tout recopiage manuel quand plusieurs outils suivent une même étape métier.</p>
                             </div>
                         </div>
 
                         <div class="comparison-card">
                             <div class="comparison-header">
                                 <i class="fas fa-server"></i>
-                                <h5>File d'attente et tâches de fond</h5>
+                                <h5>Travail en liste d'attente quand ça prend du temps</h5>
                             </div>
                             <div class="comparison-content">
-                                <p class="comparison-desc">Quand la tâche est longue ou nombreuse</p>
+                                <p class="comparison-desc">Quand la même action doit arriver très souvent ou dure longtemps</p>
                                 <ul class="comparison-features">
-                                    <li><i class="fas fa-check"></i> Recommencer en cas d'erreur sans tout bloquer</li>
-                                    <li><i class="fas fa-check"></i> Séparer « qui envoie » et « qui traite »</li>
-                                    <li><i class="fas fa-check"></i> Plusieurs workers pour absorber les pics</li>
-                                    <li><i class="fas fa-times"></i> Installation un peu plus technique</li>
+                                    <li><i class="fas fa-check"></i> Pouvoir rejouer un traitement après une petite panne sans tout bloquer</li>
+                                    <li><i class="fas fa-check"></i> Distinguer clairement « qui envoie » et « qui traite »</li>
+                                    <li><i class="fas fa-check"></i> Plusieurs machines peuvent prendre la suite quand tout le monde utilise le site en même temps</li>
+                                    <li><i class="fas fa-times"></i> Mise en place un peu plus lourde qu'un simple schéma n8n</li>
                                 </ul>
-                                <p class="comparison-ideal"><strong>Idéal pour :</strong> envois de masse ou génération de gros fichiers</p>
+                                <p class="comparison-ideal"><strong>En résumé :</strong> éviter que l'utilisateur attende plusieurs minutes avec une page figée pendant un gros calcul.</p>
                             </div>
                         </div>
                     </div>
+
+                    <figure class="veille-article-figure">
+                        <img src="assets/images/veille/github-actions-schema.svg"
+                            alt="Schéma : du push sur le dépôt au workflow puis aux jobs de test ou de build"
+                            loading="lazy" width="720" height="240">
+                        <figcaption>Schéma explicatif (<strong>production locale</strong>) pour situer ce que font les <strong>GitHub Actions</strong> avant d’ouvrir un vrai dépôt — voir la doc <a href="https://docs.github.com/en/actions" target="_blank" rel="noopener noreferrer">docs.github.com — Actions</a>.</figcaption>
+                    </figure>
                 </div>
 
                 <div class="veille-article-section">
-                    <h4><i class="fas fa-lightbulb"></i> Exemples concrets au quotidien</h4>
+                    <h4><i class="fas fa-lightbulb"></i> Exemples concrets</h4>
                     <div class="use-cases-grid">
                         <div class="use-case-card">
                             <div class="use-case-icon"><i class="fas fa-flask"></i></div>
@@ -1090,13 +1130,13 @@
                         <div class="use-case-card">
                             <div class="use-case-icon"><i class="fas fa-shield-alt"></i></div>
                             <h5>Contrôles de sécurité réguliers</h5>
-                            <p>Vérifier les bibliothèques importées et chercher si un mot de passe n'a pas été commité par erreur : la machine le fait à chaque passage sur le dépôt.</p>
+                            <p>S'assurer qu'aucun copier-coller sensible (comme un mot de passe oublié) ne reste dans l'historique du projet ; la démarche peut se lancer automatiquement à chaque modification.</p>
                         </div>
 
                         <div class="use-case-card">
                             <div class="use-case-icon"><i class="fas fa-code-branch"></i></div>
                             <h5>Liste des changements pour les utilisateurs</h5>
-                            <p>Rassembler les titres des corrections et publier un court texte « nouveautés » : utile pour la communication et pour l'évaluation.</p>
+                            <p>Rassembler les titres des corrections et publier un court texte « nouveautés » : utile pour la communication auprès des utilisateurs et pour l'historique du produit.</p>
                         </div>
 
                         <div class="use-case-card">
@@ -1108,9 +1148,9 @@
                 </div>
 
                 <div class="veille-article-section">
-                    <h4><i class="fas fa-code"></i> Ce que je retiens pour mon métier</h4>
+                    <h4><i class="fas fa-code"></i> Points de vigilance transverses</h4>
                     <div class="highlight-box">
-                        <p>Si un robot appelle votre site plusieurs fois par erreur, il ne doit pas créer <strong>deux commandes identiques</strong>. On utilise des repères (par exemple une clé de requête côté serveur) et on vérifie toujours les données reçues. OWASP rappelle aussi de limiter le débit et les droits pour éviter les abus.</p>
+                        <p>Tout dispositif qui s'exécute sans intervention directe impose de documenter <strong>qui peut le déclencher</strong>, <strong>quelles données ou systèmes il touche</strong>, et <strong>comment éviter les doublons dommageables</strong> (par exemple deux expéditions facturées pour une seule commande). La limitation du nombre d'actions par unité de temps contre les abus rejoint les recommandations générales en cybersécurité des services exposés sur Internet. Les sujets de veille sur la <strong>cyberdéfense nationale</strong> et la <strong>sécurité du numérique</strong> en milieu militaire mettent en avant des exigences comparables de contrôle et de traçabilité, à une autre échelle.</p>
                     </div>
                     <div class="benefits-list">
                         <div class="benefit-item">
@@ -1131,7 +1171,7 @@
                             <i class="fas fa-dollar-sign"></i>
                             <div>
                                 <h5>Un budget à regarder</h5>
-                                <p>Les minutes de machine sur GitHub ou les exécutions n8n ont un coût : il faut le noter dans la veille comme en entreprise.</p>
+                                <p>Les minutes de calcul sur GitHub ou les exécutions n8n ont un coût : à anticiper dans un budget ou un compte-rendu d'activité, comme pour tout service externalisé.</p>
                             </div>
                         </div>
                         <div class="benefit-item">
@@ -1149,8 +1189,8 @@
                     <ul>
                         <li><a href="https://docs.n8n.io/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Site de n8n — documentation</a></li>
                         <li><a href="https://docs.github.com/en/actions" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> GitHub — lancer des tâches à chaque modification du code</a></li>
-                        <li><a href="https://docs.github.com/en/webhooks" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> GitHub — recevoir des événements d'un autre service</a></li>
-                        <li><a href="https://owasp.org/www-project-api-security/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> OWASP — bonnes pratiques pour les interfaces web (API)</a></li>
+                        <li><a href="https://docs.github.com/en/webhooks" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> GitHub — quand un autre site prévient le vôtre qu'il s'est passé quelque chose</a></li>
+                        <li><a href="https://owasp.org/www-project-api-security/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Projet communautaire OWASP sur la sécurité des liaisons entre logiciels (vocabulaire technique)</a></li>
                         <li><a href="https://community.n8n.io/" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Forum d'entraide n8n</a></li>
                     </ul>
                 </div>

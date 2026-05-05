@@ -16,7 +16,7 @@
     <meta property="og:url" content="https://votre-domaine.com/Application-mobile-coach-v2.html">
     <meta property="og:title" content="Coach IMG V2 - Persistance des données">
     <meta property="og:description"
-        content="Version 2 avec sérialisation JSON et architecture en couches pour une meilleure maintenabilité.">
+        content="Version 2 avec sauvegarde JSON et code mieux organisé pour un usage plus pratique.">
     <meta property="og:image" content="https://votre-domaine.com/assets/images/coach/coach-hero.png">
 
     <!-- Twitter -->
@@ -68,12 +68,12 @@
                 <div class="project-header">
                     <a href="coach.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux versions Coach</a>
                     <h1>Coach IMG – Version 2</h1>
-                    <p class="project-subtitle">Évolution majeure avec persistance des données et architecture en couches</p>
+                    <p class="project-subtitle">Version 2 avec sauvegarde des données et code mieux organisé</p>
                 </div>
 
                 <!-- Hero Image -->
                 <div class="project-hero-image">
-                    <img src="assets/images/coach/coach-v2-hero.png" alt="Interface Coach IMG V2 avec persistance des données JSON"
+                    <img src="assets/images/coach/coach-v2-hero-ia.png" alt="Interface Coach IMG V2 avec persistance des données JSON"
                         class="hero-img" loading="lazy">
                 </div>
 
@@ -83,20 +83,26 @@
                         <section class="detail-section">
                             <h2>Nouveautés de la Version 2</h2>
                             <p>
-                                Cette seconde version de l'application Coach IMG apporte des améliorations significatives 
-                                par rapport à la <a href="Application-mobile-coach.html">version 1</a>. Les principales 
-                                évolutions concernent la persistance des données utilisateur et une refonte de l'architecture 
-                                du projet pour une meilleure maintenabilité.
+                                Cette V2 améliore la <a href="Application-mobile-coach.html">V1</a> sur deux points importants :
+                                les données sont maintenant sauvegardées, et le projet est mieux structuré.
+                            </p>
+                            <p>
+                                L'utilisateur retrouve ses informations au redémarrage, ce qui rend l'application plus pratique.
+                                Côté code, la séparation entre interface et logique facilite les évolutions suivantes.
+                            </p>
+                            <p>
+                                Cette version est donc une amélioration de confort (moins de ressaisie) et aussi une amélioration
+                                technique (code plus propre à maintenir).
                             </p>
                             
                             <div class="features-grid">
                                 <div class="feature-item">
                                     <h4><i class="fas fa-save"></i> Persistance des données</h4>
-                                    <p>Sauvegarde automatique du profil utilisateur en JSON pour retrouver ses données à chaque utilisation</p>
+                                    <p>Le profil est enregistré en JSON pour retrouver les informations au prochain lancement</p>
                                 </div>
                                 <div class="feature-item">
                                     <h4><i class="fas fa-layer-group"></i> Architecture en couches</h4>
-                                    <p>Séparation en deux projets distincts : <code>mobile</code> (UI) et <code>mobile.Core</code> (logique métier)</p>
+                                    <p>Le code est séparé en deux parties : l'interface (<code>mobile</code>) et la logique (<code>mobile.Core</code>)</p>
                                 </div>
                                 <div class="feature-item">
                                     <h4><i class="fas fa-undo"></i> Restauration automatique</h4>
@@ -104,307 +110,37 @@
                                 </div>
                                 <div class="feature-item">
                                     <h4><i class="fas fa-code"></i> Code amélioré</h4>
-                                    <p>Classe <code>Profil</code> sérialisable et utilitaire <code>Serializer</code> dédié</p>
+                                    <p>Ajout d'une classe <code>Serializer</code> pour gérer la sauvegarde et le chargement</p>
                                 </div>
+                            </div>
+                            <h3>Extraits de code (persistance JSON)</h3>
+                            <p>Enregistrement du profil au format JSON dans le dossier local de l'application :</p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-csharp">string jsonString = JsonSerializer.Serialize(profil);
+string fichier = Path.Combine(
+    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+    nomFichier);
+File.WriteAllText(fichier, jsonString);</code></pre>
+                            </div>
+                            <p>Chargement du même fichier au démarrage (restauration des champs si le fichier existe) :</p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-csharp">if (File.Exists(fichier))
+{
+    string jsonString = File.ReadAllText(fichier);
+    profil = JsonSerializer.Deserialize&lt;Profil&gt;(jsonString);
+}</code></pre>
+                            </div>
+                            <p>Après un calcul réussi, le profil est sauvegardé pour la prochaine ouverture :</p>
+                            <div class="code-block typing-code">
+                                <pre><code class="language-csharp">Profil unProfil = new Profil(sexe, poids, taille, age);
+Serializer.serialize(nomFichier, unProfil);</code></pre>
                             </div>
                         </section>
 
-                        <!-- Architecture V2 - CHANGEMENT MAJEUR -->
+
+                        <!-- Comparatif des versions -->
                         <section class="detail-section">
-                            <h2>Nouvelle architecture en couches</h2>
-                            <p>
-                                Contrairement à la V1 qui regroupait tout le code dans un seul projet, la V2 adopte une 
-                                architecture en couches avec deux projets distincts au sein de la solution. Cette séparation 
-                                améliore la réutilisabilité et la testabilité du code.
-                            </p>
-
-                            <h3>Structure du projet V2</h3>
-                            <div class="code-block typing-code">
-                                <pre><code class="language-plaintext">Solution/
-├── mobile/                          # Projet UI (interface utilisateur)
-│   ├── App.xaml / App.xaml.cs
-│   ├── AppShell.xaml / AppShell.xaml.cs
-│   ├── MainPage.xaml / MainPage.xaml.cs
-│   ├── MauiProgram.cs
-│   ├── Platforms/
-│   └── Resources/
-│
-└── mobile.Core/                     # Projet logique métier (NOUVEAU)
-    ├── Modele/
-    │   └── Profil.cs               # Modèle sérialisable
-    └── Utilitaires/
-        └── Serializer.cs           # Gestion de la persistance</code></pre>
-                            </div>
-
-                            <h3>Avantages de cette architecture</h3>
-                            <div class="features-grid roles-grid">
-                                <div class="feature-item role-card">
-                                    <span class="role-number">01</span>
-                                    <h4>Séparation des responsabilités</h4>
-                                    <p>Le projet <code>mobile</code> gère uniquement l'interface XAML et les événements. 
-                                       Le projet <code>mobile.Core</code> contient toute la logique métier indépendante de l'UI.</p>
-                                </div>
-                                <div class="feature-item role-card">
-                                    <span class="role-number">02</span>
-                                    <h4>Réutilisabilité</h4>
-                                    <p>Le projet Core peut être référencé par d'autres applications (console, web, desktop) 
-                                       sans modification, permettant de partager la logique de calcul IMG.</p>
-                                </div>
-                                <div class="feature-item role-card">
-                                    <span class="role-number">03</span>
-                                    <h4>Testabilité</h4>
-                                    <p>Le code métier isolé dans <code>mobile.Core</code> peut être testé unitairement 
-                                       sans dépendance à l'interface utilisateur MAUI.</p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Persistance des données - NOUVELLE FONCTIONNALITÉ -->
-                        <section class="detail-section">
-                            <h2>Persistance des données avec JSON</h2>
-                            <p>
-                                La fonctionnalité majeure de cette V2 est la <strong>persistance des données utilisateur</strong>. 
-                                Contrairement à la V1 où les données étaient perdues à chaque fermeture de l'application, 
-                                la V2 sauvegarde automatiquement le profil dans un fichier JSON local.
-                            </p>
-
-                            <!-- Image sérialisation -->
-                            <div class="screenshot-container">
-                                <img src="assets/images/coach/coach-v2-serialization.png"
-                                    alt="Processus de sérialisation JSON : données utilisateur converties et stockées localement" class="screenshot-img">
-                                <p class="screenshot-caption"> Les données du profil sont converties en JSON et sauvegardées dans le stockage local</p>
-                            </div>
-
-                            <h3>Classe Profil sérialisable</h3>
-                            <p>
-                                La classe <code>Profil</code> a été enrichie avec l'attribut <code>[Serializable]</code> 
-                                et des propriétés publiques pour permettre la sérialisation/désérialisation JSON :
-                            </p>
-
-                            <div class="code-block typing-code">
-                                <pre><code class="language-csharp">[Serializable]
-public class Profil
-{
-    private int sexe;
-    private double poids;
-    private int taille;
-    private int age;
-    private double img;
-    private string message;
-
-    // Propriétés publiques pour la sérialisation JSON
-    public int Sexe { get => sexe; set => sexe = value; }
-    public double Poids { get => poids; set => poids = value; }
-    public int Taille { get => taille; set => taille = value; }
-    public int Age { get => age; set => age = value; }
-    public double Img { get => img; set => img = value; }
-    public string Message { get => message; set => message = value; }
-
-    // Constructeur par défaut requis pour la désérialisation
-    public Profil() { }
-
-    public Profil(int sexe, double poids, int tailleCm, int age)
-    {
-        this.sexe = sexe;
-        this.poids = poids;
-        this.taille = tailleCm;
-        this.age = age;
-        this.img = 0;
-        this.message = "";
-        CalculIMG();
-        ResultatIMG();
-    }
-}</code></pre>
-                            </div>
-
-                            <h3>Classe utilitaire Serializer</h3>
-                            <p>
-                                Une nouvelle classe <code>Serializer</code> a été créée pour gérer la lecture et l'écriture 
-                                des données JSON. Elle utilise <code>System.Text.Json</code> et stocke les données dans 
-                                le dossier d'application local de l'appareil.
-                            </p>
-
-                            <div class="code-block typing-code">
-                                <pre><code class="language-csharp">public class Serializer
-{
-    /// &lt;summary&gt;
-    /// Sauvegarde un profil dans un fichier JSON local
-    /// &lt;/summary&gt;
-    public static void serialize(string nomFichier, Profil profil)
-    {
-        string fichier = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), 
-            nomFichier);
-
-        if (File.Exists(fichier))
-        {
-            File.Delete(fichier);
-        }
-        try
-        {
-            string jsonString = JsonSerializer.Serialize(profil);
-            File.WriteAllText(fichier, jsonString);
-        }
-        catch (Exception ex)
-        {
-            System.Diagnostics.Debug.WriteLine("Erreur lors de la sérialisation: " + ex.Message);
-        }
-    }
-
-    /// &lt;summary&gt;
-    /// Charge un profil depuis un fichier JSON local
-    /// &lt;/summary&gt;
-    public static Profil deserialize(string nomFichier)
-    {
-        Profil profil = null;
-        string fichier = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), 
-            nomFichier);
-
-        try
-        {
-            if (File.Exists(fichier))
-            {
-                string jsonString = File.ReadAllText(fichier);
-                profil = JsonSerializer.Deserialize&lt;Profil&gt;(jsonString);
-            }
-        }
-        catch (Exception ex)
-        {
-            System.Diagnostics.Debug.WriteLine("Erreur lors de la désérialisation: " + ex.Message);
-        }
-        return profil;
-    }
-}</code></pre>
-                            </div>
-
-                            <h3>Emplacement du fichier de sauvegarde</h3>
-                            <p>
-                                Le fichier JSON est stocké dans le dossier d'application local, dont le chemin varie selon la plateforme :
-                            </p>
-                            <div class="features-grid">
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-android"></i> Android</h4>
-                                    <p><code>/data/data/[package]/files/</code></p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-apple"></i> iOS</h4>
-                                    <p><code>Library/</code> dans le sandbox de l'app</p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-windows"></i> Windows</h4>
-                                    <p><code>%LOCALAPPDATA%\[App]\</code></p>
-                                </div>
-                                <div class="feature-item">
-                                    <h4><i class="fab fa-apple"></i> macOS</h4>
-                                    <p><code>~/Library/Application Support/</code></p>
-                                </div>
-                            </div>
-                        </section>
-
-                        <!-- Intégration dans MainPage -->
-                        <section class="detail-section">
-                            <h2>Intégration dans l'interface</h2>
-                            <p>
-                                Le code-behind de <code>MainPage.xaml.cs</code> a été modifié pour intégrer la persistance 
-                                des données. La sauvegarde s'effectue automatiquement après chaque calcul, et la restauration 
-                                se fait au démarrage de l'application.
-                            </p>
-
-                            <h3>Restauration au démarrage</h3>
-                            <p>
-                                Une nouvelle méthode <code>RecupProfil()</code> est appelée dans le constructeur pour 
-                                restaurer les données sauvegardées :
-                            </p>
-
-                            <div class="code-block typing-code">
-                                <pre><code class="language-csharp">private const string nomFichier = "profil.json";
-
-public MainPage()
-{
-    InitializeComponent();
-    RecupProfil(); // Restauration des données au démarrage
-}
-
-/// &lt;summary&gt;
-/// Récupère le profil sauvegardé et pré-remplit les champs
-/// &lt;/summary&gt;
-private void RecupProfil()
-{
-    Profil profil = Serializer.deserialize(nomFichier);
-    if (profil != null)
-    {
-        // Pré-remplissage des champs avec les données sauvegardées
-        entPoids.Text = profil.Poids.ToString();
-        entTaille.Text = profil.Taille.ToString();
-        entAge.Text = profil.Age.ToString();
-        
-        // Restauration du sexe sélectionné
-        if (profil.Sexe == 1)
-            RbHomme.IsChecked = true;
-        else
-            RbFemme.IsChecked = true;
-
-        // Affichage du dernier résultat
-        LblResultat.Text = $"Votre indice de masse grasse est de {profil.Img:F2} %.\n{profil.Message}";
-        
-        // Mise à jour du smiley
-        UpdateSmiley(profil.Message);
-    }
-}</code></pre>
-                            </div>
-
-                            <h3>Sauvegarde après calcul</h3>
-                            <p>
-                                La méthode de calcul sauvegarde automatiquement le profil après chaque calcul réussi :
-                            </p>
-
-                            <div class="code-block typing-code">
-                                <pre><code class="language-csharp">private void BtCalculer_Clicked(object sender, EventArgs e)
-{
-    try
-    {
-        var poids = int.Parse(entPoids.Text);
-        var taille = int.Parse(entTaille.Text);
-        var age = int.Parse(entAge.Text);
-        var sexe = RbHomme.IsChecked ? 1 : 0;
-
-        Profil unProfil = new Profil(sexe, poids, taille, age);
-        
-        // NOUVEAU V2 : Sauvegarde automatique du profil
-        Serializer.serialize(nomFichier, unProfil);
-
-        LblResultat.Text = $"Votre indice de masse grasse est de {unProfil.Img:F2} %.\n{unProfil.Message}";
-        UpdateSmiley(unProfil.Message);
-    }
-    catch (Exception ex)
-    {
-        DisplayAlertAsync("Erreur", "Saisie incorrecte", "Ok");
-    }
-}
-
-private void UpdateSmiley(string message)
-{
-    if (message.Contains("Trop maigre") || message.Contains("maigre"))
-        img.Source = "smiley_tropmaigre";
-    else if (message.Contains("Parfait"))
-        img.Source = "smiley_parfait";
-    else if (message.Contains("Surpoids"))
-        img.Source = "smiley_surpoids";
-}</code></pre>
-                            </div>
-
-                            <!-- Capture d'écran -->
-                            <div class="screenshot-container">
-                                <img src="assets/images/coach/coach-v2-restore.png"
-                                    alt="Interface avec données restaurées depuis la session précédente" class="screenshot-img">
-                                <p class="screenshot-caption">Les champs sont automatiquement préremplis au démarrage avec les dernières données saisies</p>
-                            </div>
-                        </section>
-
-                        <!-- Comparaison V1 vs V2 -->
-                        <section class="detail-section">
-                            <h2>Comparaison V1 vs V2</h2>
+                            <h2>Comparatif des versions (V1 → V5)</h2>
                             <p>
                                 Voici un récapitulatif des différences entre les deux versions :
                             </p>
@@ -415,6 +151,9 @@ private void UpdateSmiley(string message)
                                         <th style="padding: 12px 16px; text-align: left; font-weight: 600;">Fonctionnalité</th>
                                         <th style="padding: 12px 16px; text-align: center; font-weight: 600;">V1</th>
                                         <th style="padding: 12px 16px; text-align: center; font-weight: 600;">V2</th>
+                                        <th style="padding: 12px 16px; text-align: center; font-weight: 600;">V3</th>
+                                        <th style="padding: 12px 16px; text-align: center; font-weight: 600;">V4</th>
+                                        <th style="padding: 12px 16px; text-align: center; font-weight: 600;">V5</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -422,50 +161,44 @@ private void UpdateSmiley(string message)
                                         <td style="padding: 12px 16px; color: var(--text-secondary);">Persistance des données</td>
                                         <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
                                         <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Classe Serializer</td>
-                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
                                         <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
                                     </tr>
                                     <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Profil sérialisable</td>
+                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Persistance JSON</td>
                                         <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
                                         <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
                                     </tr>
                                     <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Restauration au démarrage</td>
+                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Persistance SQLite</td>
                                         <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
                                         <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
                                     </tr>
                                     <tr style="border-bottom: 1px solid var(--border-color);">
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Tests unitaires MSTest</td>
+                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Menu de navigation dédié</td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
                                         <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
                                         <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
                                     </tr>
                                     <tr>
-                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Code source disponible</td>
+                                        <td style="padding: 12px 16px; color: var(--text-secondary);">Documentation technique complète</td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
+                                        <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
                                         <td style="padding: 12px 16px; text-align: center; color: #ef4444;"><i class="fas fa-times"></i></td>
                                         <td style="padding: 12px 16px; text-align: center; color: #22c55e;"><i class="fas fa-check"></i></td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </section>
-
-                        <!-- Compétences acquises V2 -->
-                        <section class="detail-section">
-                            <h2>Compétences acquises avec cette version</h2>
-                            <p>
-                                Cette seconde version m'a permis d'approfondir mes compétences au-delà de celles acquises 
-                                avec la V1 :
-                            </p>
-                            <ul style="margin-left: 24px; margin-bottom: 16px; color: var(--text-secondary); line-height: 1.8;">
-                                <li><strong>Sérialisation JSON</strong> : Utilisation de <code>System.Text.Json</code> pour convertir des objets en JSON et inversement</li>
-                                <li><strong>Gestion des fichiers</strong> : Lecture et écriture de fichiers dans le stockage local de l'application</li>
-                                <li><strong>Architecture logicielle</strong> : Séparation des responsabilités entre UI et logique métier</li>
-                                <li><strong>Cycle de vie</strong> : Gestion de la persistance des données entre les sessions utilisateur</li>
-                                <li><strong>Multi-projets</strong> : Organisation d'une solution .NET avec plusieurs projets liés</li>
-                            </ul>
                         </section>
 
                         <!-- Palette de couleurs -->
@@ -514,64 +247,7 @@ private void UpdateSmiley(string message)
                             </div>
                         </section>
 
-                        <!-- Liens -->
-                        <section class="detail-section">
-                            <h2>Liens</h2>
-                            <div class="project-links">
-                                <a href="https://github.com/ludovic-it/MauiCoachV2" class="link-btn" target="_blank"><i class="fab fa-github"></i> Code Source V2</a>
-                                <a href="Application-mobile-coach.html" class="link-btn"><i class="fas fa-arrow-left"></i> Voir la Version 1</a>
-                                <a href="assets/documents/documentation-coach.pdf" target="_blank"
-                                    class="link-btn"><i class="fas fa-file-pdf"></i> Documentation complète</a>
-                            </div>
-                        </section>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="related-projects">
-            <div class="container">
-                <h2>Autres versions</h2>
-                <div class="projects-grid">
-                    <a href="Application-mobile-coach.html" class="project-card">
-                        <div class="project-card-image">
-                            <img src="assets/images/coach/coach-hero.png" alt="Coach IMG V1" loading="lazy"
-                                onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop'">
-                        </div>
-                        <h3>Coach IMG V1</h3>
-                        <p>Version initiale avec calcul IMG et interface basique</p>
-                        <div class="project-technologies">
-                            <span class="tech-small">.NET MAUI</span>
-                            <span class="tech-small">C#</span>
-                            <span class="tech-small">XAML</span>
-                        </div>
-                    </a>
-                    <a href="Application-mobile-coach-v3.html" class="project-card">
-                        <div class="project-card-image">
-                            <img src="assets/images/coach/coach-hero.png" alt="Coach IMG V3" loading="lazy"
-                                onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop'">
-                        </div>
-                        <h3>Coach IMG V3</h3>
-                        <p>Version avec navigation multi-pages et nouvelles fonctionnalités</p>
-                        <div class="project-technologies">
-                            <span class="tech-small">.NET MAUI</span>
-                            <span class="tech-small">Navigation</span>
-                            <span class="tech-small">Shell</span>
-                        </div>
-                    </a>
-                    <a href="Application-mobile-coach-v4.html" class="project-card">
-                        <div class="project-card-image">
-                            <img src="assets/images/coach/coach-hero.png" alt="Coach IMG V4" loading="lazy"
-                                onerror="this.src='https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=250&fit=crop'">
-                        </div>
-                        <h3>Coach IMG V4</h3>
-                        <p>Version finale avec toutes les améliorations</p>
-                        <div class="project-technologies">
-                            <span class="tech-small">.NET MAUI</span>
-                            <span class="tech-small">MVVM</span>
-                            <span class="tech-small">SQLite</span>
-                        </div>
-                    </a>
                 </div>
             </div>
         </section>

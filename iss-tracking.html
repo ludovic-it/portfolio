@@ -66,7 +66,7 @@
                 <div class="project-header">
                     <a href="projets.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour aux projets</a>
                     <h1>Suivi de l'ISS en Temps Réel</h1>
-                    <p class="project-subtitle">Application web de suivi de la Station Spatiale Internationale développée avec JavaScript et Leaflet</p>
+                    <p class="project-subtitle">Application web qui suit l'ISS en temps réel avec JavaScript et Leaflet</p>
                 </div>
 
                 <!-- Hero Image -->
@@ -82,16 +82,12 @@
                         <section class="detail-section">
                             <h2>Présentation du projet</h2>
                             <p>
-                                Dans le cadre de ma formation, j'ai développé une application web permettant de suivre en temps réel
-                                la position de la Station Spatiale Internationale (ISS) à l'aide de JavaScript, Leaflet et d'une API
-                                de géolocalisation. L'objectif était de concevoir une interface web permettant aux utilisateurs de
-                                visualiser la position actuelle de l'ISS sur une carte interactive, ainsi que ses coordonnées précises
-                                (latitude, longitude), son altitude et sa vitesse.
+                                J'ai développé une application web qui affiche la position de l'ISS en direct sur une carte.
+                                L'utilisateur voit aussi la latitude, la longitude, l'altitude et la vitesse.
                             </p>
                             <p>
-                                L'application utilise l'API Where the ISS at pour récupérer les données en temps réel de la station
-                                spatiale, et la bibliothèque Leaflet pour afficher une carte interactive. Les informations sont mises
-                                à jour automatiquement toutes les secondes, offrant un suivi en temps réel de la trajectoire de l'ISS.
+                                Les données viennent de l'API Where the ISS at, puis sont affichées avec Leaflet.
+                                La position se met à jour automatiquement chaque seconde.
                             </p>
                         </section>
 
@@ -99,10 +95,8 @@
                         <section class="detail-section">
                             <h2>Fonctionnalités principales</h2>
                             <p>
-                                L'application affiche une carte interactive centrée sur la position actuelle de l'ISS, avec un marqueur
-                                personnalisé représentant la station spatiale. Les utilisateurs peuvent visualiser en temps réel les
-                                coordonnées géographiques (latitude et longitude), l'altitude en kilomètres et la vitesse en kilomètres
-                                par heure.
+                                La carte affiche l'ISS avec un marqueur qui se déplace en temps réel. Les informations
+                                principales sont affichées de façon claire : position, altitude et vitesse.
                             </p>
                             <p>
                                 La carte est entièrement interactive : les utilisateurs peuvent zoomer, déplacer la vue et explorer
@@ -113,11 +107,11 @@
                             <div class="features-grid">
                                 <div class="feature-item">
                                     <h4><i class="fas fa-globe"></i> Cartographie Interactive</h4>
-                                    <p>Carte Leaflet avec OpenStreetMap permettant de zoomer, déplacer et explorer la trajectoire de l'ISS.</p>
+                                    <p>Carte Leaflet avec OpenStreetMap pour suivre facilement la trajectoire de l'ISS</p>
                                 </div>
                                 <div class="feature-item">
                                     <h4><i class="fas fa-sync-alt"></i> Mise à Jour Temps Réel</h4>
-                                    <p>Actualisation automatique de la position toutes les secondes grâce à setInterval().</p>
+                                    <p>Mise à jour automatique de la position toutes les secondes</p>
                                 </div>
                                 <div class="feature-item">
                                     <h4><i class="fas fa-rocket"></i> Marqueur Personnalisé</h4>
@@ -125,7 +119,7 @@
                                 </div>
                                 <div class="feature-item">
                                     <h4><i class="fas fa-chart-line"></i> Données Précisées</h4>
-                                    <p>Affichage des coordonnées, altitude et vitesse avec formatage précis et animations visuelles.</p>
+                                    <p>Affichage lisible des coordonnées, de l'altitude et de la vitesse</p>
                                 </div>
                             </div>
 
@@ -158,12 +152,10 @@ async function GetISS() {
 
                         <!-- Architecture -->
                         <section class="detail-section">
-                            <h2>Architecture</h2>
+                            <h2>Organisation du projet</h2>
                             <p>
-                                Le projet utilise une architecture front-end simple et efficace, basée sur JavaScript vanilla pour
-                                la logique applicative, Leaflet pour la cartographie interactive, et Bootstrap pour le design responsive.
-                                L'application est constituée de trois fichiers principaux : un fichier HTML pour la structure, un fichier
-                                CSS pour le style, et un fichier JavaScript pour la logique métier.
+                                Le projet reste simple : HTML pour la structure, CSS pour le style, JavaScript pour la logique.
+                                Leaflet gère la carte et Bootstrap aide pour l'affichage responsive.
                             </p>
 
                             <h3>Structure du projet</h3>
@@ -339,13 +331,10 @@ setInterval(GetISS, 1000);</code></pre>
 
                         <!-- Compétences techniques -->
                         <section class="detail-section">
-                            <h2>Compétences techniques mises en œuvre</h2>
+                            <h2>Compétences mobilisées</h2>
                             <p>
-                                Ce projet m'a permis de renforcer mes compétences en développement web front-end. J'ai manipulé des API REST
-                                avec fetch() et async/await, utilisé la bibliothèque Leaflet pour créer des cartes interactives, implémenté
-                                des mises à jour automatiques avec setInterval(), créé des animations CSS et des effets visuels modernes,
-                                développé une interface responsive avec Bootstrap, travaillé avec le DOM pour la mise à jour dynamique des
-                                données, et optimisé l'expérience utilisateur avec des animations et des transitions fluides.
+                                Ce projet m'a permis de travailler des points importants du BTS : appel d'API, mise à jour
+                                dynamique de la page, carte interactive et interface responsive.
                             </p>
 
                             <div class="features-grid">
@@ -380,11 +369,8 @@ setInterval(GetISS, 1000);</code></pre>
                         <section class="detail-section">
                             <h2>Conclusion</h2>
                             <p>
-                                Ce projet m'a permis de mettre en pratique mes compétences en développement web front-end, en intégrant
-                                une API externe et une bibliothèque de cartographie de manière efficace. J'ai développé une application
-                                complète, fonctionnelle et visuellement attractive, tout en approfondissant ma maîtrise de JavaScript moderne,
-                                des API REST, de Leaflet et des techniques CSS avancées. L'expérience acquise me donne une base solide pour
-                                le développement d'applications web interactives et en temps réel.
+                                Ce projet montre qu'il est possible de créer une application web utile et claire avec des outils
+                                simples : JavaScript, une API externe et une carte Leaflet.
                             </p>
                         </section>
 

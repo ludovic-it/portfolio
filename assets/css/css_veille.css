@@ -1488,6 +1488,54 @@ main {
     text-decoration: underline;
 }
 
+/* Figures illustratives (articles veille avec images locales) */
+.veille-article-figure {
+    margin: 1.75rem auto;
+    max-width: 940px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(74, 127, 255, 0.15);
+    background: var(--surface-color);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+}
+
+.veille-article-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.veille-article-figure figcaption {
+    padding: 0.75rem 1rem 1rem;
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    background: var(--background-color);
+    border-top: 1px solid rgba(74, 127, 255, 0.1);
+}
+
+.veille-article-figure figcaption a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.veille-article-figure figcaption a:hover {
+    text-decoration: underline;
+}
+
+.veille-inline-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 1.75rem 0;
+    align-items: start;
+}
+
+.veille-inline-images .veille-article-figure {
+    margin: 0;
+    max-width: none;
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 1024px) {
     .veille-grid {
