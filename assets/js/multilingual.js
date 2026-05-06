@@ -142,8 +142,8 @@ class Multilingual {
                 
                 // Veille
                 'veille.title': 'Veille Technologique',
-                'veille.avions.title': 'Intradef, SYRACUSE et cybersécurité liée à l\'aviation de combat',
-                'veille.avions.description': 'Veille orientée Intradef et SYRACUSE : rôle du numérique défense, risques cyber et continuité des échanges.',
+                'veille.avions.title': 'Drones militaires et guerre électronique',
+                'veille.avions.description': 'Nouveaux enjeux armée : drones, anti-drones, brouillage et supériorité électromagnétique.',
                 'veille.avions.badge': 'Défense',
                 'veille.avions.tag1': 'Défense',
                 'veille.avions.tag2': 'Cyberdéfense',
@@ -288,8 +288,8 @@ class Multilingual {
                 
                 // Veille
                 'veille.title': 'Technology Watch',
-                'veille.avions.title': 'Intradef, SYRACUSE and cybersecurity linked to combat aviation',
-                'veille.avions.description': 'Watch focused on Intradef and SYRACUSE: defence digital role, cyber risks and communications continuity.',
+                'veille.avions.title': 'Military drones and electronic warfare',
+                'veille.avions.description': 'New military stakes: drones, counter-drones, jamming and electromagnetic superiority.',
                 'veille.avions.badge': 'Defence',
                 'veille.avions.tag1': 'Defence',
                 'veille.avions.tag2': 'Cyber defence',

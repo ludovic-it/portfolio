@@ -14,6 +14,8 @@ Tu peux **lire ou répéter** les blocs « À dire ». Les timings entre crochet
 | Synthèse / Contact si besoin | ~1–2 min |
 | Veille au choix du jury | ~10–12 min |
 
+**Note :** les définitions techniques regroupées en **fin de fichier** (« Glossaire ») — tu peux t’en servir si le jury te demande « c’est quoi … ? ».
+
 ---
 
 # INTRODUCTION (sur la première page du site)
@@ -134,7 +136,13 @@ Tu peux **lire ou répéter** les blocs « À dire ». Les timings entre crochet
 
 « Côté **modèle de données**, j’ai utilisé les commandes Symfony pour générer des **entités** et des **migrations** : par exemple une entité produit avec ses champs, puis migration pour créer ou faire évoluer les tables avant application en base.
 
-« En conclusion pour ce projet : c’est ma démonstration **full stack** la plus complète — **catalogue, sécurité des accès, persistance, gestion de commande**. Si vous me demandez ce que j’améliorerais en priorité, je parlerais de renforcer encore les **tests automatisés**, la **validation métier** sur les stocks et une **veille sécurité** plus poussée sur les dépendances. »
+« Pour le **paiement**, je m’appuie sur **Stripe**. **Stripe**, c’est un **prestataire de paiement en ligne** : au lieu de gérer moi-même des numéros de carte dans ma base ce qui serait très risqué et réglementairement compliqué, je **redirige** ou j’utilise les **parcours Stripe** pour que ce soit leur infrastructure qui sécurise la transaction. Côté code, ça passe par leur **API** : avec un compte Stripe on obtient des **clés** d’accès pour appeler leurs services ; mon application déclenche le paiement, récupère l’URL de redirection vers Stripe pour que l’utilisateur règle, puis je traite la **confirmation** sans stocker les données bancaires sur mon serveur — ce qui correspond au principe **PCI** « ne pas toucher aux cartes brut » à mon niveau. La page du portfolio montre la démarche et une vidéo d’illustration.
+
+« Après commande je peux aussi générer un **PDF** récapitulatif — avec un outil type **Dompdf** côté PHP pour produire un document à partir du HTML ou des données commande ; l’email de confirmation peut joindre ce PDF.
+
+« En conclusion pour ce projet : c’est ma démonstration **full stack** la plus complète — **catalogue, sécurité des accès, persistance, gestion de commande, paiement tiers**. Si vous me demandez ce que j’améliorerais en priorité, je parlerais de renforcer encore les **tests automatisés**, la **validation métier** sur les stocks et une **veille sécurité** plus poussée sur les dépendances. »
+
+*(Si le jury coupe avec « Explique API » : voir Glossaire § API / REST ; « Explique MVC » : § MVC.)*
 
 ---
 
@@ -166,7 +174,9 @@ Tu peux **lire ou répéter** les blocs « À dire ». Les timings entre crochet
 
 « J’ai organisé le projet en **versions successives**, visibles sur cette page d’accès : **V1** pose le calcul et l’interface minimale ; **V2** ajoute une **persistance JSON** pour ne pas tout perdre au redémarrage ; **V3** introduit **SQLite** pour une base locale plus structurée ; **V4** ajoute la partie **historique** et une navigation plus complète ; **V5** décrit l’objectif **données distantes via API** pour synchroniser ou retrouver des profils depuis plusieurs appareils.
 
-« Je suis transparent avec vous sur l’état : sur le portfolio la **V5 est signalée comme en cours**, avec une mise en avant visuelle pour ne pas prétendre que tout est terminé. L’idée de fond reste juste : passer d’une application purement locale à une logique **client–serveur** avec **HTTP**, gestion des erreurs réseau et sécurité à prévoir côté API.
+« Je suis transparent avec vous sur l’état : sur le portfolio la **V5 est signalée comme en cours**, avec une mise en avant visuelle pour ne pas prétendre que tout est terminé. L’idée de fond reste juste : passer d’une application purement locale à une logique **client–serveur** : le téléphone (**client**) échange avec un **serveur** exposant une **API** au-dessus de **HTTP** ; en simplifiant, le client fait des **requêtes** — souvent GET pour lire des profils ou POST pour en envoyer — et reçoit du **JSON**. Il faut gérer **timeout**, erreurs réseau, **codes de statut**, et prévoir une **auth** sérieuse pour ne pas ouvrir l’accès aux données sans contrôle — voir Glossaire § API si besoin.
+
+« Dans mon exemple de mise en œuvre, j’emploie **`HttpClient`** en C# et l’**injection de dépendances** dans **`MauiProgram`** pour créer une **base d’URL** du service avant de passer par un repository — pattern classique séparation **réseau** / **repository** / **IU**.
 
 « Ce projet illustre bien ce que l’option **SLAM** attend : **logique métier**, **IHM**, **persistance**, **évolution** du logiciel dans le temps.
 
@@ -182,7 +192,7 @@ Tu peux **lire ou répéter** les blocs « À dire ». Les timings entre crochet
 
 « Ce projet est une **application web** centrée sur la **cartographie** et les **données temps réel**. Il s’agit de suivre la **Station spatiale internationale** sur une carte du monde : position mise à jour très fréquemment, avec affichage de la **latitude**, de la **longitude**, de l’**altitude** et de la **vitesse**.
 
-« Les données viennent d’une **API publique**, « Where the ISS at », sous forme de **JSON**. En JavaScript j’utilise **`fetch`** pour récupérer la réponse, j’extrais les champs nécessaires et je les injecte dans la page. Pour la carte j’emploie **Leaflet** avec des tuiles **OpenStreetMap**. Le marqueur représente l’ISS avec une **icône personnalisée**.
+« Les données viennent d’une **API** — voyez le glossaire pour la définition courte : en résumé, c’est une **interface** exposée par un serveur pour que mon site **réclame des données structurées** sans connaître leur base interne. Ici l’API s’appelle **Where the ISS at** ; elle renvoie du **JSON**, c’est-à-dire du **texte structuré** facile à lire par JavaScript comme une liste de paires nom–valeur. En JavaScript j’utilise **`fetch`** pour envoyer une **requête HTTP** au serveur, récupérer la réponse, la parser en objet et injecter latitude, longitude, etc. dans le **DOM**, c’est-à-dire les **éléments HTML** affichés. Pour la carte j’emploie **Leaflet**, une bibliothèque JS de cartographie, avec des tuiles **OpenStreetMap**, les morceaux d’images de carte servis tuile par tuile. Le marqueur représente l’ISS avec une **icône personnalisée**.
 
 « La mise à jour automatique est assurée par un **`setInterval`** qui rappelle la fonction environ **toutes les secondes**. Le défi UX était de rester **lisible** alors que les valeurs bougent en continu — j’ai ajouté des animations légères sur les champs pour signaler le rafraîchissement sans saturer l’écran.
 
@@ -208,7 +218,9 @@ Tu peux **lire ou répéter** les blocs « À dire ». Les timings entre crochet
 
 « Ce projet montre que je sais concevoir une **expérience utilisateur conversationnelle** et la **raccorder à un outil tiers** — Calendly — avec des URLs différentes selon la France ou la Côte d’Ivoire par exemple.
 
-« Limite assumée : sans backend propriétaire les données restent côté navigateur pour la démo ; en production il faudrait journaliser proprement et sécuriser les webhooks ou APIs si on les ajoute. »
+« Limite assumée : sans backend propriétaire les données restent côté navigateur pour la démo ; en production il faudrait journaliser proprement et sécuriser les **webhooks** — ce sont des **appels HTTP** qu’un serveur tiers envoie vers le tien pour prévenir qu’un événement a eu lieu — ou les APIs si on les ajoute.
+
+« **Calendly**, utilisé à la fin du parcours, est un **outil de prise de rendez-vous en ligne** : je redirige l’utilisateur vers une URL d’agence différente selon le pays sélectionné, ce qui évite de recoder tout un système de calendrier pour la démo. »
 
 ---
 
@@ -365,6 +377,260 @@ Tu peux **lire ou répéter** les blocs « À dire ». Les timings entre crochet
 **Quel projet te représente le mieux ?**
 
 « Si je dois en choisir un pour résumer ma progression technique, je dirais **Coach** parce qu’il combine **logique métier**, **plusieurs types de persistance** et une **vision produit** par versions — mais **l’e-commerce** montre mieux le **full stack web** avec Symfony. »
+
+**C’est quoi une API ?**
+
+« Une **API**, souvent une **API REST** sur le web, c’est un **contrat** : des **URLs** et des **méthodes HTTP** — GET pour lire, POST pour envoyer des données, etc. — qui permettent à mon application de **dialoguer avec un service** sans avoir accès à sa base en direct. Le format d’échange le plus courant est le **JSON**. »
+
+**C’est quoi Stripe ?**
+
+« **Stripe** est un **prestataire de paiement** : il héberge le **tunnel sécurisé** pour payer par carte. Mon site **appelle l’API Stripe** avec des **clés** fournies par le compte marchand, et **je ne stocke pas** les numéros de carte chez moi — ce qui limite le risque et respecte l’esprit des normes **PCI DSS** à mon échelle. »
+
+---
+
+# Glossaire — définitions courtes pour l’oral
+
+Tu peux répondre ainsi si on te pose le mot ; reste niveau **BTS**, pas trop jargon.
+
+### API (Application Programming Interface)
+
+**Définition :** Moyen pour deux programmes de **coopérer** : l’un **expose des opérations** (lire une position, créer un paiement…), l’autre les **consomme** via le réseau. Sur le web, on parle souvent d’**API REST** avec **HTTP** et **JSON**.
+
+---
+
+### REST / HTTP / JSON
+
+- **HTTP** : protocole du Web ; méthodes **GET**, **POST**, **PUT**, **DELETE** selon les cas.
+- **REST** : style d’architecture où des **URLs** représentent des **ressources** et où on utilise HTTP de façon cohérente.
+- **JSON** : format **texte** pour échanger des données structurées `{ "latitude": ..., "longitude": ... }`, facile à lire en JavaScript.
+
+---
+
+### HTTPS
+
+Version **chiffrée** de HTTP ; le navigateur et le serveur établissent une connexion où le flux est **illisible en clair** sur le trajet — standard pour paiement et authentification.
+
+---
+
+### MVC (Model–View–Controller)
+
+**Découpage** d’application :  
+- **Modèle** : données et règles métier ;  
+- **Vue** : ce que voit l’utilisateur ;  
+- **Contrôleur** : reçoit les actions, coordonne modèle et vue.  
+Objectif : **réduire le mélange** « tout dans une seule page » et faciliter la maintenance.
+
+---
+
+### Framework (ex. Symfony)
+
+**Cadre logiciel** qui fournit des **bibliothèques** et une **organisation** pour aller plus vite que du PHP ou JS « brut » tout en suivant des **bonnes pratiques**.
+
+---
+
+### Symfony (PHP)
+
+Framework **PHP** pour applications web avec **routing**, **sécurité**, **formulaires**, **Doctrine** pour la base… Utilisé pour mon **e-commerce**.
+
+---
+
+### Doctrine / ORM
+
+**ORM** (**Object–Relational Mapping**) : on manipule des **objets** PHP (`Product`, `User`) et Doctrine **traduit** en **tables SQL**. **Doctrine** fait aussi les **migrations** pour versionner les changements de schéma base de données.
+
+---
+
+### Twig
+
+Moteur de **templates** Symfony : fichiers `.twig` pour générer du **HTML** sans mélanger toute la logique PHP dans les vues.
+
+---
+
+### Session (web)
+
+Petit **mécanisme serveur** lié au navigateur (souvent un **cookie**) pour **mémoriser l’état** : par exemple utilisateur **connecté** ou **contenu du panier** pendant la navigation.
+
+---
+
+### Rôle utilisateur / contrôle d’accès
+
+Séparer les **droits** : par exemple utilisateur lecture seule contre **éditeur** contre **administrateur**. En Symfony ça passe par les **routes** et la **couche sécurité** pour **interdire** les actions aux mauvais profils.
+
+---
+
+### MySQL / SGBDR
+
+**SGBDR** : système de gestion de **base relationnelle**. **MySQL** en est un exemple : données en **tables** reliées ; on interroge avec le langage **SQL**.
+
+---
+
+### CRUD
+
+**Create, Read, Update, Delete** : les quatre opérations de base pour gérer des enregistrements dans une applis de gestion.
+
+---
+
+### Stripe / paiement en ligne
+
+**Stripe** agrège tout le tunnel **PCI**‑sensible : carte saisie **chez eux**. Mon applis utilise leur **SDK ou API** pour **créer une session de paiement** et **traiter le retour**.
+
+---
+
+### PCI DSS (rappel simple)
+
+Normes pour les acteurs qui **traitent ou transportent des cartes bancaires**. L’objectif pour un petit site : **déléguer** au maximum au PSP — **Stripe** — et **ne pas stocker** les données carte.
+
+---
+
+### Dompdf / PDF
+
+**Dompdf** : librairie pour **rendre du HTML/PDF** côté serveur PHP ; je l’emploie dans l’e-commerce pour un **reçu PDF** joint à l’e-mail selon ma fiche projet.
+
+---
+
+### Bootstrap
+
+**Bibliothèque CSS** responsive : grille, composants (**boutons**, **navbar**, **tables**) pour gagner du temps et rester lisible **mobile**.
+
+---
+
+### `password_hash` / `password_verify` (PHP)
+
+Fonctions pour **Hasher** les mots de passe : en base je ne garde pas le mot de passe en clair mais une **empreinte** ; à la connexion je **vérifie** avec `password_verify`.
+
+---
+
+### Injection SQL / échapper les entrées (rappel)
+
+Risque qu’un champ formulaire soit mal interprété dans une requête SQL. À l’oral : « j’essaie de passer par des **requêtes paramétrées** ou l’ORM plutôt que de concaténer des chaînes sans contrôle ».
+
+---
+
+### .NET MAUI
+
+**Framework Microsoft** pour des applis **multiplateformes** — mobile et desktop — avec **XAML** pour l’interface et **C#** pour la logique. Mon projet **Coach** en est une illustration.
+
+---
+
+### XAML
+
+Langage de **description d’interface** en XML pour les applis Microsoft / MAUI : boutons, champs liés aux propriétés C#.
+
+---
+
+### SQLite / JSON (fichier)
+
+- **SQLite** : base **fichier**, légère, embarquée dans l’application ; pas de serveur séparé.
+- **JSON en fichier** : persistance simple de **structures** lisibles sans SGBDR — utile au début d’un projet.
+
+---
+
+### `HttpClient` / appel distant (Coach V5)
+
+En C#, classe pour envoyer des **requêtes HTTP** vers une **API** distante GET/POST avec gestion timeout / erreurs.
+
+---
+
+### Frontend / Backend
+
+- **Frontend** : ce qui s’exécute **navigateur**, HTML/CSS/JavaScript visible.
+- **Backend** : **serveur**, logique, base de données, ce que l’utilisateur ne voit pas directement.
+
+---
+
+### `fetch` / DOM / `setInterval` (JavaScript)
+
+- **`fetch`** : fonction pour **appeler une URL** en JavaScript et récupérer une réponse (souvent JSON).
+- **DOM** : **arbre** des balises HTML ; le script **modifie** les nœuds pour mettre à jour l’affichage.
+- **`setInterval`** : appeler une fonction **régulièrement** ex. toutes les secondes pour rafraîchir l’ISS.
+
+---
+
+### Leaflet / OpenStreetMap
+
+**Leaflet** : librairie de **carte interactive**. **OpenStreetMap** : fond de carte **collaboratif** ; on charge des **tuiles** par zoom.
+
+---
+
+### CMS / WordPress
+
+**CMS** : Content Management System — outil pour **publier** pages et contenus sans tout coder. **WordPress** en est le plus connu ; je l’ai utilisé au stage **iConnected Store**.
+
+---
+
+### Docker (rappel oral)
+
+Les applis dans des **conteneurs** isolés avec leurs dépendances — utile pour **reproducibilité**. Je le mentionne comme axe **DevOps** du portfolio.
+
+---
+
+### Git / GitHub
+
+**Git** : versioning **historique du code**. **GitHub** : hébergement + **Issues**, **pull requests**. **GitHub Actions** — **CI** : petits programmes qui tournent sur chaque push pour **tester/build**.
+
+---
+
+### n8n
+
+Outil **d’automatisation** avec **workflow** graphique reliant **webhooks**, **APIs**, **messageries**.
+
+---
+
+### Webhook
+
+**URL** sur ton serveur où un **service externe POST** une notification automatique — ex. « paiement réussi », « nouveau message » — sans que tu interrogions en boucle.
+
+---
+
+### CI/CD (grandes lignes)
+
+- **CI** (**Continuous Integration**) : à chaque changement du code → **tests** / vérif automatiques.
+- **CD** (**Delivery/Deployment**) : **pousser** vers environnement préprod/production de façon **répétitive**.
+
+---
+
+### OWASP / API Security
+
+**OWASP** : projets ouverts sur **erreurs sécurité** fréquentes — par ex. liste **API Security** pour éviter exposition **clés**, **droits trop larges**, etc.
+
+---
+
+### MFA / Moindre privilège / journalisation
+
+- **MFA** : plusieurs **facteurs** d’auth — mot de passe + code.
+- **Moindre privilège** : donner uniquement les **droits nécessaires** au compte.
+- **Journalisation** : garder **traces horodatées** des actions pour audit et incident response.
+
+---
+
+### CIA (cybersécurité)
+
+**Confidentialité**, **Intégrité**, **Disponibilité** : les trois grandes propriétés à protéger sur un système d’information.
+
+---
+
+### Rançongiciel (ransomware)
+
+Logiciel qui **crypte ou bloque** des données contre **rançon** ; défense via **copies**, **segmentation**, **formation** phishing, mise à jour.
+
+---
+
+### Intradef / SYRACUSE (rappel)
+
+- **Intradef** : **intranet**/réseaux internes ministériels au sens très général utilisé dans mon article de synthèse.
+- **SYRACUSE** : capacité française de **communication satellitaire** militaire présentée publiquement pour la **continuité** des liaisons ; je reste au niveau du **concept** sans détails classifiés.
+
+---
+
+### Calendly
+
+Service **SaaS** de réservation avec **pages de créneaux** ; j’affiche ou j’**ouvre** le bon lien pays dans le chatbot Open Biz Dev.
+
+---
+
+### HTTP / HTTPS / statut (codes)
+
+Ex. **200** OK, **404** non trouvé, **500** erreur serveur — utile pour expliquer la **gestion d’erreur** sur API et mobile.
 
 ---
 
