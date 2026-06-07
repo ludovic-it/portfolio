@@ -122,6 +122,31 @@
     }
 }
 
+/* Bouton document dans le footer */
+.footer-doc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    width: fit-content;
+}
+
+.footer-doc-btn:hover {
+    background: #ffffff;
+    color: var(--primary-color, #4A7FFF);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
 /* Respecter prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
     .main-footer::before {

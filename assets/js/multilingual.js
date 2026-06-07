@@ -100,6 +100,7 @@ class Multilingual {
                 'footer.privacy': 'Politique de confidentialité',
                 'footer.cookies': 'Politique des cookies',
                 'footer.legal': 'Mentions légales',
+                'footer.btsPresentation': 'Présentation certification',
                 'footer.backToTop': 'Retour en haut',
                 
                 // Projets détaillés
@@ -246,6 +247,7 @@ class Multilingual {
                 'footer.privacy': 'Privacy Policy',
                 'footer.cookies': 'Cookie Policy',
                 'footer.legal': 'Legal Notice',
+                'footer.btsPresentation': 'Certification presentation',
                 'footer.backToTop': 'Back to top',
                 
                 // Projets détaillés
